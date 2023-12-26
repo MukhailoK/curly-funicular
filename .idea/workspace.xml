@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kubernetes-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/controller/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,10 +31,16 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -28,25 +50,42 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2a4wii9fOCkdt0CUq0wE8b1z1Ou" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "log-in-page",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/QA",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ait.grooming.config" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="grooming" />
@@ -65,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1703591288059</updated>
       <workItem from="1703591289883" duration="1622000" />
-      <workItem from="1703593274071" duration="4363000" />
+      <workItem from="1703593274071" duration="12425000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.time.LocalDate;
 
 @Data
 @MappedSuperclass
@@ -22,5 +23,5 @@ public abstract class User {
     private String password;
     private String email;
     private String phone;
-
+    private LocalDate dateOfRegistration;
 }

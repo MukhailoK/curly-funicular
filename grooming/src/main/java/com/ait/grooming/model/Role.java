@@ -1,19 +1,17 @@
 package com.ait.grooming.model;
 
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Table
+@Entity
 @Data
-public class Rating {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ratingId;
-    private Appointment appointment;
-    private int rating;
-    private String review;
+    private long id;
+    private String name;
 }
