@@ -21,12 +21,6 @@ CREATE TABLE IF NOT EXISTS discount
     total_visits  INT
 
 );
-CREATE TABLE IF NOT EXISTS pet_type
-(
-    pet_type_id INT AUTO_INCREMENT PRIMARY KEY,
-    name        VARCHAR(255)
-
-);
 CREATE TABLE IF NOT EXISTS breed
 (
     breed_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -44,14 +38,6 @@ CREATE TABLE IF NOT EXISTS employee
     phone     VARCHAR(20),
     address   VARCHAR(255)
 );
-CREATE TABLE IF NOT EXISTS review
-(
-    review_id      INT AUTO_INCREMENT PRIMARY KEY,
-    rating         DOUBLE,
-    review         VARCHAR(255),
-    appointment_id INT,
-    FOREIGN KEY (appointment_id) REFERENCES appointment (appointment_id)
-);
 CREATE TABLE IF NOT EXISTS schedule
 (
     schedule_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,7 +47,6 @@ CREATE TABLE IF NOT EXISTS schedule
     start_time  TIMESTAMP,
     end_time    TIMESTAMP
 );
-
 CREATE TABLE IF NOT EXISTS grooming_service
 (
     service_id        INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,17 +54,6 @@ CREATE TABLE IF NOT EXISTS grooming_service
     description       VARCHAR(500),
     price             DOUBLE,
     durationProcedure TIMESTAMP
-);
-CREATE TABLE IF NOT EXISTS pet
-(
-    petId     INT AUTO_INCREMENT PRIMARY KEY,
-    ownerId   INT,
-    petTypeId INT,
-    breedId   INT,
-    photoUrl  VARCHAR(255),
-    FOREIGN KEY (ownerId) REFERENCES client (id),
-    FOREIGN KEY (petTypeId) REFERENCES pet_type (pet_type_id),
-    FOREIGN KEY (breedId) REFERENCES breed (breed_id)
 );
 CREATE TABLE IF NOT EXISTS client
 (
@@ -91,6 +65,24 @@ CREATE TABLE IF NOT EXISTS client
     phone      VARCHAR(20),
     is_blocked BOOLEAN,
     discount   INT REFERENCES discount (discount_id)
+);
+
+CREATE TABLE IF NOT EXISTS pet_type
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(255)
+
+);
+CREATE TABLE IF NOT EXISTS pet
+(
+    petId     INT AUTO_INCREMENT PRIMARY KEY,
+    ownerId   INT,
+    petTypeId INT,
+    breedId   INT,
+    photoUrl  VARCHAR(255),
+    FOREIGN KEY (ownerId) REFERENCES client (id),
+    FOREIGN KEY (petTypeId) REFERENCES pet_type (id),
+    FOREIGN KEY (breedId) REFERENCES breed (id)
 );
 CREATE TABLE IF NOT EXISTS appointment
 (
@@ -106,4 +98,12 @@ CREATE TABLE IF NOT EXISTS appointment
     FOREIGN KEY (employeeId) REFERENCES employee (id),
     petId          INT,
     FOREIGN KEY (petId) REFERENCES pet (petId)
+);
+CREATE TABLE IF NOT EXISTS review
+(
+    review_id      INT AUTO_INCREMENT PRIMARY KEY,
+    rating         DOUBLE,
+    review         VARCHAR(255),
+    appointment_id INT,
+    FOREIGN KEY (appointment_id) REFERENCES appointment (appointment_id)
 );
