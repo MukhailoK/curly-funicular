@@ -1,14 +1,9 @@
 package com.ait.grooming.model;
 
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-@Table
+@Entity
 @Data
 public class Review {
     @Id

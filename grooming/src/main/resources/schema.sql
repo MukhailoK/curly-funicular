@@ -1,3 +1,6 @@
+-- This file will create the database if it does not exist.
+CREATE SCHEMA IF NOT EXISTS db_grooming;
+-- contains the schema for the database.
 CREATE TABLE IF NOT EXISTS role
 (
     id   INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,8 +72,8 @@ CREATE TABLE IF NOT EXISTS client
 
 CREATE TABLE IF NOT EXISTS pet_type
 (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name        VARCHAR(255)
+    id   INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
 
 );
 CREATE TABLE IF NOT EXISTS pet

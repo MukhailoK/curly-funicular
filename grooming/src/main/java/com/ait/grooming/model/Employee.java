@@ -3,7 +3,7 @@ package com.ait.grooming.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 @Data

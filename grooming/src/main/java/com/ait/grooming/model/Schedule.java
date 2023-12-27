@@ -1,9 +1,9 @@
 package com.ait.grooming.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
