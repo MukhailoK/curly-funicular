@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kubernetes-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/controller/ClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/ClientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="add base repository">
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Review.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="log-in-page" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "log-in-page",
+    "git-widget-placeholder": "repository",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/QA",
     "node.js.detected.package.eslint": "true",
@@ -73,11 +62,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "a8b3fcda42f979d5a85f6f99064fb9b3",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
 }]]></component>
@@ -104,11 +98,25 @@
       <option name="presentableId" value="Default" />
       <updated>1703591288059</updated>
       <workItem from="1703591289883" duration="1622000" />
-      <workItem from="1703593274071" duration="12425000" />
+      <workItem from="1703593274071" duration="13557000" />
+      <workItem from="1703672877534" duration="7616000" />
     </task>
+    <task id="LOCAL-00001" summary="add base repository">
+      <option name="closed" value="true" />
+      <created>1703607521862</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703607521862</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add base repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="add base repository" />
   </component>
 </project>
