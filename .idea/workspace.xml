@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="create data.sql&#10;need add role relations for client and employee">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/resources/application-mysql.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grooming/src/main/resources/db/mysql/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Appointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Breed.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Breed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Client.java" afterDir="false" />
@@ -24,11 +23,9 @@
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/Schedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/DiscountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/DiscountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/GroomingServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/java/com/ait/grooming/repository/GroomingServiceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grooming/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grooming/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/grooming/src/main/resources/db/mysql/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "create-data.sql",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/QA",
+    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/grooming/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,6 +97,14 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ait.grooming.config" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources" />
+      <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\sql" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\db" />
+      <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\sql" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -120,7 +125,8 @@
       <updated>1703591288059</updated>
       <workItem from="1703591289883" duration="1622000" />
       <workItem from="1703593274071" duration="13557000" />
-      <workItem from="1703672877534" duration="11486000" />
+      <workItem from="1703672877534" duration="12184000" />
+      <workItem from="1703762991208" duration="10809000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -146,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703698815522</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create data.sql&#10;need add role relations for client and employee">
+      <option name="closed" value="true" />
+      <created>1703702377734</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703702377734</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

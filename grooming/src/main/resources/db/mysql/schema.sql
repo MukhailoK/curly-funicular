@@ -1,5 +1,5 @@
 -- This file will create the database if it does not exist.
-CREATE SCHEMA IF NOT EXISTS db_grooming;
+
 -- contains the schema for the database.
 CREATE TABLE IF NOT EXISTS role
 (

@@ -11,6 +11,7 @@ import java.util.List;
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id")
     private long id;
     @OneToMany
     @JoinColumn(name = "id")
@@ -22,9 +23,12 @@ public class Appointment {
     @JoinColumn(name = "serviseId")
     GroomingService groomingService;
     @OneToMany
-    @JoinColumn(name = "petId")
+    @JoinColumn(name = "pet_id")
     private List<Pet> pets;
+    @Column(name = "date_time_start")
     private LocalDateTime dateTimeStart;
+    @Column(name = "date_time_end")
     private LocalDateTime dateTimeEnd;
+    @Column(name = "status")
     private String status;
 }

@@ -10,9 +10,14 @@ import java.time.LocalTime;
 public class GroomingService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "service_id")
     private long serviceId;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "price")
     private double price;
+    @Column(name = "duration_procedure")
     private LocalTime durationProcedure;
 }

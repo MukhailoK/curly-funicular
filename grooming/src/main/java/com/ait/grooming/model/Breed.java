@@ -10,7 +10,9 @@ import java.util.List;
 public class Breed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "breed_id")
     private long breedId;
+    @Column(name = "name")
     private String name;
     @OneToMany
     List<Pet> pets;

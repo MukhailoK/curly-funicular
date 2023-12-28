@@ -8,9 +8,12 @@ import jakarta.persistence.*;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ratingId;
+    @Column(name = "review_id")
+    private long reviewId;
     @OneToOne
     private Appointment appointment;
+    @Column(name = "rating")
     private double rating;
+    @Column(name = "review")
     private String review;
 }
