@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demoInternetShop" target="17" />
+      <module name="grooming" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
