@@ -14,6 +14,8 @@ public class GroomingService {
     private long serviceId;
     @Column(name = "name")
     private String name;
+    @Column(name = "size")
+    private String size;
     @Column(name = "description")
     private String description;
     @Column(name = "price")

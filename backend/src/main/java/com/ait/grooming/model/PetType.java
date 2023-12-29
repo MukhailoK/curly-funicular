@@ -10,9 +10,9 @@ import java.util.List;
 public class PetType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pet_type_id")
+    @Column(name = "id")
     private long petTypeId;
-    @Column(name = "type_name")
+    @Column(name = "name")
     private String typeName;
     @OneToMany
     List<Pet> pets;
