@@ -12,8 +12,8 @@
 #        ('MASTER'),
 #        ('CLIENT'),
 #        ('GUEST');
-
-
+#
+#
 # /*
 # CREATE TABLE IF NOT EXISTS clients (
 #                          id LONG PRIMARY KEY AUTO_INCREMENT,
@@ -38,7 +38,9 @@
 #     ('Name4', 'LastName4', 'username4', 'pa$$4444', 'client4@example.com', '555666777',CURRENT_TIMESTAMP, 0,3),
 #     ('Name5', 'LastName5', 'username5', 'pa$$5555', 'client5@example.com', '999000111', CURRENT_TIMESTAMP,0,3),
 #     ('Name6', 'LastName6', 'username6', 'pa$$6666', 'client6@example.com', '444333222',CURRENT_TIMESTAMP, 0,3);
-
+#
+#
+# /*
 # CREATE TABLE IF NOT EXISTS discounts (
 # discount_id BIGINT PRIMARY KEY AUTO_INCREMENT,
 #     client_id BIGINT,
@@ -46,6 +48,7 @@
 #     total_visits INT NOT NULL,
 #     FOREIGN KEY (client_id) REFERENCES clients(id)
 # );
+# */
 # DELETE FROM discounts;
 # ALTER TABLE discounts AUTO_INCREMENT = 1;
 # INSERT INTO discounts (client_id, discount_rate, total_visits)
@@ -55,7 +58,7 @@
 #        (4, 0.70, 10),
 #        (5, 0.70, 10),
 #        (6, 0.70, 10);
-# -- Создание таблицы clients
+#
 # /*
 # CREATE TABLE IF NOT EXISTS breeds (
 #                       id LONG PRIMARY KEY AUTO_INCREMENT,
@@ -84,7 +87,7 @@
 #        ('Maltese'),
 #        ('ShetlandSheepdog'),
 #        ('SaintBernard');
-
+#
 # /*
 # CREATE TABLE IF NOT EXISTS pet_types (
 #                        id AUTOINCREMENT PRIMARY KEY,
@@ -96,8 +99,8 @@
 # INSERT INTO pet_types (name)
 # VALUES ('Dog'),
 #        ('Cat');
-#
-#CREATE TABLE IF NOT EXISTS pets (
+# /*
+# CREATE TABLE IF NOT EXISTS pets (
 # id BIGINT PRIMARY KEY AUTO_INCREMENT,
 #     name VARCHAR(20),
 #     owner_id BIGINT,
@@ -109,13 +112,15 @@
 #     FOREIGN KEY (petType_id) REFERENCES petTypes(id),
 #     FOREIGN KEY (breed_id) REFERENCES breeds(id)
 # );
+# */
+#
 # INSERT INTO pets (name, owner_id, pet_Type_id, breed_id, photo_Url, special_notes)
 # VALUES ('Joy', 1, 1, 1, 'joy.jpg', 'Likes to play with toys'),
 #        ('Joschy', 1, 1, 2, 'joschy.jpg', 'Enjoys long walks'),
-#         ('Fluffy', 2, 1, 1, 'fluffy.jpg', 'Likes to play with toys'),
+#        ('Fluffy', 2, 1, 1, 'fluffy.jpg', 'Likes to play with toys'),
 #        ('Buddy', 2, 1, 2, 'buddy.jpg', 'Enjoys long walks'),
 #        ('Mittens', 4,1, 3, 'mittens.jpg', 'Loves to nap in the sun');
-
+#
 # /*
 # -- Создание таблицы grooming_services
 # CREATE TABLE IF NOT EXISTS grooming_services (
@@ -160,9 +165,9 @@
 #         'XL Rassen ab 40kg. z.B. Chow Chow, Sennenhund, Neufundländer, American Akita, Königspudel.. XL breeds from 40kg. e.g. Chow Chow, Mountain Dog, Newfoundland, American Akita, Roya',
 #         209.00, '02:00:00');
 #
-
-
-# -- Создание таблицы Employee
+#
+#
+# /*
 # CREATE TABLE IF NOT EXISTS employees
 # (
 #     id                BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -177,14 +182,14 @@
 #     role_id           BIGINT,
 #     FOREIGN KEY (role_id) REFERENCES roles (id)
 # );
+# */
 #
-# -- Заполнение таблицы Employee данными
 # INSERT INTO employees (name, lastname, username, password, email, phone, date_registration, address, role_id)
 # VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '123456789', '2023-01-01', 'Address1',
 #         2),
 #        ('Master2', 'LastName2', 'master2', 'password2', 'master2@example.com', '987654321', '2023-01-01', 'Address2',
 #         2);
-
+#
 # /*
 # CREATE TABLE IF NOT EXISTS schedules (
 #                           id LONG PRIMARY KEY AUTO_INCREMENT,
@@ -208,3 +213,23 @@
 #        (2, 3, '10:00:00', '18:00:00'), -- Среда, мастер 2
 #        (2, 4, '10:00:00', '18:00:00'), -- Четверг, мастер 2
 #        (2, 5, '10:00:00', '18:00:00'); -- Пятница, мастер 2
+#
+# DELETE FROM appointments;
+# ALTER TABLE appointments AUTO_INCREMENT = 1;
+# INSERT INTO appointments (client_id, master_id, service_id, pet_id, date_time_start, date_time_end, status)
+# VALUES
+#     (1, 1, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
+#     (1, 2, 2, 2, '2023-12-10T11:30:00', '2023-12-10T12:30:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
+#     (2, 1, 1, 3, '2023-12-11T14:00:00', '2023-12-11T15:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
+#     (2, 2, 2, 4, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
+#     (3, 1, 3, 5, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled'); -- клиет 3, мастер 1, собака 5
+#
+# DELETE FROM ratings;
+# ALTER TABLE ratings AUTO_INCREMENT = 1;
+# INSERT INTO ratings (appointment_id, rating, review)
+# VALUES
+#     (1, 4.5, 'Great service and friendly staff!'),
+#     (2, 5.0, 'Excellent grooming, very satisfied!'),
+#     (3, 4.0, 'Good service and friendly staff!'),
+#     (4, 5.0, 'Excellent grooming, very satisfied!'),
+#     (5, 3.5, 'Great service and not friendly staff!');

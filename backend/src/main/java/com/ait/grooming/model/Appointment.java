@@ -14,16 +14,16 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "master_id")
     private Employee master;
-    @OneToOne
-    @JoinColumn(name = "servise_id")
+    @ManyToOne
+    @JoinColumn(name = "service_id")
     private GroomingService groomingService;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
     @Column(name = "date_time_start")
