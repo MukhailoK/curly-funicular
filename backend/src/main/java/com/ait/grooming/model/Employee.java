@@ -1,18 +1,17 @@
 package com.ait.grooming.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
+@Table(name = "employees")
 @Entity
 public class Employee extends User {
     @Column(name = "address")
     private String address;
-    @OneToOne
-    @JoinColumn(name = "schadule_id")
-    Schedule schedule;
+    @OneToMany(mappedBy = "master", cascade = CascadeType.ALL)
+    List<Schedule> schedules;
 }

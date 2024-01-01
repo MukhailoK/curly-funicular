@@ -6,14 +6,15 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "breeds")
 @Data
 public class Breed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "breed_id")
-    private long breedId;
-    @Column(name = "name")
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name",length = 20,nullable = false)
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "breed", cascade = CascadeType.ALL)
     List<Pet> pets;
 }

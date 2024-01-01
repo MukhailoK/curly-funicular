@@ -7,24 +7,25 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "appointments")
 @Data
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "appointment_id")
+    @Column(name = "id")
     private long id;
-    @OneToMany
-    @JoinColumn(name = "id")
-    private List<Client> clients;
-    @OneToMany
-    @JoinColumn(name = "id")
-    private List<Employee> employees;
-    @ManyToOne
-    @JoinColumn(name = "serviseId")
-    GroomingService groomingService;
-    @OneToMany
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+    @OneToOne
+    @JoinColumn(name = "master_id")
+    private Employee master;
+    @OneToOne
+    @JoinColumn(name = "servise_id")
+    private GroomingService groomingService;
+    @OneToOne
     @JoinColumn(name = "pet_id")
-    private List<Pet> pets;
+    private Pet pet;
     @Column(name = "date_time_start")
     private LocalDateTime dateTimeStart;
     @Column(name = "date_time_end")

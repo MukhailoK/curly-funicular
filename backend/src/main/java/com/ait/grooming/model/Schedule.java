@@ -7,12 +7,17 @@ import lombok.Data;
 import java.time.LocalTime;
 
 @Entity
+@Table(name = "schedules")
 @Data
-public class Schedule {
+public class
+Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "schedule_id")
-    private long scheduleId;
+    @Column(name = "id")
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "master_id")
+    private Employee master;
     @Pattern(regexp = "[1-7]")
     @Column(name = "day_of_week")
     private int dayOfWeek;
