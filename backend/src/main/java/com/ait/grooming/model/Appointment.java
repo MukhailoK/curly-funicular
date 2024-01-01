@@ -4,7 +4,6 @@ import lombok.Data;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "appointments")
@@ -22,7 +21,7 @@ public class Appointment {
     private Employee master;
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private GroomingService groomingService;
+    private Grooming groomingService;
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
