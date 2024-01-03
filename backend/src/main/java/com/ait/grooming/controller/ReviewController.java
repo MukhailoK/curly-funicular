@@ -27,7 +27,7 @@ public class ReviewController {
     }
 
     @PostMapping("/new")
-    public Review create(@RequestBody ReviewRequestDto request) {
+    public ReviewDto create(@RequestBody ReviewRequestDto request) {
         return reviewService.create(request);
     }
 }

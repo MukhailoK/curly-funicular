@@ -33,17 +33,19 @@ public class ReviewService {
         return toReviewDto(reviewRepository.getReferenceById(id));
     }
 
-    public Review create(ReviewRequestDto request) {
+    public ReviewDto create(ReviewRequestDto request) {
         Review review = new Review();
         review.setReview(request.getReview());
-        Appointment appointment = appointmentRepository.findById(request.getAppointmentId()).orElseThrow();
+        Appointment appointment = appointmentRepository.findById(request.getAppointmentId())
+                .orElseThrow(() -> new RuntimeException("appointment not found"));
         review.setAppointment(appointment);
         review.setRating(request.getRating());
-        if (!reviewRepository.existsByReview(review.getReview())) {
+        System.out.println(appointment.getId());
+        if (!reviewRepository.existsByAppointment(appointment)) {
             reviewRepository.save(review);
-            return review;
+            return toReviewDto(review);
         } else {
-            return null;
+            throw new RuntimeException("Review for this appointment is already exist");
         }
     }
 }
