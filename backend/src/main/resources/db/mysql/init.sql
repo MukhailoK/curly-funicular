@@ -6,116 +6,130 @@ USE grooming_salon;
 -- This file will create the database if it does not exist.
 
 -- contains the schema for the database.
-CREATE TABLE IF NOT EXISTS role
+CREATE TABLE IF NOT EXISTS roles
+(
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS pet_types
 (
     id   INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(25)
+    name VARCHAR(20) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS breed
+CREATE TABLE IF NOT EXISTS breeds
 (
-    id   INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
 );
-CREATE TABLE IF NOT EXISTS pet_type
+CREATE TABLE IF NOT EXISTS schedules
 (
-    id   INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
-);
-CREATE TABLE IF NOT EXISTS discount
-(
-    discount_id   INT AUTO_INCREMENT PRIMARY KEY,
-    clients_id    INT REFERENCES client (id),
-    discount_rate DOUBLE,
-    total_visits  INT
-
-);
-CREATE TABLE IF NOT EXISTS breed
-(
-    breed_id INT AUTO_INCREMENT PRIMARY KEY,
-    name     VARCHAR(255),
-    pet_id   INT,
-    FOREIGN KEY (pet_id) REFERENCES pet (petId)
-);
-CREATE TABLE IF NOT EXISTS employee
-(
-    id        INT AUTO_INCREMENT PRIMARY KEY,
-    name      VARCHAR(255),
-    user_name VARCHAR(255),
-    password  VARCHAR(255),
-    email     VARCHAR(255),
-    phone     VARCHAR(20),
-    address   VARCHAR(255)
-);
-CREATE TABLE IF NOT EXISTS schedule
-(
-    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
-    employee_id INT,
-    FOREIGN KEY (employee_id) REFERENCES employee (id),
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    master_id   INT,
     day_of_week INT,
-    start_time  TIMESTAMP,
-    end_time    TIMESTAMP
+    start_time  TIME,
+    end_time    TIME
 );
-CREATE TABLE IF NOT EXISTS grooming_service
+CREATE TABLE IF NOT EXISTS grooming_services
 (
-    service_id        INT AUTO_INCREMENT PRIMARY KEY,
-    name              VARCHAR(50),
-    description       VARCHAR(500),
-    price             DOUBLE,
-    durationProcedure TIMESTAMP
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    name               VARCHAR(50),
+    size               VARCHAR(50),
+    description        VARCHAR(255),
+    price              DOUBLE,
+    duration_procedure TIME,
+    active             BOOLEAN DEFAULT true
 );
-CREATE TABLE IF NOT EXISTS client
+CREATE TABLE IF NOT EXISTS clients
 (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    name       VARCHAR(255),
-    user_name  VARCHAR(255),
-    password   VARCHAR(255),
-    email      VARCHAR(255),
-    phone      VARCHAR(20),
-    is_blocked BOOLEAN,
-    discount   INT REFERENCES discount (discount_id)
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    name              VARCHAR(50) NOT NULL,
+    lastname          VARCHAR(50) NOT NULL,
+    username          VARCHAR(50) NOT NULL,
+    password          VARCHAR(50) NOT NULL,
+    email             VARCHAR(50) NOT NULL,
+    phone             VARCHAR(50),
+    registration_date DATE,
+    is_blocked        DOUBLE DEFAULT FALSE,
+    role_id           INT,
+    FOREIGN KEY (role_id) REFERENCES roles (id)
+) COLLATE = utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS employees
+(
+    id                INT PRIMARY KEY AUTO_INCREMENT,
+    name              VARCHAR(20) NOT NULL,
+    lastname          VARCHAR(20) NOT NULL,
+    username          VARCHAR(20),
+    password          VARCHAR(20),
+    email             VARCHAR(20) NOT NULL,
+    phone             VARCHAR(20) NOT NULL,
+    registration_date DATE,
+    role_id           INT,
+    FOREIGN KEY (role_id) REFERENCES roles (id),
+    address           VARCHAR(255),
+    schedule_id       INT,
+    FOREIGN KEY (schedule_id) REFERENCES schedules (id)
+);
+CREATE TABLE IF NOT EXISTS discounts
+(
+    id            INT PRIMARY KEY AUTO_INCREMENT,
+    client_id     INT,
+    discount_rate DECIMAL(5, 2) NOT NULL,
+    total_visits  INT           NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients (id)
 );
 
-CREATE TABLE IF NOT EXISTS pet_type
+CREATE TABLE IF NOT EXISTS pets
 (
-    id   INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255)
+    id            INT PRIMARY KEY AUTO_INCREMENT,
+    name          VARCHAR(20),
+    owner_id      INT,
+    FOREIGN KEY (owner_id) REFERENCES clients (id),
+    pet_type_id   INT,
+    FOREIGN KEY (pet_type_id) REFERENCES pet_types (id),
+    breed_id      INT,
+    FOREIGN KEY (breed_id) REFERENCES breeds (id),
+    photo_Url     VARCHAR(255),
+    special_notes VARCHAR(255)
+) COLLATE = utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS appointments
+(
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    client_id       INT,
+    FOREIGN KEY (client_id) REFERENCES clients (id),
+    master_id       INT,
+    FOREIGN KEY (master_id) REFERENCES employees (id),
+    service_id      INT,
+    FOREIGN KEY (service_id) REFERENCES grooming_services (id),
+    pet_id          INT,
+    FOREIGN KEY (pet_id) REFERENCES pets (id),
+    date_time_start DATETIME,
+    date_time_end   DATETIME,
+    status          VARCHAR(255)
 
-);
-CREATE TABLE IF NOT EXISTS pet
-(
-    petId     INT AUTO_INCREMENT PRIMARY KEY,
-    ownerId   INT,
-    petTypeId INT,
-    breedId   INT,
-    photoUrl  VARCHAR(255),
-    FOREIGN KEY (ownerId) REFERENCES client (id),
-    FOREIGN KEY (petTypeId) REFERENCES pet_type (id),
-    FOREIGN KEY (breedId) REFERENCES breed (id)
-);
-CREATE TABLE IF NOT EXISTS appointment
-(
-    appointment_id INT AUTO_INCREMENT PRIMARY KEY,
-    dateTimeStart  DATETIME,
-    dateTimeEnd    DATETIME,
-    status         VARCHAR(255),
-    serviceId      INT,
-    FOREIGN KEY (serviceId) REFERENCES grooming_service (service_id),
-    clientId       INT,
-    FOREIGN KEY (clientId) REFERENCES client (id),
-    employeeId     INT,
-    FOREIGN KEY (employeeId) REFERENCES employee (id),
-    petId          INT,
-    FOREIGN KEY (petId) REFERENCES pet (petId)
 );
 CREATE TABLE IF NOT EXISTS review
 (
-    review_id      INT AUTO_INCREMENT PRIMARY KEY,
-    rating         DOUBLE,
-    review         VARCHAR(255),
+    id             INT AUTO_INCREMENT PRIMARY KEY,
     appointment_id INT,
-    FOREIGN KEY (appointment_id) REFERENCES appointment (appointment_id)
-);
+    FOREIGN KEY (appointment_id) REFERENCES appointments (id),
+    rating         DOUBLE,
+    review         VARCHAR(255)
 
+);
+CREATE TABLE IF NOT EXISTS clients_discounts
+(
+    client_id    INT,
+    FOREIGN KEY (client_id) REFERENCES clients (id),
+    discounts_id INT,
+    FOREIGN KEY (discounts_id) REFERENCES discounts (id)
+);
+CREATE TABLE IF NOT EXISTS clients_pets
+(
+    client_id INT,
+    FOREIGN KEY (client_id) REFERENCES clients (id),
+    pets_id   INT,
+    FOREIGN KEY (pets_id) REFERENCES pets (id)
+)
 #
 # ALTER DATABASE grooming_salon
 #   DEFAULT CHARACTER SET utf8

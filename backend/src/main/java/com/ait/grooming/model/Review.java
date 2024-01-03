@@ -4,15 +4,15 @@ import lombok.Data;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "ratings")
+@Table(name = "review")
 @Data
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long reviewId;
+    private Long id;
     @OneToOne
-    @JoinColumn(name = "appointment_id")
+    @JoinColumn(name = "id")
     private Appointment appointment;
     @Column(name = "rating")
     private double rating;

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.ait.grooming.utils.maper.grooming.GroomingMapper.allToDto;
-import static com.ait.grooming.utils.maper.grooming.GroomingMapper.toDto;
+import static com.ait.grooming.utils.maper.grooming.GroomingMapper.allToGroomingDto;
+import static com.ait.grooming.utils.maper.grooming.GroomingMapper.toGroomingDto;
 
 @Service
 @RequiredArgsConstructor
@@ -21,11 +21,11 @@ public class GroomingService {
     private final GroomingRepository groomingRepository;
 
     public List<GroomingDto> getAll() {
-        return allToDto(groomingRepository.findAll());
+        return allToGroomingDto(groomingRepository.findAll());
     }
 
     public GroomingDto getById(Long id) {
-        return toDto(groomingRepository.getReferenceById(id));
+        return toGroomingDto(groomingRepository.getReferenceById(id));
     }
 
     public boolean create(GroomingRequestDto request) {

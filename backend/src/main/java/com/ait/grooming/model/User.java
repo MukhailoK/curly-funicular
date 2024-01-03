@@ -14,24 +14,25 @@ import java.time.LocalDate;
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id",
+            insertable = false, updatable = false)
     private Long id;
-    @Column(name = "name",length = 20,nullable = false)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
-    @Column(name = "lastname",length = 20,nullable = false)
+    @Column(name = "lastname", length = 20, nullable = false)
     private String lastName;
-    @Column(name = "username",length = 20)
+    @Column(name = "username", length = 20)
     private String userName;
-    @Column(name = "password",length = 20)
+    @Column(name = "password", length = 20)
     private String password;
-    @Column(name = "email",length = 20,nullable = false)
+    @Column(name = "email", length = 20, nullable = false)
     private String email;
-    @Column(name = "phone",length = 20,nullable = false)
+    @Column(name = "phone", length = 20, nullable = false)
     private String phone;
-    @Column(name = "date_registration")
-    private LocalDate dateOfRegistration;
+    @Column(name = "registration_date")
+    private LocalDate registrationDate;
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "id")
     private Role role;
 //    @Enumerated(EnumType.STRING)
 //    @Column(name = "role")

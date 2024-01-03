@@ -22,7 +22,7 @@ Schedule {
     @Column(name = "day_of_week")
     private int dayOfWeek;
     @Column(name = "start_time")
-    LocalTime startTime;
+    private LocalTime startTime;
     @Column(name = "end_time")
-    LocalTime endTime;
+    private LocalTime endTime;
 }

@@ -12,6 +12,6 @@ import java.util.List;
 public class Employee extends User {
     @Column(name = "address")
     private String address;
-    @OneToMany(mappedBy = "master", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "master")
     List<Schedule> schedules;
 }
