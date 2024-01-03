@@ -18,8 +18,8 @@ VALUES ('ADMIN'),
 */
 # DELETE
 # FROM clients;
-ALTER TABLE clients
-    AUTO_INCREMENT = 1;
+# ALTER TABLE clients
+#     AUTO_INCREMENT = 1;
 INSERT INTO clients (name, lastname, username, password, email, phone, registration_date, is_blocked, role_id)
 VALUES ('Name1', 'LastName1', 'username1', 'pa$$1111', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false, 3),
        ('Name2', 'LastName2', 'username2', 'pa$$2222', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false, 3),
@@ -34,8 +34,8 @@ VALUES ('Name1', 'LastName1', 'username1', 'pa$$1111', 'client1@example.com', '1
 */
 # DELETE
 # FROM discounts;
-ALTER TABLE discounts
-    AUTO_INCREMENT = 1;
+# ALTER TABLE discounts
+#     AUTO_INCREMENT = 1;
 INSERT INTO discounts (client_id, discount_rate, total_visits)
 VALUES (1, 0.70, 10),
        (2, 0.70, 10),
@@ -49,8 +49,8 @@ VALUES (1, 0.70, 10),
 */
 # DELETE
 # FROM breeds;
-ALTER TABLE breeds
-    AUTO_INCREMENT = 1;
+# ALTER TABLE breeds
+#     AUTO_INCREMENT = 1;
 INSERT INTO breeds (name)
 VALUES ('Labrador'),
        ('Golden'),
@@ -77,16 +77,16 @@ VALUES ('Labrador'),
 */
 # DELETE
 # FROM pet_types;
-ALTER TABLE pet_types
-    AUTO_INCREMENT = 1;
+# ALTER TABLE pet_types
+#     AUTO_INCREMENT = 1;
 INSERT INTO pet_types (name)
 VALUES ('Dog'),
        ('Cat');
 /*
 
 */
-ALTER TABLE pets
-    AUTO_INCREMENT = 1;
+# ALTER TABLE pets
+#     AUTO_INCREMENT = 1;
 INSERT INTO pets (name, owner_id, pet_type_id, breed_id, photo_Url, special_notes)
 VALUES ('Joy', 1, 1, 1, 'joy.jpg', 'Likes to play with toys'),
        ('Joschy', 1, 1, 2, 'joschy.jpg', 'Enjoys long walks'),
@@ -100,8 +100,8 @@ VALUES ('Joy', 1, 1, 1, 'joy.jpg', 'Likes to play with toys'),
 */
 # DELETE
 # FROM grooming_services;
-ALTER TABLE grooming_services
-    AUTO_INCREMENT = 1;
+# ALTER TABLE grooming_services
+#     AUTO_INCREMENT = 1;
 -- Вставка данных о услугах грумминг сервисах
 INSERT INTO grooming_services (name, size, description, price, duration_procedure, active)
 VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
@@ -150,8 +150,8 @@ VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '
 */
 # DELETE
 # FROM schedules;
-ALTER TABLE schedules
-    AUTO_INCREMENT = 1;
+# ALTER TABLE schedules
+#     AUTO_INCREMENT = 1;
 INSERT INTO schedules (master_id, day_of_week, start_time, end_time)
 VALUES (1, 1, '10:00:00', '18:00:00'), -- Понедельник, мастер 1 10:00,12:00,14:00,16:00
        (1, 2, '10:00:00', '18:00:00'), -- Вторник, мастер 1
@@ -168,8 +168,8 @@ VALUES (1, 1, '10:00:00', '18:00:00'), -- Понедельник, мастер 1
 
 # DELETE
 # FROM appointments;
-ALTER TABLE appointments
-    AUTO_INCREMENT = 1;
+# ALTER TABLE appointments
+#     AUTO_INCREMENT = 1;
 INSERT INTO appointments (client_id, master_id, service_id, pet_id, date_time_start, date_time_end, status)
 VALUES (1, 1, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
        (1, 2, 2, 2, '2023-12-10T11:30:00', '2023-12-10T12:30:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
@@ -180,8 +180,8 @@ VALUES (1, 1, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), 
 
 # DELETE
 # FROM ratings;
-ALTER TABLE review
-    AUTO_INCREMENT = 1;
+# ALTER TABLE review
+#     AUTO_INCREMENT = 1;
 INSERT INTO review (appointment_id, rating, review)
 VALUES (1, 4.5, 'Great service and friendly staff!'),
        (2, 5.0, 'Excellent grooming, very satisfied!'),

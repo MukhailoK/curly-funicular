@@ -4,46 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="add react structure to project (client directory)">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/appointment/AppointmentDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/breed/BreedDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/client/ClientDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/discount/DiscountDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/employee/EmployeeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/petType/PetTypeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/role/RoleDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/schedule/ScheduleDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/appointment/AppointmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/breed/BreedMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/client/ClientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/discount/DiscountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/employee/EmployeeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/pet/PetMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/petType/PetTypeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/schedule/ScheduleMapper.java" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="add dtos &amp; mappers, add connection-tables to init.sql">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/AppointmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/appointment/AppointmentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/AppointmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/GroomingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Grooming.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/GroomingServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/GroomingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/EmployeeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/GroomingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/GroomingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/review/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/review/ReviewMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="grservices-Controller" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +65,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dtos-mappers",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/Subs_Checker/curly-funicular/grooming/src/main/resources",
     "node.js.detected.package.eslint": "true",
@@ -230,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703775913744</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add dtos &amp; mappers, add connection-tables to init.sql">
+      <option name="closed" value="true" />
+      <created>1704289851242</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704289851243</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +245,8 @@
     <MESSAGE value="create data.sql&#10;need add role relations for client and employee" />
     <MESSAGE value="solve problem with start project&#10;need add role relations for client and employee" />
     <MESSAGE value="add react structure to project (client directory)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add react structure to project (client directory)" />
+    <MESSAGE value="add dtos &amp; mappers, add connection-tables to init.sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dtos &amp; mappers, add connection-tables to init.sql" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -273,11 +255,6 @@
           <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
