@@ -15,6 +15,4 @@ public class Breed {
     private Long id;
     @Column(name = "name",length = 20,nullable = false)
     private String name;
-    @OneToMany(mappedBy = "breed", cascade = CascadeType.ALL)
-    List<Pet> pets;
 }

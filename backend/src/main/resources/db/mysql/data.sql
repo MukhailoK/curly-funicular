@@ -178,7 +178,7 @@ VALUES (1, 1, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), 
 # FROM ratings;
 # ALTER TABLE review
 #     AUTO_INCREMENT = 1;
-INSERT INTO review (appointment_id, rating, review)
+INSERT INTO review (id, rating, review)
 VALUES (1, 4.5, 'Great service and friendly staff!'),
        (2, 5.0, 'Excellent grooming, very satisfied!'),
        (3, 4.0, 'Good service and friendly staff!'),

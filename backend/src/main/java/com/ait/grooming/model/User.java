@@ -2,6 +2,7 @@ package com.ait.grooming.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "users")
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +32,11 @@ public class User {
     @Column(name = "registration_date")
     private LocalDate registrationDate;
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "role_id")
     private Role role;
     @Column(name = "address")
     private String address;
-    @OneToMany(mappedBy = "master")
+    @OneToMany(cascade = CascadeType.ALL)
     List<Schedule> schedules;
     @Column(name = "is_blocked")
     private boolean isBlocked;
