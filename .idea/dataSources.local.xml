@@ -12,15 +12,12 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node negative="1">
-            <node kind="schema">
-              <name qname="db_grooming" />
-              <name qname="@" />
-              <name qname="grooming_service" />
-              <name qname="grooming" />
-              <name qname="grooming_salon" />
-            </node>
-            <node kind="root" qname="" />
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="grooming_salon" />
+            <name qname="db_grooming" />
+            <name qname="grooming_service" />
+            <name qname="grooming" />
           </node>
         </introspection-scope>
       </schema-mapping>
