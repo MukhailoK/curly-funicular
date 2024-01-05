@@ -3,11 +3,14 @@ package com.ait.grooming.model;
 import lombok.Data;
 
 import jakarta.persistence.*;
+import lombok.RequiredArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
 @Data
+@RequiredArgsConstructor
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +18,10 @@ public class Appointment {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client client;
+    private User client;
     @ManyToOne
     @JoinColumn(name = "master_id")
-    private Employee master;
+    private User master;
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Grooming groomingService;

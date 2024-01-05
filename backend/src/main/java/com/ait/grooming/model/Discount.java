@@ -16,7 +16,7 @@ public class Discount {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private  Client client;
+    private  User client;
     @Column(name = "discount_rate")
     private double discountRate;
     @Column(name = "total_visits")

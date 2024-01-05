@@ -1,7 +1,7 @@
 package com.ait.grooming.utils.maper.client;
 
 import com.ait.grooming.dto.client.ClientDto;
-import com.ait.grooming.model.Client;
+import com.ait.grooming.model.User;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import static com.ait.grooming.utils.maper.discount.DiscountMapper.allToDiscount
 import static com.ait.grooming.utils.maper.pet.PetMapper.allToPetDto;
 
 public class ClientMapper {
-    public static ClientDto toClientDto(Client client) {
+    public static ClientDto toClientDto(User client) {
         ClientDto clientDto = new ClientDto();
         clientDto.setName(client.getName());
         clientDto.setLastName(client.getLastName());
@@ -23,7 +23,7 @@ public class ClientMapper {
         return clientDto;
     }
 
-    public static List<ClientDto> allTOClientDto(List<Client> clients) {
+    public static List<ClientDto> allTOClientDto(List<User> clients) {
         return clients.stream().map(ClientMapper::toClientDto).toList();
     }
 }

@@ -20,13 +20,23 @@ VALUES ('ADMIN'),
 # FROM clients;
 # ALTER TABLE clients
 #     AUTO_INCREMENT = 1;
-INSERT INTO clients (name, lastname, username, password, email, phone, registration_date, is_blocked, role_id)
-VALUES ('Name1', 'LastName1', 'username1', 'pa$$1111', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false, 3),
-       ('Name2', 'LastName2', 'username2', 'pa$$2222', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false, 3),
-       ('Name3', 'LastName3', 'username3', 'pa$$3333', 'client3@example.com', '111223344', CURRENT_TIMESTAMP, false, 3),
-       ('Name4', 'LastName4', 'username4', 'pa$$4444', 'client4@example.com', '555666777', CURRENT_TIMESTAMP, false, 3),
-       ('Name5', 'LastName5', 'username5', 'pa$$5555', 'client5@example.com', '999000111', CURRENT_TIMESTAMP, true, 3),
-       ('Name6', 'LastName6', 'username6', 'pa$$6666', 'client6@example.com', '444333222', CURRENT_TIMESTAMP, false, 3);
+INSERT INTO users (name, lastname, username, password, email, phone, registration_date, is_blocked, role_id, address)
+VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '123456789', '2023-01-01', false, 2,
+        'Address1'),
+       ('Master2', 'LastName2', 'master2', 'password2', 'master2@example.com', '987654321', '2023-01-01', false, 2,
+        'Address2'),
+       ('Name1', 'LastName1', 'username1', 'pa$$1111', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false, 3,
+        'userAddress1'),
+       ('Name2', 'LastName2', 'username2', 'pa$$2222', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false, 3,
+        'userAddress2'),
+       ('Name3', 'LastName3', 'username3', 'pa$$3333', 'client3@example.com', '111223344', CURRENT_TIMESTAMP, false, 3,
+        'userAddress3'),
+       ('Name4', 'LastName4', 'username4', 'pa$$4444', 'client4@example.com', '555666777', CURRENT_TIMESTAMP, false, 3,
+        'userAddress4'),
+       ('Name5', 'LastName5', 'username5', 'pa$$5555', 'client5@example.com', '999000111', CURRENT_TIMESTAMP, true, 3,
+        'userAddress5'),
+       ('Name6', 'LastName6', 'username6', 'pa$$6666', 'client6@example.com', '444333222', CURRENT_TIMESTAMP, false, 3,
+        'userAddress6');
 
 
 /*
@@ -134,20 +144,6 @@ VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
         'XL Rassen ab 40kg. z.B. Chow Chow, Sennenhund, Neufundländer, American Akita, Königspudel.. XL breeds from 40kg. e.g. Chow Chow, Mountain Dog, Newfoundland, American Akita, Roya',
         209.00, '02:00:00', true);
 
-
-/*
-
-*/
-
-INSERT INTO employees (name, lastname, username, password, email, phone, registration_date, address, role_id)
-VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '123456789', '2023-01-01', 'Address1',
-        2),
-       ('Master2', 'LastName2', 'master2', 'password2', 'master2@example.com', '987654321', '2023-01-01', 'Address2',
-        2);
-
-/*
-
-*/
 # DELETE
 # FROM schedules;
 # ALTER TABLE schedules

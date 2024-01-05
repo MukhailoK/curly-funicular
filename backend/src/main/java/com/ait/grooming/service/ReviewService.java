@@ -40,7 +40,7 @@ public class ReviewService {
                 .orElseThrow(() -> new RuntimeException("appointment not found"));
         review.setAppointment(appointment);
         review.setRating(request.getRating());
-        System.out.println(appointment.getId());
+        System.out.println(appointment);
         if (!reviewRepository.existsByAppointment(appointment)) {
             reviewRepository.save(review);
             return toReviewDto(review);

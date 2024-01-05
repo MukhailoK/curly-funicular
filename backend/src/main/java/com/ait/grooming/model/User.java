@@ -2,16 +2,14 @@ package com.ait.grooming.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
-@MappedSuperclass
-@Getter
-@Setter
-public abstract class User {
+@Entity
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",
@@ -34,14 +32,14 @@ public abstract class User {
     @ManyToOne
     @JoinColumn(name = "id")
     private Role role;
-//    @Enumerated(EnumType.STRING)
-//    @Column(name = "role")
-//    private UserRole role;
+    @Column(name = "address")
+    private String address;
+    @OneToMany(mappedBy = "master")
+    List<Schedule> schedules;
+    @Column(name = "is_blocked")
+    private boolean isBlocked;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Discount> discounts;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Pet> pets;
 }
-
-//public enum UserRole {
-//    ADMIN,
-//    CLIENT,
-//    MASTER,
-//    GUEST
-//}

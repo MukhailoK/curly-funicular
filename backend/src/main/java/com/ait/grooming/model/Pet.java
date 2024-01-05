@@ -16,7 +16,7 @@ public class Pet {
     private String name;
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private Client owner;
+    private User owner;
     @ManyToOne
     @JoinColumn(name = "pet_type_id")
     private PetType type;

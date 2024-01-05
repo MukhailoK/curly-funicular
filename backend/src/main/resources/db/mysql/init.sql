@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS grooming_services
     duration_procedure TIME,
     active             BOOLEAN DEFAULT true
 );
-CREATE TABLE IF NOT EXISTS clients
+CREATE TABLE IF NOT EXISTS users
 (
     id                INT AUTO_INCREMENT PRIMARY KEY,
     name              VARCHAR(50) NOT NULL,
@@ -51,31 +51,18 @@ CREATE TABLE IF NOT EXISTS clients
     registration_date DATE,
     is_blocked        DOUBLE DEFAULT FALSE,
     role_id           INT,
-    FOREIGN KEY (role_id) REFERENCES roles (id)
-) COLLATE = utf8mb4_unicode_ci;
-CREATE TABLE IF NOT EXISTS employees
-(
-    id                INT PRIMARY KEY AUTO_INCREMENT,
-    name              VARCHAR(20) NOT NULL,
-    lastname          VARCHAR(20) NOT NULL,
-    username          VARCHAR(20),
-    password          VARCHAR(20),
-    email             VARCHAR(20) NOT NULL,
-    phone             VARCHAR(20) NOT NULL,
-    registration_date DATE,
-    role_id           INT,
     FOREIGN KEY (role_id) REFERENCES roles (id),
     address           VARCHAR(255),
     schedule_id       INT,
     FOREIGN KEY (schedule_id) REFERENCES schedules (id)
-);
+) COLLATE = utf8mb4_unicode_ci;
 CREATE TABLE IF NOT EXISTS discounts
 (
     id            INT PRIMARY KEY AUTO_INCREMENT,
     client_id     INT,
     discount_rate DECIMAL(5, 2) NOT NULL,
     total_visits  INT           NOT NULL,
-    FOREIGN KEY (client_id) REFERENCES clients (id)
+    FOREIGN KEY (client_id) REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS pets
@@ -83,7 +70,7 @@ CREATE TABLE IF NOT EXISTS pets
     id            INT PRIMARY KEY AUTO_INCREMENT,
     name          VARCHAR(20),
     owner_id      INT,
-    FOREIGN KEY (owner_id) REFERENCES clients (id),
+    FOREIGN KEY (owner_id) REFERENCES users (id),
     pet_type_id   INT,
     FOREIGN KEY (pet_type_id) REFERENCES pet_types (id),
     breed_id      INT,
@@ -95,9 +82,9 @@ CREATE TABLE IF NOT EXISTS appointments
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
     client_id       INT,
-    FOREIGN KEY (client_id) REFERENCES clients (id),
+    FOREIGN KEY (client_id) REFERENCES users (id),
     master_id       INT,
-    FOREIGN KEY (master_id) REFERENCES employees (id),
+    FOREIGN KEY (master_id) REFERENCES users (id),
     service_id      INT,
     FOREIGN KEY (service_id) REFERENCES grooming_services (id),
     pet_id          INT,
@@ -119,16 +106,30 @@ CREATE TABLE IF NOT EXISTS review
 CREATE TABLE IF NOT EXISTS clients_discounts
 (
     client_id    INT,
-    FOREIGN KEY (client_id) REFERENCES clients (id),
+    FOREIGN KEY (client_id) REFERENCES users (id),
     discounts_id INT,
     FOREIGN KEY (discounts_id) REFERENCES discounts (id)
 );
 CREATE TABLE IF NOT EXISTS clients_pets
 (
     client_id INT,
-    FOREIGN KEY (client_id) REFERENCES clients (id),
+    FOREIGN KEY (client_id) REFERENCES users (id),
     pets_id   INT,
     FOREIGN KEY (pets_id) REFERENCES pets (id)
+);
+CREATE TABLE IF NOT EXISTS masters_schedule
+(
+    master_is   INT,
+    FOREIGN KEY (master_is) REFERENCES users (id),
+    schedule_id INT,
+    FOREIGN KEY (schedule_id) REFERENCES schedules (id)
+);
+CREATE TABLE IF NOT EXISTS users_discounts
+(
+    client_id   INT,
+    FOREIGN KEY (client_id) REFERENCES users (id),
+    discount_id INT,
+    FOREIGN KEY (discount_id) REFERENCES discounts (id)
 )
 #
 # ALTER DATABASE grooming_salon

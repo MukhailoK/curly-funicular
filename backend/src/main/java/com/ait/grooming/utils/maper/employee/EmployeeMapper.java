@@ -1,14 +1,14 @@
 package com.ait.grooming.utils.maper.employee;
 
 import com.ait.grooming.dto.employee.EmployeeDto;
-import com.ait.grooming.model.Employee;
+import com.ait.grooming.model.User;
 
 import java.util.List;
 
 import static com.ait.grooming.utils.maper.schedule.ScheduleMapper.allToScheduleDto;
 
 public class EmployeeMapper {
-    public static EmployeeDto toEmployeeDto(Employee employee) {
+    public static EmployeeDto toEmployeeDto(User employee) {
         EmployeeDto employeeDto = new EmployeeDto();
         employeeDto.setName(employee.getName());
         employeeDto.setLastName(employee.getLastName());
@@ -19,7 +19,7 @@ public class EmployeeMapper {
         return employeeDto;
     }
 
-    private static List<EmployeeDto> allToEmployeeDtos(List<Employee> employees) {
+    private static List<EmployeeDto> allToEmployeeDtos(List<User> employees) {
         return employees.stream().map(EmployeeMapper::toEmployeeDto).toList();
     }
 }
