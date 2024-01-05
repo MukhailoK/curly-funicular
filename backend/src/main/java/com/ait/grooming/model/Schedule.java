@@ -17,7 +17,7 @@ Schedule {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "master_id")
-    private Employee master;
+    private User master;
     @Pattern(regexp = "[1-7]")
     @Column(name = "day_of_week")
     private int dayOfWeek;

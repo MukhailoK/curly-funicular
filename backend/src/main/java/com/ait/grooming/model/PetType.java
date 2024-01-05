@@ -15,6 +15,6 @@ public class PetType {
     private long id;
     @Column(name = "name",length = 10,nullable = false)
     private String name;
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "type")
     List<Pet> pets;
 }

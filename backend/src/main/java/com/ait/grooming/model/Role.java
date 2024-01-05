@@ -3,9 +3,7 @@ package com.ait.grooming.model;
 import lombok.Data;
 
 import jakarta.persistence.*;
-
-import java.util.List;
-
+  //ADMIN,CLIENT,MASTER,GUEST
 
 @Entity
 @Table(name = "roles")
