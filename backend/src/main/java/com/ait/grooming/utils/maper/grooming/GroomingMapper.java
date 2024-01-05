@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 
 public class GroomingMapper {
-    public static GroomingDto toDto(Grooming grooming) {
+    public static GroomingDto toGroomingDto(Grooming grooming) {
         GroomingDto groomingDto = new GroomingDto();
         groomingDto.setName(grooming.getName());
         groomingDto.setSize(grooming.getSize());
@@ -18,7 +18,7 @@ public class GroomingMapper {
         return groomingDto;
     }
 
-    public static List<GroomingDto> allToDto(List<Grooming> groomings) {
-        return groomings.stream().map(GroomingMapper::toDto).collect(Collectors.toList());
+    public static List<GroomingDto> allToGroomingDto(List<Grooming> groomings) {
+        return groomings.stream().map(GroomingMapper::toGroomingDto).collect(Collectors.toList());
     }
 }

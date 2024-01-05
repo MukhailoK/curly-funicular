@@ -6,18 +6,20 @@ import com.ait.grooming.model.Review;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppointmentDto;
+
 
 public class ReviewMapper {
-    public static ReviewDto toDto(Review review) {
+    public static ReviewDto toReviewDto(Review review) {
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setReview(review.getReview());
-        reviewDto.setId(reviewDto.getId());
-        reviewDto.setAppointment(review.getAppointment());
-        reviewDto.setRating(reviewDto.getRating());
+        reviewDto.setId(review.getId());
+        reviewDto.setAppointment(toAppointmentDto(review.getAppointment()));
+        reviewDto.setRating(review.getRating());
         return reviewDto;
     }
 
-    public static List<ReviewDto> allToDto(List<Review> reviews) {
-        return reviews.stream().map(ReviewMapper::toDto).collect(Collectors.toList());
+    public static List<ReviewDto> allToReviewDto(List<Review> reviews) {
+        return reviews.stream().map(ReviewMapper::toReviewDto).collect(Collectors.toList());
     }
 }

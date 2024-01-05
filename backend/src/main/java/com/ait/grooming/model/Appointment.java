@@ -1,28 +1,29 @@
 package com.ait.grooming.model;
 
-import lombok.Data;
-
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "appointments")
 @Data
+@RequiredArgsConstructor
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client client;
+    private User client;
     @ManyToOne
     @JoinColumn(name = "master_id")
-    private Employee master;
+    private User master;
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private GroomingService groomingService;
+    private Grooming groomingService;
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
@@ -32,4 +33,7 @@ public class Appointment {
     private LocalDateTime dateTimeEnd;
     @Column(name = "status")
     private String status;
+    @OneToOne
+    @JoinColumn(name = "review_id")
+    private Review review;
 }

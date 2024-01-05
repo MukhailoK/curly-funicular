@@ -1,8 +1,7 @@
 package com.ait.grooming.model;
 
-import lombok.Data;
-
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name",length = 20,nullable = false)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
 }
 

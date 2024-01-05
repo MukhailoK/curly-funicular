@@ -17,12 +17,12 @@ Schedule {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "master_id")
-    private Employee master;
+    private User master;
     @Pattern(regexp = "[1-7]")
     @Column(name = "day_of_week")
     private int dayOfWeek;
     @Column(name = "start_time")
-    LocalTime startTime;
+    private LocalTime startTime;
     @Column(name = "end_time")
-    LocalTime endTime;
+    private LocalTime endTime;
 }

@@ -2,6 +2,7 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.review.ReviewDto;
 import com.ait.grooming.dto.review.ReviewRequestDto;
+import com.ait.grooming.model.Review;
 import com.ait.grooming.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class ReviewController {
     }
 
     @PostMapping("/new")
-    public boolean create(@RequestBody ReviewRequestDto request) {
+    public ReviewDto create(@RequestBody ReviewRequestDto request) {
         return reviewService.create(request);
     }
 }
