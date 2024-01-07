@@ -93,11 +93,11 @@ VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
 
 #
 #
-INSERT INTO users (name, lastname, username, password, email, phone, date_registration, address, role_id)
+INSERT INTO users (name, lastname, username, password, email, phone, date_registration, address, is_blocked,role_id)
 VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '123456789', '2023-01-01', 'Address1',
-        2),
+        0,2),
        ('Master2', 'LastName2', 'master2', 'password2', 'master2@example.com', '987654321', '2023-01-01', 'Address2',
-        2);
+        0,2);
 
 #
 INSERT INTO schedules (master_id, day_of_week, start_time, end_time)

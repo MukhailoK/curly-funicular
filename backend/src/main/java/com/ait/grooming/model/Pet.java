@@ -18,13 +18,13 @@ public class Pet {
     @JoinColumn(name = "owner_id")
     private User owner;
     @ManyToOne
-    @JoinColumn(name = "pet_type_id")
+    @JoinColumn(name = "pettype_id")
     private PetType type;
     @ManyToOne
     @JoinColumn(name = "breed_id")
     private Breed breed;
-    @Column(name = "photo_url")
+    @Column(name = "photoUrl")
     private String photoUrl;
-    @Column(name = "special_notes")
-    private String special_notes;
+    @Column(name = "specialNotes")
+    private String specialNotes;
 }
