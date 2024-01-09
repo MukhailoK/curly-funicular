@@ -15,7 +15,7 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "users")
-//@ToString
+//@ToString(exclude = {"pets","discounts"})
 public class User {
     public enum Role {
         ADMIN, MASTER, CLIENT, GUEST
@@ -47,9 +47,9 @@ public class User {
     private Role role;
     @Column(name = "is_blocked")
     private boolean isBlocked;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
     private List<Discount> discounts;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner",cascade = CascadeType.ALL)
     private List<Pet> pets;
 
 //    @Override

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroomingRepository extends JpaRepository<Grooming, Long> {
+    boolean existsByName(String name);
 }

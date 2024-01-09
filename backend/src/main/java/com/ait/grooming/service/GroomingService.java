@@ -35,11 +35,14 @@ public class GroomingService {
         grooming.setDescription(request.getDescription());
         grooming.setPrice(request.getPrice());
         grooming.setDurationProcedure(request.getDurationProcedure());
-        if (!groomingRepository.existsById(grooming.getId())) {
-            groomingRepository.save(grooming);
-            return true;
-        } else {
-            return false;
+        if (!groomingRepository.existsByName(grooming.getName())) {
+            try {
+                groomingRepository.save(grooming);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        return false;
     }
 }
