@@ -12,7 +12,7 @@ public class Review {
     @Column(name = "id")
     private Long id;
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "appointment_id")
     private Appointment appointment;
     @Column(name = "rating")
     private double rating;

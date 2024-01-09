@@ -1,6 +1,5 @@
 package com.ait.grooming.controller;
 
-import com.ait.grooming.model.Schedule;
 import com.ait.grooming.model.User;
 import com.ait.grooming.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +20,5 @@ public class EmployeeController {
     @GetMapping
     public List<User> getAll() {
         return employeeService.getAll();
-    }
-    @GetMapping("/{id}")
-    public List<Schedule> getSchedulesByUserName(@PathVariable Long id){
-        return employeeService.getAllScheduleByMasterId(id);
     }
 }

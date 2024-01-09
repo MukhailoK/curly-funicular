@@ -5,8 +5,6 @@ import com.ait.grooming.model.User;
 
 import java.util.List;
 
-import static com.ait.grooming.utils.maper.schedule.ScheduleMapper.allToScheduleDto;
-
 public class EmployeeMapper {
     public static EmployeeDto toEmployeeDto(User employee) {
         EmployeeDto employeeDto = new EmployeeDto();
@@ -15,7 +13,7 @@ public class EmployeeMapper {
         employeeDto.setEmail(employee.getEmail());
         employeeDto.setPhone(employee.getPhone());
         employeeDto.setRegistrationDate(employee.getRegistrationDate());
-        employeeDto.setScheduleDtos(allToScheduleDto(employee.getSchedules()));
+
         return employeeDto;
     }
 

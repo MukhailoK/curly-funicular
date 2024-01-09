@@ -1,7 +1,6 @@
 package com.ait.grooming.dto.employee;
 
 import com.ait.grooming.dto.schedule.ScheduleDto;
-import com.ait.grooming.model.Schedule;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

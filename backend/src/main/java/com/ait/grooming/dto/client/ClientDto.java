@@ -3,9 +3,6 @@ package com.ait.grooming.dto.client;
 import com.ait.grooming.dto.discount.DiscountDto;
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.role.RoleDto;
-import com.ait.grooming.model.Discount;
-import com.ait.grooming.model.Pet;
-import com.ait.grooming.model.Role;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

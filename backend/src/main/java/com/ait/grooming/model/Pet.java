@@ -8,6 +8,9 @@ import jakarta.persistence.*;
 @Table(name = "pets")
 @Data
 public class Pet {
+    public enum  PetType {
+       DOG, CAT
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -17,8 +20,8 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
-    @ManyToOne
-    @JoinColumn(name = "pet_type_id")
+    @Column(nullable = false)
+    @Enumerated(value = EnumType.STRING)
     private PetType type;
     @ManyToOne
     @JoinColumn(name = "breed_id")
