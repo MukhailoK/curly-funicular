@@ -16,7 +16,7 @@ public class GroomingController {
     private final GroomingService groomingService;
 
     @GetMapping()
-    public List<GroomingDto> getAllReview() {
+    public List<GroomingDto> getAllgrooming() {
         return groomingService.getAll();
     }
 
@@ -27,6 +27,7 @@ public class GroomingController {
 
     @PostMapping("/new")
     public boolean create(@RequestBody GroomingRequestDto request) {
+
         return groomingService.create(request);
     }
 }

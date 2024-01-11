@@ -20,7 +20,7 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
-    @Column(nullable = false)
+    @Column(name="pet_type", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private PetType type;
     @ManyToOne
