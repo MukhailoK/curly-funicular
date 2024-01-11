@@ -10,11 +10,13 @@ import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppoi
 
 
 public class ReviewMapper {
+
+
     public static ReviewDto toReviewDto(Review review) {
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setReview(review.getReview());
         reviewDto.setId(review.getId());
-        reviewDto.setAppointment(toAppointmentDto(review.getAppointment()));
+        reviewDto.setNameClient(toAppointmentDto(review.getAppointment()).getClientDto().getName());
         reviewDto.setRating(review.getRating());
         return reviewDto;
     }

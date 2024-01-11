@@ -22,8 +22,6 @@ public class ReviewService {
 
     private final ReviewRepository reviewRepository;
     private final AppointmentRepository appointmentRepository;
-    private final EmployeeRepository employeeRepository;
-    private final ClientRepository clientRepository;
 
     public List<ReviewDto> getAll() {
         return allToReviewDto(reviewRepository.findAll());
