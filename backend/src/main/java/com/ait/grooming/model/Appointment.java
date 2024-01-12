@@ -33,7 +33,7 @@ public class Appointment {
     private LocalDateTime dateTimeEnd;
     @Column(name = "status")
     private String status;
-    @OneToOne
-    @JoinColumn(name = "review_id")
-    private Review review;
+//    @OneToOne
+//    @JoinColumn(name = "review_id")
+//    private Review review;
 }

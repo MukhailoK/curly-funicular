@@ -1,12 +1,14 @@
 package com.ait.grooming.model;
 
+import com.ait.grooming.model.token.Token;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -16,41 +18,70 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 //@ToString(exclude = {"pets","discounts"})
-public class User {
-    public enum Role {
-        ADMIN, MASTER, CLIENT, GUEST
-    }
-
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",
             insertable = false, updatable = false)
     private Long id;
+
     @Column(name = "name", length = 20, nullable = false)
     private String name;
     @Column(name = "lastname", length = 20)
     private String lastName;
     @Column(name = "username", length = 20)
     private String userName;
-    @Column(name = "password", length = 20)
+    @Column(name = "password")
     private String password;
     @Column(name = "email", length = 20, nullable = false)
     private String email;
-    @Column(name = "phone", length = 20, nullable = false)
+    @Column(name = "phone", length = 20)
     private String phone;
     @Column(name = "address")
     private String address;
     @Column(name = "registration_date")
     private LocalDate registrationDate;
     @Column(nullable = false)
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Role role;
     @Column(name = "is_blocked")
     private boolean isBlocked;
-    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Discount> discounts;
-    @OneToMany(mappedBy = "owner",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Pet> pets;
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return role.getAuthorities();
+    }
+
+    @Override
+    public String getUsername() {
+        return userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return isBlocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 //    @Override
 //    public final boolean equals(Object o) {

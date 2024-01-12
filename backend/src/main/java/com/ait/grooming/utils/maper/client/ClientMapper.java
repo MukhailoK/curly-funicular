@@ -13,7 +13,7 @@ public class ClientMapper {
         ClientDto clientDto = new ClientDto();
         clientDto.setName(client.getName());
         clientDto.setLastName(client.getLastName());
-        clientDto.setUserName(client.getUserName());
+        clientDto.setUserName(client.getUsername());
         clientDto.setEmail(client.getEmail());
         clientDto.setPhone(client.getPhone());
         clientDto.setRegistrationDate(client.getRegistrationDate());

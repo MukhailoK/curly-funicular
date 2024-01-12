@@ -14,8 +14,8 @@ public class Discount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name",length = 50,nullable = false)
-    private String name;
+//    @Column(name = "name",length = 50,nullable = false)
+//    private String name;
     @ManyToOne
     @JoinColumn(name = "client_id")
     private  User client;

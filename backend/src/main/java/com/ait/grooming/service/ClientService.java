@@ -1,6 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.model.Pet;
+import com.ait.grooming.model.Role;
 import com.ait.grooming.model.User;
 import com.ait.grooming.repository.ClientRepository;
 import com.ait.grooming.repository.PetRepository;
@@ -20,7 +21,7 @@ public class ClientService {
     public List<User> getAll() {
         return clientRepository.findAll()
                 .stream()
-                .filter(user -> user.getRole().equals(User.Role.CLIENT))
+                .filter(user -> user.getRole().equals(Role.USER))
                 .collect(Collectors.toList());
     }
 
