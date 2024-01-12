@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import static com.ait.grooming.model.Permission.*;
 
+@Getter
 @RequiredArgsConstructor
 public enum Role {
 
@@ -27,10 +28,10 @@ public enum Role {
                     ADMIN_UPDATE,
                     ADMIN_DELETE,
                     ADMIN_CREATE,
-                    MANAGER_READ,
-                    MANAGER_UPDATE,
-                    MANAGER_DELETE,
-                    MANAGER_CREATE,
+                    MASTER_READ,
+                    MASTER_UPDATE,
+                    MASTER_DELETE,
+                    MASTER_CREATE,
                     CLIENT_CREATE,
                     CLIENT_DELETE,
                     CLIENT_UPDATE,
@@ -39,14 +40,13 @@ public enum Role {
     ),
     MASTER(
             Set.of(
-                    MANAGER_READ,
-                    MANAGER_UPDATE,
-                    MANAGER_DELETE,
-                    MANAGER_CREATE
+                    MASTER_READ,
+                    MASTER_UPDATE,
+                    MASTER_DELETE,
+                    MASTER_CREATE
             )
     );
 
-    @Getter
     private final Set<Permission> permissions;
 
     public List<SimpleGrantedAuthority> getAuthorities() {
