@@ -3,29 +3,29 @@
 # ALTER TABLE clients
 #     AUTO_INCREMENT = 1;
 INSERT INTO users (name, lastname, username, password, email, phone, registration_date, is_blocked, role, address)
-VALUES ('Master1', 'LastName1', 'master1', 'password1', 'master1@example.com', '123456789', '2023-01-01', false,
-        "MASTER",
+VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'master1@example.com', '123456789', '2023-01-01', false,
+        'MASTER',
         'Address1'),
-       ('Master2', 'LastName2', 'master2', 'password2', 'master2@example.com', '987654321', '2023-01-01', false,
-        "MASTER",
+       ('Master2', 'LastName2', 'master2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'master2@example.com', '987654321', '2023-01-01', false,
+        'MASTER',
         'Address2'),
-       ('Name1', 'LastName1', 'username1', 'pa$$1111', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false,
-        "CLIENT",
+       ('Name1', 'LastName1', 'username1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false,
+        'CLIENT',
         'userAddress1'),
-       ('Name2', 'LastName2', 'username2', 'pa$$2222', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false,
-        "CLIENT",
+       ('Name2', 'LastName2', 'username2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false,
+        'CLIENT',
         'userAddress2'),
-       ('Name3', 'LastName3', 'username3', 'pa$$3333', 'client3@example.com', '111223344', CURRENT_TIMESTAMP, false,
-        "CLIENT",
+       ('Name3', 'LastName3', 'username3', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client3@example.com', '111223344', CURRENT_TIMESTAMP, false,
+        'CLIENT',
         'userAddress3'),
-       ('Name4', 'LastName4', 'username4', 'pa$$4444', 'client4@example.com', '555666777', CURRENT_TIMESTAMP, false,
-        "CLIENT",
+       ('Name4', 'LastName4', 'username4', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client4@example.com', '555666777', CURRENT_TIMESTAMP, false,
+        'CLIENT',
         'userAddress4'),
-       ('Name5', 'LastName5', 'username5', 'pa$$5555', 'client5@example.com', '999000111', CURRENT_TIMESTAMP, true,
-        "CLIENT",
+       ('Name5', 'LastName5', 'username5', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client5@example.com', '999000111', CURRENT_TIMESTAMP, true,
+        'CLIENT',
         'userAddress5'),
-       ('Name6', 'LastName6', 'username6', 'pa$$6666', 'client6@example.com', '444333222', CURRENT_TIMESTAMP, false,
-        "CLIENT",
+       ('Name6', 'LastName6', 'username6', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client6@example.com', '444333222', CURRENT_TIMESTAMP, false,
+        'CLIENT',
         'userAddress6');
 
 
@@ -74,12 +74,12 @@ VALUES ('Labrador'),
 
 # ALTER TABLE pets
 #     AUTO_INCREMENT = 1;
-INSERT INTO pets (name, owner_id, type, breed_id, photo_Url, special_notes)
-VALUES ('Joy', 1, "DOG", 1, 'joy.jpg', 'Likes to play with toys'),
-       ('Joschy', 1, "DOG", 2, 'joschy.jpg', 'Enjoys long walks'),
-       ('Fluffy', 2, "DOG", 1, 'fluffy.jpg', 'Likes to play with toys'),
-       ('Buddy', 2, "DOG", 2, 'buddy.jpg', 'Enjoys long walks'),
-       ('Mittens', 4, "DOG", 3, 'mittens.jpg', 'Loves to nap in the sun');
+INSERT INTO pets (name, owner_id, pet_type, breed_id, photo_Url, special_notes)
+VALUES ('Joy', 1, 'DOG', 1, 'joy.jpg', 'Likes to play with toys'),
+       ('Joschy', 1, 'DOG', 2, 'joschy.jpg', 'Enjoys long walks'),
+       ('Fluffy', 2, 'DOG', 1, 'fluffy.jpg', 'Likes to play with toys'),
+       ('Buddy', 2, 'DOG', 2, 'buddy.jpg', 'Enjoys long walks'),
+       ('Mittens', 4, 'DOG', 3, 'mittens.jpg', 'Loves to nap in the sun');
 
 
 # FROM grooming_services;
@@ -140,3 +140,6 @@ VALUES (1, 4.5, 'Great service and friendly staff!'),
        (3, 4.0, 'Good service and friendly staff!'),
        (4, 5.0, 'Excellent grooming, very satisfied!'),
        (5, 3.5, 'Great service and not friendly staff!');
+
+INSERT INTO token(expired, revoked, user_id, token, token_type)
+VALUES (false,false,1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUwNzUzMzEsImV4cCI6MTcwNTE2MTczMX0.FzYyJuTRJ72qdrlSjToIua8Y4s2vbV27hCwollw81Dw', 'BEARER')

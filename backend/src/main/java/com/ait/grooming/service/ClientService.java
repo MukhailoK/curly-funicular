@@ -21,7 +21,7 @@ public class ClientService {
     public List<User> getAll() {
         return clientRepository.findAll()
                 .stream()
-                .filter(user -> user.getRole().equals(Role.USER))
+                .filter(user -> user.getRole().equals(Role.CLIENT))
                 .collect(Collectors.toList());
     }
 

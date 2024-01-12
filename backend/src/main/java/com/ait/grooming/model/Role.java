@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,7 +13,14 @@ import static com.ait.grooming.model.Permission.*;
 @RequiredArgsConstructor
 public enum Role {
 
-    USER(Collections.emptySet()),
+    CLIENT(
+            Set.of(
+                    CLIENT_CREATE,
+                    CLIENT_DELETE,
+                    CLIENT_UPDATE,
+                    CLIENT_READ
+
+            )),
     ADMIN(
             Set.of(
                     ADMIN_READ,
@@ -24,7 +30,11 @@ public enum Role {
                     MANAGER_READ,
                     MANAGER_UPDATE,
                     MANAGER_DELETE,
-                    MANAGER_CREATE
+                    MANAGER_CREATE,
+                    CLIENT_CREATE,
+                    CLIENT_DELETE,
+                    CLIENT_UPDATE,
+                    CLIENT_READ
             )
     ),
     MASTER(
@@ -34,9 +44,7 @@ public enum Role {
                     MANAGER_DELETE,
                     MANAGER_CREATE
             )
-    )
-
-    ;
+    );
 
     @Getter
     private final Set<Permission> permissions;
