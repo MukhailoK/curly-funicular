@@ -2,7 +2,7 @@ package com.ait.grooming.dto.client;
 
 import com.ait.grooming.dto.discount.DiscountDto;
 import com.ait.grooming.dto.pet.PetDto;
-import com.ait.grooming.dto.role.RoleDto;
+import com.ait.grooming.model.Role;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +18,7 @@ public class ClientDto {
     private String email;
     private String phone;
     private LocalDate registrationDate;
-    private RoleDto role;
+    private Role role;
     private boolean isBlocked;
     private List<DiscountDto> discounts;
     private List<PetDto> pets;

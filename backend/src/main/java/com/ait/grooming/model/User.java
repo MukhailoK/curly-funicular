@@ -1,13 +1,14 @@
 package com.ait.grooming.model;
 
-import com.ait.grooming.model.token.Token;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -23,7 +24,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",
             insertable = false, updatable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", length = 20, nullable = false)
     private String name;
@@ -33,7 +34,7 @@ public class User implements UserDetails {
     private String userName;
     @Column(name = "password")
     private String password;
-    @Column(name = "email", length = 20, nullable = false)
+    @Column(name = "email",unique = true, length = 20, nullable = false)
     private String email;
     @Column(name = "phone", length = 20)
     private String phone;
@@ -46,21 +47,22 @@ public class User implements UserDetails {
     private Role role;
     @Column(name = "is_blocked")
     private boolean isBlocked;
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Discount> discounts;
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-    private List<Pet> pets;
-    @OneToMany(mappedBy = "user")
-    private List<Token> tokens;
+//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+//    private List<Discount> discounts;
+//    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+//    private List<Pet> pets;
+//    @OneToMany(mappedBy = "user")
+//    private List<Token> tokens;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return role.getAuthorities();
+        return Collections.singleton(role);
     }
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
     @Override
@@ -70,7 +72,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return isBlocked;
+        return !isBlocked;
     }
 
     @Override

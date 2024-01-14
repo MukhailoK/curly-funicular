@@ -4,6 +4,7 @@ import com.ait.grooming.model.User;
 import com.ait.grooming.repository.UserRepository;
 import com.ait.grooming.utils.request.ChangePasswordRequest;
 import lombok.Data;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,17 +13,15 @@ import java.security.Principal;
 
 @Service
 @Data
+@Log4j2
 public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public User findByUserName(String userName) {
-        return userRepository.findByUserName(userName).orElseThrow();
-    }
-
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
+     log.info("principal: " + ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal());
         // check if the current password is correct
         if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
             throw new IllegalStateException("Wrong password");

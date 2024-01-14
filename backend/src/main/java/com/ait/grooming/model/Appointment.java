@@ -14,7 +14,7 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;

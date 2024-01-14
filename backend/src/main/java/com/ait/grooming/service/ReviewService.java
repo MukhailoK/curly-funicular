@@ -27,7 +27,7 @@ public class ReviewService {
         return allToReviewDto(reviewRepository.findAll());
     }
 
-    public ReviewDto getById(Long id) {
+    public ReviewDto getById(Integer id) {
         return toReviewDto(reviewRepository.getReferenceById(id));
     }
 

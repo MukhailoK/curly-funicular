@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 @Data
 public class GroomingDto {
-    private Long Id;
+    private Integer Id;
     private String name;
     private String size;
     private String description;

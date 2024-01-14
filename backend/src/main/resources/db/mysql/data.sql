@@ -75,11 +75,11 @@ VALUES ('Labrador'),
 # ALTER TABLE pets
 #     AUTO_INCREMENT = 1;
 INSERT INTO pets (name, owner_id, pet_type, breed_id, photo_Url, special_notes)
-VALUES ('Joy', 1, 'DOG', 1, 'joy.jpg', 'Likes to play with toys'),
-       ('Joschy', 1, 'DOG', 2, 'joschy.jpg', 'Enjoys long walks'),
-       ('Fluffy', 2, 'DOG', 1, 'fluffy.jpg', 'Likes to play with toys'),
-       ('Buddy', 2, 'DOG', 2, 'buddy.jpg', 'Enjoys long walks'),
-       ('Mittens', 4, 'DOG', 3, 'mittens.jpg', 'Loves to nap in the sun');
+VALUES ('Joy', 3, 'DOG', 1, 'joy.jpg', 'Likes to play with toys'),
+       ('Joschy', 3, 'DOG', 2, 'joschy.jpg', 'Enjoys long walks'),
+       ('Fluffy', 4, 'DOG', 1, 'fluffy.jpg', 'Likes to play with toys'),
+       ('Buddy', 5, 'DOG', 2, 'buddy.jpg', 'Enjoys long walks'),
+       ('Mittens', 6, 'DOG', 3, 'mittens.jpg', 'Loves to nap in the sun');
 
 
 # FROM grooming_services;

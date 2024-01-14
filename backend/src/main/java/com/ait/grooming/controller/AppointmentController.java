@@ -25,7 +25,7 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    private AppointmentDto getById(@PathVariable Long id) {
+    private AppointmentDto getById(@PathVariable Integer id) {
         return appointmentService.getById(id);
     }
 }

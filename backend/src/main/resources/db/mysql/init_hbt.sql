@@ -10,75 +10,82 @@ drop table if exists users;
 
 create table appointments
 (
-    client_id       bigint,
+    client_id       integer,
+    id              integer not null auto_increment,
+    master_id       integer,
+    pet_id          integer,
+    service_id      integer,
     date_time_end   datetime(6),
     date_time_start datetime(6),
-    id              bigint not null auto_increment,
-    master_id       bigint,
-    pet_id          bigint,
-    service_id      bigint,
     status          varchar(255),
     primary key (id)
 ) engine = InnoDB;
+
 create table breeds
 (
-    id   bigint      not null auto_increment,
+    id   integer     not null auto_increment,
     name varchar(20) not null,
     primary key (id)
 ) engine = InnoDB;
+
 create table discounts
 (
+    client_id     integer,
     discount_rate float(53),
+    id            integer not null auto_increment,
     total_visits  integer,
-    client_id     bigint,
-    id            bigint not null auto_increment,
     primary key (id)
 ) engine = InnoDB;
+
 create table grooming_services
 (
     active             bit,
     duration_procedure time(6),
+    id                 integer     not null auto_increment,
     price              float(53),
-    id                 bigint      not null auto_increment,
     name               varchar(20) not null,
     size               varchar(50) not null,
     description        varchar(255),
     primary key (id)
 ) engine = InnoDB;
+
 create table pets
 (
-    breed_id      bigint,
-    id            bigint             not null auto_increment,
-    owner_id      bigint,
+    breed_id      integer,
+    id            integer            not null auto_increment,
+    owner_id      integer,
     name          varchar(20)        not null,
     photo_url     varchar(255),
     special_notes varchar(255),
     pet_type      enum ('DOG','CAT') not null,
     primary key (id)
 ) engine = InnoDB;
+
 create table review
 (
+    appointment_id integer,
+    id             integer not null auto_increment,
     rating         float(53),
-    appointment_id bigint,
-    id             bigint not null auto_increment,
     review         varchar(255),
     primary key (id)
 ) engine = InnoDB;
+
 create table token
 (
     expired    bit     not null,
     id         integer not null auto_increment,
     revoked    bit     not null,
-    user_id    bigint,
+    user_id    integer,
     token      varchar(255),
     token_type enum ('BEARER'),
     primary key (id)
 ) engine = InnoDB;
+
 create table users
 (
+    id                integer                          not null auto_increment,
     is_blocked        bit,
     registration_date date,
-    id                bigint                           not null auto_increment,
     email             varchar(20)                      not null,
     lastname          varchar(20),
     name              varchar(20)                      not null,
@@ -89,6 +96,7 @@ create table users
     role              enum ('CLIENT','ADMIN','MASTER') not null,
     primary key (id)
 ) engine = InnoDB;
+
 alter table review
     add constraint UK_p949n9n9yuj65778u7pedwtkn unique (appointment_id);
 alter table token

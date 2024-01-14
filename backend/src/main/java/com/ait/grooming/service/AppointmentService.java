@@ -42,7 +42,7 @@ public class AppointmentService {
         return toAppointmentDto(appointment);
     }
 
-    public AppointmentDto getById(Long id) {
+    public AppointmentDto getById(Integer id) {
         return toAppointmentDto(appointmentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("appointment not found")));
     }
