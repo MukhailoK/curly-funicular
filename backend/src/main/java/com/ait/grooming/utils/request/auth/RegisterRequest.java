@@ -1,4 +1,4 @@
-package com.ait.grooming.auth;
+package com.ait.grooming.utils.request.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
-
+public class RegisterRequest {
+    private String firstname;
+    private String lastname;
     private String email;
-   private String password;
+    private String password;
+    private String role;
 }

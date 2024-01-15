@@ -18,8 +18,8 @@ public class ClientMapper {
         clientDto.setPhone(client.getPhone());
         clientDto.setRegistrationDate(client.getRegistrationDate());
         clientDto.setBlocked(client.isBlocked());
-//        clientDto.setDiscounts(allToDiscountDto(client.getDiscounts()));
-//        clientDto.setPets(allToPetDto(client.getPets()));
+//        clientDto.setDiscounts(client.getDiscounts());
+        clientDto.setPets(allToPetDto(client.getPets()));
         return clientDto;
     }
 

@@ -48,13 +48,13 @@ VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOU
 # FROM discounts;
 # ALTER TABLE discounts
 #     AUTO_INCREMENT = 1;
-INSERT INTO discounts (client_id, discount_rate, total_visits)
-VALUES (1, 0.70, 10),
-       (2, 0.70, 10),
-       (3, 0.70, 10),
-       (4, 0.70, 10),
-       (5, 0.70, 10),
-       (6, 0.70, 10);
+INSERT INTO discounts (client_id, discount_rate, total_visits, name)
+VALUES (1, 0.70, 3, '5%'),
+       (2, 0.70, 5, '10%'),
+       (3, 0.70, 10, '15%'),
+       (4, 0.70, 15, '20%'),
+       (5, 0.70, 20, '22%'),
+       (6, 0.70, 50, '30%');
 
 /*
 
@@ -152,8 +152,3 @@ VALUES (1, 4.5, 'Great service and friendly staff!'),
        (3, 4.0, 'Good service and friendly staff!'),
        (4, 5.0, 'Excellent grooming, very satisfied!'),
        (5, 3.5, 'Great service and not friendly staff!');
-
-INSERT INTO token(expired, revoked, user_id, token, token_type)
-VALUES (false, false, 1,
-        'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUwNzUzMzEsImV4cCI6MTcwNTE2MTczMX0.FzYyJuTRJ72qdrlSjToIua8Y4s2vbV27hCwollw81Dw',
-        'BEARER')

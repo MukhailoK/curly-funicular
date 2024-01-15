@@ -1,4 +1,4 @@
-package com.ait.grooming.auth;
+package com.ait.grooming.utils.request.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

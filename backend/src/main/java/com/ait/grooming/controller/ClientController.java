@@ -1,7 +1,7 @@
 package com.ait.grooming.controller;
 
+import com.ait.grooming.dto.client.ClientDto;
 import com.ait.grooming.model.Pet;
-import com.ait.grooming.model.User;
 import com.ait.grooming.service.ClientService;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,7 @@ public class ClientController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAll() {
+    public ResponseEntity<List<ClientDto>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 }

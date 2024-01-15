@@ -1,6 +1,5 @@
 package com.ait.grooming.dto.discount;
 
-import com.ait.grooming.dto.client.ClientDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -9,4 +8,5 @@ import lombok.RequiredArgsConstructor;
 public class DiscountDto {
     private double discountRate;
     private int totalVisit;
+    private int name;
 }

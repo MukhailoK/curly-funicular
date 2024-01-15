@@ -18,7 +18,6 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "users")
-//@ToString(exclude = {"pets","discounts"})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,13 +46,10 @@ public class User implements UserDetails {
     private Role role;
     @Column(name = "is_blocked")
     private boolean isBlocked;
-//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-//    private List<Discount> discounts;
-//    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-//    private List<Pet> pets;
-//    @OneToMany(mappedBy = "user")
-//    private List<Token> tokens;
-
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Discount> discounts;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Pet> pets;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
