@@ -25,9 +25,7 @@ public class UserController {
             @RequestBody ChangePasswordRequest request,
             Principal connectedUser
     ) {
-        log.info(request.toString());
-        log.info("=============== catch change password request ======================");
-        service.changePassword(request, connectedUser);
-        return ResponseEntity.ok().build();
+
+        return service.changePassword(request, connectedUser);
     }
 }

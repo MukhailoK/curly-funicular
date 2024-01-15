@@ -3,30 +3,42 @@
 # ALTER TABLE clients
 #     AUTO_INCREMENT = 1;
 INSERT INTO users (name, lastname, username, password, email, phone, registration_date, is_blocked, role, address)
-VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'master1@example.com', '123456789', '2023-01-01', false,
+VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'master1@example.com', '123456789', '2023-01-01', false,
         'MASTER',
         'Address1'),
-       ('Master2', 'LastName2', 'master2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'master2@example.com', '987654321', '2023-01-01', false,
+       ('Master2', 'LastName2', 'master2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'master2@example.com', '987654321', '2023-01-01', false,
         'MASTER',
         'Address2'),
-       ('Name1', 'LastName1', 'username1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client1@example.com', '123456789', CURRENT_TIMESTAMP, false,
+       ('Name1', 'LastName1', 'username1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client1@example.com', '123456789', CURRENT_TIMESTAMP, false,
         'CLIENT',
         'userAddress1'),
-       ('Name2', 'LastName2', 'username2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client2@example.com', '987654321', CURRENT_TIMESTAMP, false,
+       ('Name2', 'LastName2', 'username2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client2@example.com', '987654321', CURRENT_TIMESTAMP, false,
         'CLIENT',
         'userAddress2'),
-       ('Name3', 'LastName3', 'username3', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client3@example.com', '111223344', CURRENT_TIMESTAMP, false,
+       ('Name3', 'LastName3', 'username3', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client3@example.com', '111223344', CURRENT_TIMESTAMP, false,
         'CLIENT',
         'userAddress3'),
-       ('Name4', 'LastName4', 'username4', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client4@example.com', '555666777', CURRENT_TIMESTAMP, false,
+       ('Name4', 'LastName4', 'username4', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client4@example.com', '555666777', CURRENT_TIMESTAMP, false,
         'CLIENT',
         'userAddress4'),
-       ('Name5', 'LastName5', 'username5', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client5@example.com', '999000111', CURRENT_TIMESTAMP, true,
+       ('Name5', 'LastName5', 'username5', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client5@example.com', '999000111', CURRENT_TIMESTAMP, true,
         'CLIENT',
         'userAddress5'),
-       ('Name6', 'LastName6', 'username6', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm', 'client6@example.com', '444333222', CURRENT_TIMESTAMP, false,
+       ('Name6', 'LastName6', 'username6', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client6@example.com', '444333222', CURRENT_TIMESTAMP, false,
         'CLIENT',
-        'userAddress6');
+        'userAddress6'),
+       ('Admin', 'LastName1', 'admin1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'admin@example.com', '123456789', '2022-01-01', false,
+        'ADMIN',
+        'Address1');
 
 
 /*
@@ -142,4 +154,6 @@ VALUES (1, 4.5, 'Great service and friendly staff!'),
        (5, 3.5, 'Great service and not friendly staff!');
 
 INSERT INTO token(expired, revoked, user_id, token, token_type)
-VALUES (false,false,1,'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUwNzUzMzEsImV4cCI6MTcwNTE2MTczMX0.FzYyJuTRJ72qdrlSjToIua8Y4s2vbV27hCwollw81Dw', 'BEARER')
+VALUES (false, false, 1,
+        'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUwNzUzMzEsImV4cCI6MTcwNTE2MTczMX0.FzYyJuTRJ72qdrlSjToIua8Y4s2vbV27hCwollw81Dw',
+        'BEARER')
