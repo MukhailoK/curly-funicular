@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;...">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/init_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/schema_hbt.sql" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="added to ReviewController exceptions handler">
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +162,7 @@
       <workItem from="1704982132494" duration="27734000" />
       <workItem from="1705147031864" duration="50000" />
       <workItem from="1705147120133" duration="29806000" />
-      <workItem from="1705307814880" duration="17255000" />
+      <workItem from="1705307814880" duration="19366000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -327,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705330275074</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added to ReviewController exceptions handler">
+      <option name="closed" value="true" />
+      <created>1705352994628</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1705352994628</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,7 +371,8 @@
     <MESSAGE value="add GlobalExceptionHandler for user change password" />
     <MESSAGE value="init" />
     <MESSAGE value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
-    <option name="LAST_COMMIT_MESSAGE" value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
+    <MESSAGE value="added to ReviewController exceptions handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="added to ReviewController exceptions handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
