@@ -5,7 +5,7 @@ import com.ait.grooming.model.User;
 
 import java.util.List;
 
-import static com.ait.grooming.utils.maper.discount.DiscountMapper.allToDiscountDto;
+import static com.ait.grooming.utils.maper.discount.DiscountMapper.toDiscountDto;
 import static com.ait.grooming.utils.maper.pet.PetMapper.allToPetDto;
 
 public class ClientMapper {
@@ -16,9 +16,10 @@ public class ClientMapper {
         clientDto.setUserName(client.getUsername());
         clientDto.setEmail(client.getEmail());
         clientDto.setPhone(client.getPhone());
+        clientDto.setRole(client.getRole());
         clientDto.setRegistrationDate(client.getRegistrationDate());
         clientDto.setBlocked(client.isBlocked());
-//        clientDto.setDiscounts(client.getDiscounts());
+        clientDto.setDiscounts(toDiscountDto(client.getDiscount()));
         clientDto.setPets(allToPetDto(client.getPets()));
         return clientDto;
     }

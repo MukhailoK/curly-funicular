@@ -11,6 +11,7 @@ public class DiscountMapper {
         DiscountDto discountDto = new DiscountDto();
         discountDto.setDiscountRate(discount.getDiscountRate());
         discountDto.setTotalVisit(discount.getTotalVisits());
+        discountDto.setName(discount.getName());
         return discountDto;
     }
 

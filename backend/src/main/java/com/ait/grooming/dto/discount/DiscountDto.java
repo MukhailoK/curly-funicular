@@ -8,5 +8,5 @@ import lombok.RequiredArgsConstructor;
 public class DiscountDto {
     private double discountRate;
     private int totalVisit;
-    private int name;
+    private String name;
 }

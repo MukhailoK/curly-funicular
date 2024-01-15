@@ -1048,8 +1048,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="296" parent="1" name="grooming_salon">
-      <IntrospectionTimestamp>2024-01-15.14:08:54</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-01-15.12:08:54</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-01-15.16:40:56</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-15.14:40:56</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="297" parent="1" name="petclinic">
