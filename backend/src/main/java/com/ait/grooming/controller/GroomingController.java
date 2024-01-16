@@ -16,12 +16,12 @@ public class GroomingController {
     private final GroomingService groomingService;
 
     @GetMapping()
-    public List<GroomingDto> getAllgrooming() {
+    public List<GroomingDto> getAllGrooming() {
         return groomingService.getAll();
     }
 
     @GetMapping("/{id}")
-    private GroomingDto getById(@PathVariable Long id) {
+    private GroomingDto getById(@PathVariable Integer id) {
         return groomingService.getById(id);
     }
 

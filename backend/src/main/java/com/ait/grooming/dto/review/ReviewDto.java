@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class ReviewDto {
-    private Long id;
+    private Integer id;
     private String nameClient;
     private Double rating;
     private String review;

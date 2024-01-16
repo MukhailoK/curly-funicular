@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 public class AppointmentRequest {
     private String clientEmail;
     private String masterUserName;
-    private Long groomingId;
-    private Long petId;
+    private Integer groomingId;
+    private Integer petId;
     private LocalDateTime dateTimeStart;
     private LocalDateTime dateTimeEnd;
     private String status;

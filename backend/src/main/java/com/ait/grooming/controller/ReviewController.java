@@ -2,7 +2,6 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.review.ReviewDto;
 import com.ait.grooming.dto.review.ReviewRequestDto;
-import com.ait.grooming.model.Review;
 import com.ait.grooming.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,7 @@ public class ReviewController {
     }
 
     @GetMapping("/{id}")
-    private ReviewDto getById(@PathVariable Long id) {
+    private ReviewDto getById(@PathVariable Integer id) {
         return reviewService.getById(id);
     }
 

@@ -24,7 +24,7 @@ public class GroomingService {
         return allToGroomingDto(groomingRepository.findAll());
     }
 
-    public GroomingDto getById(Long id) {
+    public GroomingDto getById(Integer id) {
         return toGroomingDto(groomingRepository.getReferenceById(id));
     }
 

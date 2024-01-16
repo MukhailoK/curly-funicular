@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<User, Long> {
+public interface EmployeeRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUserName(String userName);
 
     //  Optional<User> getAllScheduleByUserName(String username);

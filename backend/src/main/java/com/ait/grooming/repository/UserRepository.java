@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 //    @Query("SELECT u FROM User u WHERE u.role = :roleName")
 //   List<User> findByRoleName(@Param("roleName") String roleName);
-
-   List<User> findByRole(String roleName);
-   List<User> findByPhone(String phone);
-   Optional<User> findByUserName(String username);
+//
+//   List<User> findByRole(String roleName);
+//   List<User> findByPhone(String phone);
+//   Optional<User> findByUserName(String username);
    Optional<User> findByEmail(String email);
 
 }
