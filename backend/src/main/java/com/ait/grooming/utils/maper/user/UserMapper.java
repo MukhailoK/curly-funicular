@@ -19,7 +19,7 @@ public class UserMapper {
         return userDto;
     }
 
-    private static List<UserDto> allToUserDtos(List<User> employees) {
+    public static List<UserDto> allToUserDtos(List<User> employees) {
         return employees.stream().map(UserMapper::toUserDto).toList();
     }
 }

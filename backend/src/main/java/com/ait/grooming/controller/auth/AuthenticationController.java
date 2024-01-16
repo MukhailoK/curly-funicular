@@ -1,8 +1,10 @@
 package com.ait.grooming.controller.auth;
 
+import com.ait.grooming.service.UserService;
+import com.ait.grooming.service.auth.JwtTokenProvider;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
-import com.ait.grooming.service.auth.JwtTokenProvider;
+import com.ait.grooming.utils.request.auth.RegisterRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +24,9 @@ public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
+    private final UserService userService;
 
-    @PostMapping
+    @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> authenticationManager(@Valid @RequestBody AuthenticationRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -37,6 +40,14 @@ public class AuthenticationController {
         String jwt = tokenProvider.createToken(authRequest.getEmail());
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+        if (userService.register(request)) {
+            return authenticationManager(new AuthenticationRequest(request.getEmail(), request.getPassword()));
+        }
+        return ResponseEntity.badRequest().build();
     }
 
 }
