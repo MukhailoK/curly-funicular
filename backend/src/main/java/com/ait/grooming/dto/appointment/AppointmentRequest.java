@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class AppointmentRequest {
     private String clientEmail;
-    private String masterUserName;
+  //  private String masterUserName;
     private Integer groomingId;
     private Integer petId;
     private LocalDateTime dateTimeStart;

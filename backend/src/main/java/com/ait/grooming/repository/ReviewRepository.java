@@ -13,5 +13,5 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
 
     Optional<List<Review>> getAllByRatingGreaterThanEqual(Double rating);
 
-    boolean existsByAppointment(Appointment appointment);
+   // boolean existsByAppointment(Appointment appointment);
 }

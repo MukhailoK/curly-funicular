@@ -16,7 +16,7 @@ public class ReviewMapper {
         ReviewDto reviewDto = new ReviewDto();
         reviewDto.setReview(review.getReview());
         reviewDto.setId(review.getId());
-        reviewDto.setNameClient(toAppointmentDto(review.getAppointment()).getClientDto().getName());
+       // reviewDto.setNameClient(toAppointmentDto(review.getAppointment()).getClientDto().getName());
         reviewDto.setRating(review.getRating());
         return reviewDto;
     }

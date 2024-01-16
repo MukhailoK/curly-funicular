@@ -19,7 +19,7 @@ public class ClientMapper {
         clientDto.setRole(client.getRole());
         clientDto.setRegistrationDate(client.getRegistrationDate());
         clientDto.setBlocked(client.isBlocked());
-        clientDto.setDiscounts(toDiscountDto(client.getDiscount()));
+    //    clientDto.setDiscounts(toDiscountDto(client.getDiscount()));
         clientDto.setPets(allToPetDto(client.getPets()));
         return clientDto;
     }

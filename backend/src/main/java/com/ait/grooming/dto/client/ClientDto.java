@@ -20,6 +20,6 @@ public class ClientDto {
     private LocalDate registrationDate;
     private Role role;
     private boolean isBlocked;
-    private DiscountDto discounts;
+ //   private DiscountDto discounts;
     private List<PetDto> pets;
 }

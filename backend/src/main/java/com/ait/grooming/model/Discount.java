@@ -18,8 +18,8 @@ public class Discount {
     private Integer id;
     @Column(name = "name", length = 50, nullable = false)
     private String name;
-    @OneToMany(mappedBy = "discount")
-    private Collection<User> clients;
+//    @OneToMany(mappedBy = "discount")
+//    private Collection<User> clients;
     @Column(name = "discount_rate")
     private double discountRate;
     @Column(name = "total_visits")

@@ -37,7 +37,7 @@ public class PetService {
                 pet.setType(Pet.PetType.DOG);
               //  pet.setBreed(requestDto.getBreed());
                 pet.setBreed(breedById);
-                pet.setPhotoUrl(requestDto.getPhotoUrl());
+             //   pet.setPhotoUrl(requestDto.getPhotoUrl());
                 pet.setSpecial_notes(requestDto.getSpecialNotes());
                 petRepository.save(pet);
                 return true;

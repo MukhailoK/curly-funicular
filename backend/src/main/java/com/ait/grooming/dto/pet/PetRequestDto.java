@@ -12,7 +12,7 @@ public class PetRequestDto {
     private User owner;
     private Pet.PetType type;
     private Breed breed;
-    private String photoUrl;
+  //  private String photoUrl;
     private String specialNotes;
 }
 

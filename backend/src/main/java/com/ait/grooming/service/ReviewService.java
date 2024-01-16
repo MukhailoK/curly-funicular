@@ -42,14 +42,14 @@ public class ReviewService {
         review.setReview(request.getReview());
         Appointment appointment = appointmentRepository.findById(request.getAppointmentId())
                 .orElseThrow(() -> new NotFoundException("appointment not found"));
-        review.setAppointment(appointment);
+      //  review.setAppointment(appointment);
         review.setRating(request.getRating());
         System.out.println(appointment);
-        if (!reviewRepository.existsByAppointment(appointment)) {
+     //   if (!reviewRepository.existsByAppointment(appointment)) {
             reviewRepository.save(review);
             return ResponseEntity.ok(toReviewDto(review));
-        } else {
-            throw new IsAlreadyExistException("Review for this appointment is already exist");
-        }
+//        } else {
+//            throw new IsAlreadyExistException("Review for this appointment is already exist");
+//        }
     }
 }

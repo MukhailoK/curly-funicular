@@ -11,9 +11,9 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @OneToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
+//    @OneToOne
+//    @JoinColumn(name = "appointment_id")
+//    private Appointment appointment;
     @Column(name = "rating")
     private double rating;
     @Column(name = "review")

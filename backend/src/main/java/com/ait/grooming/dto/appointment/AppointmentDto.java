@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class AppointmentDto {
     private ClientDto clientDto;
-    private EmployeeDto employeeDto;
+  //  private EmployeeDto employeeDto;
     private GroomingDto groomingDto;
     private PetDto petDto;
     private LocalDateTime dateTimeStart;
