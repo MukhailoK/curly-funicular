@@ -8,7 +8,6 @@ public class PetDto {
     private String ownerName;
     private String type;
     private String breed;
-  //  private String photoUrl;
+//    private String photoUrl;
     private String specialNotes;
 }
-

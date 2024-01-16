@@ -28,8 +28,8 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "breed_id")
     private Breed breed;
-    @Column(name = "photo_url")
-    private String photoUrl;
+//    @Column(name = "photo_url")
+//    private String photoUrl;
     @Column(name = "special_notes")
     private String special_notes;
 }

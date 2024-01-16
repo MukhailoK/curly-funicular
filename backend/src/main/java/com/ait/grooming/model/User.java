@@ -43,8 +43,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
-    @Column(name = "is_blocked")
-    private boolean isBlocked;
+//    @Column(name = "is_blocked")
+//    private boolean isBlocked;
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "discount_id")
 //    private Discount discount;
@@ -68,7 +68,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !isBlocked;
+        return true;
     }
 
     @Override

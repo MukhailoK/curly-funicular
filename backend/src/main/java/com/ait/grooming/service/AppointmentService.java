@@ -15,15 +15,20 @@ import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppoi
 @Service
 @Data
 public class AppointmentService {
+    //    private final ClientRepository clientRepository;
+//    private final EmployeeRepository employeeRepository;
     private final AppointmentRepository appointmentRepository;
-    private final ClientRepository clientRepository;
-    private final EmployeeRepository employeeRepository;
     private final GroomingRepository groomingRepository;
     private final PetRepository petRepository;
+    private final UserRepository userRepository;
 
     public AppointmentDto create(AppointmentRequest appointmentRequest) {
+//        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
+//                .orElseThrow(() -> new IllegalArgumentException("client not found"));
+
         User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
                 .orElseThrow(() -> new IllegalArgumentException("client not found"));
+
 //        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())
 //                .orElseThrow(() -> new IllegalArgumentException("master not found"));
         Grooming grooming = groomingRepository.findById(appointmentRequest.getGroomingId())
