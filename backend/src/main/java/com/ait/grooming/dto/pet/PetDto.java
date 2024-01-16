@@ -11,4 +11,3 @@ public class PetDto {
 //    private String photoUrl;
     private String specialNotes;
 }
-

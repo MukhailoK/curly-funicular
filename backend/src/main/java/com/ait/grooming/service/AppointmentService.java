@@ -23,10 +23,12 @@ public class AppointmentService {
     private final UserRepository userRepository;
 
     public AppointmentDto create(AppointmentRequest appointmentRequest) {
-        User user = userRepository.findByEmail(appointmentRequest.getClientEmail())
-                .orElseThrow(() -> new IllegalArgumentException("user not found"));
 //        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
 //                .orElseThrow(() -> new IllegalArgumentException("client not found"));
+
+        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
+                .orElseThrow(() -> new IllegalArgumentException("client not found"));
+
 //        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())
 //                .orElseThrow(() -> new IllegalArgumentException("master not found"));
         Grooming grooming = groomingRepository.findById(appointmentRequest.getGroomingId())
@@ -34,8 +36,8 @@ public class AppointmentService {
         Pet pet = petRepository.findById(appointmentRequest.getPetId())
                 .orElseThrow(() -> new IllegalArgumentException("pet not found"));
         Appointment appointment = new Appointment();
-        appointment.setClient(user);
-//        appointment.setMaster(employee);
+        appointment.setClient(client);
+      //  appointment.setMaster(employee);
         appointment.setGroomingService(grooming);
         appointment.setPet(pet);
         appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());

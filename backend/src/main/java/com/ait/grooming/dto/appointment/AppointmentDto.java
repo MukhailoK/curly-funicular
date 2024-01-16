@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @RequiredArgsConstructor
 public class AppointmentDto {
+
 //    private ClientDto clientDto;
 //    private EmployeeDto employeeDto;
     private UserDto userDto;
