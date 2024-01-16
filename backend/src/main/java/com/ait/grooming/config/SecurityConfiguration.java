@@ -11,8 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.ait.grooming.model.Role.ADMIN;
-import static com.ait.grooming.model.Role.CLIENT;
+import static com.ait.grooming.model.Role.*;
 import static org.springframework.http.HttpMethod.*;
 
 @Configuration
@@ -37,7 +36,7 @@ public class SecurityConfiguration {
                                 .permitAll()
                                 .requestMatchers(PATCH, "/api/v1/users/**").hasAnyAuthority(CLIENT.name(), ADMIN.name())
                                 .requestMatchers("/api/employee/**").hasAnyAuthority(ADMIN.name())
-                                .requestMatchers(POST, "/api-client/**").hasAnyRole(CLIENT.name())
+                                .requestMatchers("/api-client/**").hasAnyAuthority(CLIENT.name(), ADMIN.name(), MASTER.name())
                                 .requestMatchers(GET, "/api-client/**").hasAnyRole(CLIENT.name())
                                 .anyRequest()
                                 .authenticated()

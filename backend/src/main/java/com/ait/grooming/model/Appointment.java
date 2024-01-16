@@ -3,6 +3,7 @@ package com.ait.grooming.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "appointments")
 @Data
 @RequiredArgsConstructor
+@ToString(exclude = "review")
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +35,7 @@ public class Appointment {
     private LocalDateTime dateTimeEnd;
     @Column(name = "status")
     private String status;
-//    @OneToOne
-//    @JoinColumn(name = "review_id")
-//    private Review review;
+    @OneToOne
+    @JoinColumn(name = "review_id")
+    private Review review;
 }

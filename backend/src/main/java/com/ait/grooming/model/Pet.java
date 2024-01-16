@@ -3,10 +3,12 @@ package com.ait.grooming.model;
 import lombok.Data;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 @Entity
 @Table(name = "pets")
 @Data
+@ToString(exclude = "owner")
 public class Pet {
     public enum  PetType {
        DOG, CAT

@@ -1,5 +1,7 @@
-package com.ait.grooming.auth;
+package com.ait.grooming.controller.auth;
 
+import com.ait.grooming.utils.request.auth.AuthenticationRequest;
+import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import com.ait.grooming.service.auth.JwtTokenProvider;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

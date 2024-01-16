@@ -1,14 +1,15 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.review.ReviewDto;
-import com.ait.grooming.dto.review.ReviewRequestDto;
+import com.ait.grooming.dto.review.ReviewRequest;
 import com.ait.grooming.model.Appointment;
 import com.ait.grooming.model.Review;
 import com.ait.grooming.repository.AppointmentRepository;
-import com.ait.grooming.repository.ClientRepository;
-import com.ait.grooming.repository.EmployeeRepository;
 import com.ait.grooming.repository.ReviewRepository;
+import com.ait.grooming.service.exceptions.IsAlreadyExistException;
+import com.ait.grooming.service.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,27 +24,32 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final AppointmentRepository appointmentRepository;
 
-    public List<ReviewDto> getAll() {
-        return allToReviewDto(reviewRepository.findAll());
+    public ResponseEntity<List<ReviewDto>> getAll() {
+        List<ReviewDto> reviewDtos = allToReviewDto(reviewRepository.findAll());
+        if (reviewDtos.isEmpty()) {
+            throw new NotFoundException("Reviews not found");
+        } else
+            return ResponseEntity.ok(reviewDtos);
     }
 
-    public ReviewDto getById(Integer id) {
-        return toReviewDto(reviewRepository.getReferenceById(id));
+    public ResponseEntity<List<ReviewDto>> getByRating(Double rating) {
+        return ResponseEntity.ok(allToReviewDto(reviewRepository
+                .getAllByRatingGreaterThanEqual(rating).orElseThrow(() -> new NotFoundException("Review with rating greater or equal" + rating + " not found"))));
     }
 
-    public ReviewDto create(ReviewRequestDto request) {
+    public ResponseEntity<ReviewDto> create(ReviewRequest request) {
         Review review = new Review();
         review.setReview(request.getReview());
         Appointment appointment = appointmentRepository.findById(request.getAppointmentId())
-                .orElseThrow(() -> new RuntimeException("appointment not found"));
+                .orElseThrow(() -> new NotFoundException("appointment not found"));
         review.setAppointment(appointment);
         review.setRating(request.getRating());
         System.out.println(appointment);
         if (!reviewRepository.existsByAppointment(appointment)) {
             reviewRepository.save(review);
-            return toReviewDto(review);
+            return ResponseEntity.ok(toReviewDto(review));
         } else {
-            throw new RuntimeException("Review for this appointment is already exist");
+            throw new IsAlreadyExistException("Review for this appointment is already exist");
         }
     }
 }

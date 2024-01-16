@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "users")
-//@ToString(exclude = {"pets","discounts"})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +32,7 @@ public class User implements UserDetails {
     private String userName;
     @Column(name = "password")
     private String password;
-    @Column(name = "email",unique = true, length = 20, nullable = false)
+    @Column(name = "email", unique = true, length = 20, nullable = false)
     private String email;
     @Column(name = "phone", length = 20)
     private String phone;
@@ -47,13 +45,11 @@ public class User implements UserDetails {
     private Role role;
     @Column(name = "is_blocked")
     private boolean isBlocked;
-//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-//    private List<Discount> discounts;
-//    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-//    private List<Pet> pets;
-//    @OneToMany(mappedBy = "user")
-//    private List<Token> tokens;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Pet> pets;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

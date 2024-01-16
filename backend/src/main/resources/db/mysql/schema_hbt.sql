@@ -1,19 +1,28 @@
-drop table if exists discounts;
+
+alter table  appointments
+    drop foreign key FKjbablcqyqk60ajd230pufna0u;
+
 drop table if exists review;
+
 drop table if exists appointments;
+
 drop table if exists grooming_services;
+
 drop table if exists pets;
 
 drop table if exists breeds;
-drop table if exists token;
+
 drop table if exists users;
 
-create table appointments
+drop table if exists discounts;
+
+create table  appointments
 (
     client_id       integer,
     id              integer not null auto_increment,
     master_id       integer,
     pet_id          integer,
+    review_id       integer,
     service_id      integer,
     date_time_end   datetime(6),
     date_time_start datetime(6),
@@ -30,10 +39,10 @@ create table breeds
 
 create table discounts
 (
-    client_id     integer,
     discount_rate float(53),
-    id            integer not null auto_increment,
+    id            integer     not null auto_increment,
     total_visits  integer,
+    name          varchar(50) not null,
     primary key (id)
 ) engine = InnoDB;
 
@@ -70,19 +79,9 @@ create table review
     primary key (id)
 ) engine = InnoDB;
 
-create table token
-(
-    expired    bit     not null,
-    id         integer not null auto_increment,
-    revoked    bit     not null,
-    user_id    integer,
-    token      varchar(255),
-    token_type enum ('BEARER'),
-    primary key (id)
-) engine = InnoDB;
-
 create table users
 (
+    discount_id       integer,
     id                integer                          not null auto_increment,
     is_blocked        bit,
     registration_date date,
@@ -97,10 +96,13 @@ create table users
     primary key (id)
 ) engine = InnoDB;
 
+
+alter table appointments
+    add constraint UK_i4p570ke17dvgp0408w0pvvow unique (review_id);
 alter table review
     add constraint UK_p949n9n9yuj65778u7pedwtkn unique (appointment_id);
-alter table token
-    add constraint UK_pddrhgwxnms2aceeku9s2ewy5 unique (token);
+alter table users
+    add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email);
 alter table appointments
     add constraint FKgdcpcx3yc2abu5oyb2078lc24 foreign key (client_id) references users (id);
 alter table appointments
@@ -109,13 +111,13 @@ alter table appointments
     add constraint FKrqdfukjcn0rhqrac8j96cu9w4 foreign key (master_id) references users (id);
 alter table appointments
     add constraint FK62dl3dvwsbveq3vv067becwmj foreign key (pet_id) references pets (id);
-alter table discounts
-    add constraint FK2dlhdtb3rvytmuixec5lp3ol3 foreign key (client_id) references users (id);
+alter table appointments
+    add constraint FKjbablcqyqk60ajd230pufna0u foreign key (review_id) references review (id);
 alter table pets
     add constraint FKr2wnqcmtrr16oaipocajcdn7w foreign key (breed_id) references breeds (id);
 alter table pets
     add constraint FKoygstexeo9ivoylgrdrv2tc39 foreign key (owner_id) references users (id);
 alter table review
     add constraint FK9sqilnr9peew7dunw8o4ajcup foreign key (appointment_id) references appointments (id);
-alter table token
-    add constraint FKj8rfw4x0wjjyibfqq566j4qng foreign key (user_id) references users (id)
+alter table users
+    add constraint FKojrj5qdwkaclxjsqmbcljpxyq foreign key (discount_id) references discounts (id);

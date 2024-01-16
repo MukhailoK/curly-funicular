@@ -1,9 +1,10 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.review.ReviewDto;
-import com.ait.grooming.dto.review.ReviewRequestDto;
+import com.ait.grooming.dto.review.ReviewRequest;
 import com.ait.grooming.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,17 +17,17 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @GetMapping()
-    public List<ReviewDto> getAllReview() {
+    public ResponseEntity<List<ReviewDto>> getAllReview() {
         return reviewService.getAll();
     }
 
-    @GetMapping("/{id}")
-    private ReviewDto getById(@PathVariable Integer id) {
-        return reviewService.getById(id);
+    @GetMapping("/rating/{rating}/reviews")
+    private ResponseEntity<List<ReviewDto>> getByRating(@PathVariable Double rating) {
+        return reviewService.getByRating(rating);
     }
 
     @PostMapping("/new")
-    public ReviewDto create(@RequestBody ReviewRequestDto request) {
+    public ResponseEntity<ReviewDto> create(@RequestBody ReviewRequest request) {
         return reviewService.create(request);
     }
 }

@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="working variant of auth">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/PasswordNotSameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/WrongPasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="added to ReviewController exceptions handler">
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="auth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,40 +48,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;auth&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Subs_Checker/curly-funicular/backend/http&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "ClientDtos",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/Subs_Checker/curly-funicular",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ait.grooming.service" />
@@ -168,7 +162,7 @@
       <workItem from="1704982132494" duration="27734000" />
       <workItem from="1705147031864" duration="50000" />
       <workItem from="1705147120133" duration="29806000" />
-      <workItem from="1705307814880" duration="4558000" />
+      <workItem from="1705307814880" duration="19366000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -298,7 +292,39 @@
       <option name="project" value="LOCAL" />
       <updated>1705262561843</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add GlobalExceptionHandler for user change password">
+      <option name="closed" value="true" />
+      <created>1705319564005</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1705319564005</updated>
+    </task>
+    <task id="LOCAL-00018" summary="init">
+      <option name="closed" value="true" />
+      <created>1705327215117</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705327215117</updated>
+    </task>
+    <task id="LOCAL-00019" summary="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;...">
+      <option name="closed" value="true" />
+      <created>1705330275074</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705330275074</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added to ReviewController exceptions handler">
+      <option name="closed" value="true" />
+      <created>1705352994628</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1705352994628</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +368,11 @@
     <MESSAGE value="create init_hbt.sql configured .properties to init db and fill automatic" />
     <MESSAGE value="remove garbage from WHITELIST" />
     <MESSAGE value="working variant of auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="working variant of auth" />
+    <MESSAGE value="add GlobalExceptionHandler for user change password" />
+    <MESSAGE value="init" />
+    <MESSAGE value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
+    <MESSAGE value="added to ReviewController exceptions handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="added to ReviewController exceptions handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
