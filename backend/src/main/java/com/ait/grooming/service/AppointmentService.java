@@ -15,24 +15,27 @@ import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppoi
 @Service
 @Data
 public class AppointmentService {
+    //    private final ClientRepository clientRepository;
+//    private final EmployeeRepository employeeRepository;
     private final AppointmentRepository appointmentRepository;
-    private final ClientRepository clientRepository;
-    private final EmployeeRepository employeeRepository;
     private final GroomingRepository groomingRepository;
     private final PetRepository petRepository;
+    private final UserRepository userRepository;
 
     public AppointmentDto create(AppointmentRequest appointmentRequest) {
-        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
-                .orElseThrow(() -> new IllegalArgumentException("client not found"));
-        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())
-                .orElseThrow(() -> new IllegalArgumentException("master not found"));
+        User user = userRepository.findByEmail(appointmentRequest.getClientEmail())
+                .orElseThrow(() -> new IllegalArgumentException("user not found"));
+//        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
+//                .orElseThrow(() -> new IllegalArgumentException("client not found"));
+//        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())
+//                .orElseThrow(() -> new IllegalArgumentException("master not found"));
         Grooming grooming = groomingRepository.findById(appointmentRequest.getGroomingId())
                 .orElseThrow(() -> new IllegalArgumentException("grooming service not found"));
         Pet pet = petRepository.findById(appointmentRequest.getPetId())
                 .orElseThrow(() -> new IllegalArgumentException("pet not found"));
         Appointment appointment = new Appointment();
-        appointment.setClient(client);
-        appointment.setMaster(employee);
+        appointment.setClient(user);
+//        appointment.setMaster(employee);
         appointment.setGroomingService(grooming);
         appointment.setPet(pet);
         appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());

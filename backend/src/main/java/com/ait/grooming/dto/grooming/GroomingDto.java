@@ -12,6 +12,6 @@ public class GroomingDto {
     private String description;
     private Double price;
     private LocalTime durationProcedure;
-    private Boolean active;
+//    private Boolean active;
 
 }

@@ -13,7 +13,7 @@ public class PetMapper {
         petDto.setOwnerName(pet.getOwner().getName());
         petDto.setType(pet.getType().name());
         petDto.setBreed(pet.getBreed().getName());
-        petDto.setPhotoUrl(pet.getPhotoUrl());
+//        petDto.setPhotoUrl(pet.getPhotoUrl());
         petDto.setSpecialNotes(pet.getSpecial_notes());
         return petDto;
     }

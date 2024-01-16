@@ -20,9 +20,9 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
-    @ManyToOne
-    @JoinColumn(name = "master_id")
-    private User master;
+//    @ManyToOne
+//    @JoinColumn(name = "master_id")
+//    private User master;
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Grooming groomingService;
@@ -35,7 +35,7 @@ public class Appointment {
     private LocalDateTime dateTimeEnd;
     @Column(name = "status")
     private String status;
-    @OneToOne
-    @JoinColumn(name = "review_id")
-    private Review review;
+//    @OneToOne
+//    @JoinColumn(name = "review_id")
+//    private Review review;
 }
