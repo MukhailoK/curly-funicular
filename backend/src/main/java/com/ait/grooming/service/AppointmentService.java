@@ -26,7 +26,7 @@ public class AppointmentService {
 //        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
 //                .orElseThrow(() -> new IllegalArgumentException("client not found"));
 
-        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
+        User client = userRepository.findByEmail(appointmentRequest.getClientEmail())
                 .orElseThrow(() -> new IllegalArgumentException("client not found"));
 
 //        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())

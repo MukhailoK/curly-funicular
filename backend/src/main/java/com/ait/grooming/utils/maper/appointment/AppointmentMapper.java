@@ -18,7 +18,7 @@ public class AppointmentMapper {
         appointmentDto.setDateTimeStart(appointment.getDateTimeStart());
         appointmentDto.setDateTimeEnd(appointment.getDateTimeEnd());
 
-        appointmentDto.setClientDto(toClientDto(appointment.getClient()));
+        appointmentDto.setUserDto(toUserDto(appointment.getClient()));
     //   appointmentDto.setEmployeeDto(toEmployeeDto(appointment.getMaster()));
 
         appointmentDto.setGroomingDto(toGroomingDto(appointment.getGroomingService()));
