@@ -12,7 +12,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import static com.ait.grooming.model.Role.*;
-import static org.springframework.http.HttpMethod.*;
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.PATCH;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +23,20 @@ public class SecurityConfiguration {
 
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
             "/api/review/**",
-            "/api/grooming/**"};
+            "/api/grooming/**",
+            "/api-docs",
+            "/v2/api-docs",
+            "/v3/api-docs",
+            "/v3/api-docs/**",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui/**",
+            "/webjars/**",
+            "/swagger-ui.html",
+            "/api-docs/swagger-config"};
+
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final ApplicationConfig applicationConfig;
 
