@@ -5,6 +5,9 @@ import com.ait.grooming.service.auth.JwtTokenProvider;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
+@Tag(name = "Auth API", description = "Operations for authentication & registration user")
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
@@ -27,6 +31,7 @@ public class AuthenticationController {
     private final UserService userService;
 
     @PostMapping("/login")
+    @Operation(description = "Login")
     public ResponseEntity<AuthenticationResponse> authenticationManager(@Valid @RequestBody AuthenticationRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -43,6 +48,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
+    @Operation(description = "Register new User")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         if (userService.register(request)) {
             return authenticationManager(new AuthenticationRequest(request.getEmail(), request.getPassword()));

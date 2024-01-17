@@ -25,8 +25,8 @@ public class PetService {
                 Breed breedById = breedRepository.findById(requestDto.getBreed().getId())
                         .orElseThrow(() -> new NotFoundException("Breed with id " + requestDto.getBreed().getId() + " not found!"));
 
-                User userById = userRepository.findById(requestDto.getOwner().getId())
-                        .orElseThrow(() -> new NotFoundException("User with id " + requestDto.getOwner().getId() + " not found!"));
+                User userById = userRepository.findByEmail(requestDto.getOwnerEmail())
+                        .orElseThrow(() -> new NotFoundException("User with email " + requestDto.getOwnerEmail() + " not found!"));
 
 
 
