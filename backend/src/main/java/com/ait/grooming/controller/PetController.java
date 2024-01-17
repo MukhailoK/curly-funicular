@@ -1,6 +1,6 @@
 package com.ait.grooming.controller;
 
-import com.ait.grooming.dto.pet.PetRequestDto;
+import com.ait.grooming.utils.request.PetRequestDto;
 import com.ait.grooming.service.PetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -68,6 +68,7 @@ public class UserService {
     }
 
     public ResponseEntity<List<UserDto>> getAll(){
+
         return ResponseEntity.ok(allToUserDtos(userRepository.findAll()));
     }
 }

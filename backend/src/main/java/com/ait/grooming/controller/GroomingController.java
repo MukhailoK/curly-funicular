@@ -1,7 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.grooming.GroomingDto;
-import com.ait.grooming.dto.grooming.GroomingRequestDto;
+import com.ait.grooming.utils.request.GroomingRequestDto;
 import com.ait.grooming.service.GroomingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

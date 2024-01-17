@@ -1,7 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.grooming.GroomingDto;
-import com.ait.grooming.dto.grooming.GroomingRequestDto;
+import com.ait.grooming.utils.request.GroomingRequestDto;
 
 import com.ait.grooming.model.Grooming;
 import com.ait.grooming.repository.GroomingRepository;

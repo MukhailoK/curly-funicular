@@ -1,7 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.appointment.AppointmentDto;
-import com.ait.grooming.dto.appointment.AppointmentRequest;
+import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.service.AppointmentService;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;

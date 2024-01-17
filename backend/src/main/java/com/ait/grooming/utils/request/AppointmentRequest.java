@@ -1,4 +1,4 @@
-package com.ait.grooming.dto.appointment;
+package com.ait.grooming.utils.request;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

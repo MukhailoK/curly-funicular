@@ -1,6 +1,6 @@
 package com.ait.grooming.service;
 
-import com.ait.grooming.dto.pet.PetRequestDto;
+import com.ait.grooming.utils.request.PetRequestDto;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.model.Pet;
 import com.ait.grooming.model.User;

@@ -1,7 +1,7 @@
 //package com.ait.grooming.controller;
 //
 //import com.ait.grooming.dto.review.ReviewDto;
-//import com.ait.grooming.dto.review.ReviewRequest;
+//import com.ait.grooming.utils.request.ReviewRequest;
 //import com.ait.grooming.service.ReviewService;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.http.ResponseEntity;

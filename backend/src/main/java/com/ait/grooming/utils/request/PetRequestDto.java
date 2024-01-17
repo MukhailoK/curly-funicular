@@ -1,4 +1,4 @@
-package com.ait.grooming.dto.pet;
+package com.ait.grooming.utils.request;
 
 import com.ait.grooming.model.Breed;
 

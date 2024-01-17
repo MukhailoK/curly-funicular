@@ -1,7 +1,7 @@
 //package com.ait.grooming.service;
 //
 //import com.ait.grooming.dto.review.ReviewDto;
-//import com.ait.grooming.dto.review.ReviewRequest;
+//import com.ait.grooming.utils.request.ReviewRequest;
 //import com.ait.grooming.model.Appointment;
 //import com.ait.grooming.model.Review;
 //import com.ait.grooming.repository.AppointmentRepository;

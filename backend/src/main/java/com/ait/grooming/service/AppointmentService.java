@@ -1,7 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.appointment.AppointmentDto;
-import com.ait.grooming.dto.appointment.AppointmentRequest;
+import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import lombok.Data;
