@@ -11,7 +11,7 @@ public class PetMapper {
         PetDto petDto = new PetDto();
         petDto.setName(pet.getName());
         petDto.setOwnerName(pet.getOwner().getName());
-        petDto.setType(pet.getType().name());
+//        petDto.setType(pet.getType().name());
         petDto.setBreed(pet.getBreed().getName());
 //        petDto.setPhotoUrl(pet.getPhotoUrl());
         petDto.setSpecialNotes(pet.getSpecial_notes());

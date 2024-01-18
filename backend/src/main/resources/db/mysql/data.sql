@@ -57,12 +57,12 @@ VALUES ('Labrador'),
        ('ShetlandSheepdog'),
        ('SaintBernard');
 
-INSERT INTO pets (name, owner_id, pet_type, breed_id, special_notes)
-VALUES ('Joy', 3, 'DOG', 1, 'Likes to play with toys'),
-       ('Joschy', 3, 'DOG', 2, 'Enjoys long walks'),
-       ('Fluffy', 4, 'DOG', 1,  'Likes to play with toys'),
-       ('Buddy', 5, 'DOG', 2,  'Enjoys long walks'),
-      ('Mittens', 6, 'DOG', 3,  'Loves to nap in the sun');
+INSERT INTO pets (name, owner_id, breed_id, special_notes)
+VALUES ('Joy', 3,  1, 'Likes to play with toys'),
+       ('Joschy', 3,  2, 'Enjoys long walks'),
+       ('Fluffy', 4,  1,  'Likes to play with toys'),
+       ('Buddy', 5,  2,  'Enjoys long walks'),
+      ('Mittens', 6,  3,  'Loves to nap in the sun');
 
 INSERT INTO grooming_services (name, size, description, price, duration_procedure)
  VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',

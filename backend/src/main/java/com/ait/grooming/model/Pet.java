@@ -10,9 +10,9 @@ import lombok.ToString;
 @Data
 @ToString(exclude = "owner")
 public class Pet {
-    public enum  PetType {
-       DOG, CAT
-    }
+//    public enum  PetType {
+//       DOG, CAT
+//    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,9 +22,9 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
-    @Column(name="pet_type", nullable = false)
-    @Enumerated(value = EnumType.STRING)
-    private PetType type;
+//    @Column(name="pet_type", nullable = false)
+//    @Enumerated(value = EnumType.STRING)
+//    private PetType type;
     @ManyToOne
     @JoinColumn(name = "breed_id")
     private Breed breed;
