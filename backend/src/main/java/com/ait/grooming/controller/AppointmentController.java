@@ -18,7 +18,7 @@ public class AppointmentController {
         return appointmentService.getAll();
     }
 
-    @PostMapping("/new")
+    @PostMapping
     public AppointmentDto create(@RequestBody AppointmentRequest appointmentRequest) {
         System.out.println(appointmentRequest);
         return appointmentService.create(appointmentRequest);

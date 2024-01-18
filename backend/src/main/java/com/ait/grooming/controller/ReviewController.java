@@ -26,7 +26,7 @@
 //        return reviewService.getByRating(rating);
 //    }
 //
-//    @PostMapping("/new")
+//    @PostMapping
 //    public ResponseEntity<ReviewDto> create(@RequestBody ReviewRequest request) {
 //        return reviewService.create(request);
 //    }

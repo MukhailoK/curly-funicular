@@ -16,7 +16,7 @@ public class PetController {
 
     private final PetService petService;
 
-    @PostMapping("/new")
+    @PostMapping
     public ResponseEntity<?> createPet(@RequestBody PetRequest requestDto, Principal connectedUser) {
        return petService.createPet(requestDto, connectedUser);
     }

@@ -25,7 +25,7 @@ public class GroomingController {
         return groomingService.getById(id);
     }
 
-    @PostMapping("/new")
+    @PostMapping
     public boolean create(@RequestBody GroomingRequestDto request) {
 
         return groomingService.create(request);
