@@ -22,8 +22,8 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
-    @Column(name="pet_type", nullable = false)
-    @Enumerated(value = EnumType.STRING)
+//    @Column(name="pet_type", nullable = false)
+//    @Enumerated(value = EnumType.STRING)
 //    private PetType type;
     @ManyToOne
     @JoinColumn(name = "breed_id")
