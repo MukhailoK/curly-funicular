@@ -1,6 +1,7 @@
 package com.ait.grooming.controller.exception;
 
 import com.ait.grooming.service.exceptions.*;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.mail.MessagingException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -101,6 +102,12 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handlerPasswordNotSameException(PasswordNotSameException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ExpiredJwtException.class)
+    @ResponseStatus(HttpStatus.GATEWAY_TIMEOUT)
+    public ResponseEntity<String> handlerExpiredJwtException(InvalidJwtException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.GATEWAY_TIMEOUT);
     }
 
 }

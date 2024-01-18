@@ -11,9 +11,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.ait.grooming.model.Role.*;
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.PATCH;
+import static com.ait.grooming.model.Role.ADMIN;
+import static com.ait.grooming.model.Role.CLIENT;
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +23,8 @@ public class SecurityConfiguration {
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
             "/api/review/**",
             "/api/grooming/**",
+            "/api/pets/breeds",
+            "/api/pets/types",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
@@ -36,6 +37,14 @@ public class SecurityConfiguration {
             "/swagger-ui.html",
             "/api-docs/swagger-config"};
 
+    private static final String[] SECURED_LIST_URL = {
+            "/api/v1/users/**",
+            "/api/employee/**",
+            "/api-client/**",
+            "/api/appointment/**",
+            "/api/pets/new",
+            "/api/pets/findByName/**"
+    };
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final ApplicationConfig applicationConfig;
 
@@ -47,16 +56,12 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers(PATCH, "/api/v1/users/**").hasAnyAuthority(CLIENT.name(), ADMIN.name())
-                                .requestMatchers("/api/employee/**").hasAnyAuthority(ADMIN.name())
-                                .requestMatchers("/api-client/**").hasAnyAuthority(CLIENT.name(), ADMIN.name(), MASTER.name())
-                                .requestMatchers(GET, "/api-client/**").hasAnyRole(CLIENT.name())
+                                .requestMatchers(SECURED_LIST_URL).hasAnyAuthority(ADMIN.name(), CLIENT.name())
                                 .anyRequest()
                                 .authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 }
