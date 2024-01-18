@@ -105,9 +105,9 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ExpiredJwtException.class)
-    @ResponseStatus(HttpStatus.GATEWAY_TIMEOUT)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<String> handlerExpiredJwtException(InvalidJwtException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.GATEWAY_TIMEOUT);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 
 }
