@@ -19,20 +19,21 @@ public class UserMapper {
 
 
 
-    public static UserDto toUserDto(User employee) {
+    public static UserDto toUserDto(User user) {
         UserDto userDto = new UserDto();
-        userDto.setName(employee.getName());
-        userDto.setLastName(employee.getLastName());
-        userDto.setEmail(employee.getEmail());
-        userDto.setPhone(employee.getPhone());
-        userDto.setRegistrationDate(employee.getRegistrationDate());
-        userDto.setRole(employee.getRole());
-        userDto.setPets(allToPetDto(employee.getPets()));
+        userDto.setName(user.getName());
+        userDto.setLastName(user.getLastName());
+        userDto.setEmail(user.getEmail());
+        userDto.setPhone(user.getPhone());
+        userDto.setRegistrationDate(user.getRegistrationDate());
+        userDto.setRole(user.getRole());
+        userDto.setUserName(user.getUserName());
+        userDto.setPets(allToPetDto(user.getPets()));
         return userDto;
     }
 
-    public static List<UserDto> allToUserDtos(List<User> employees) {
-        return employees.stream().map(UserMapper::toUserDto).toList();
+    public static List<UserDto> allToUserDtos(List<User> users) {
+        return users.stream().map(UserMapper::toUserDto).toList();
     }
 }
 

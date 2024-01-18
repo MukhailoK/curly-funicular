@@ -28,27 +28,27 @@ public class User implements UserDetails {
     private String name;
     @Column(name = "lastname", length = 20)
     private String lastName;
-    @Column(name = "username", length = 20)
+    @Column(name = "username", unique = true, length = 20)
     private String userName;
     @Column(name = "password")
     private String password;
     @Column(name = "email", unique = true, length = 20, nullable = false)
     private String email;
-    @Column(name = "phone", length = 20)
+    @Column(name = "phone", length = 20, nullable = false)
     private String phone;
     @Column(name = "address")
     private String address;
     @Column(name = "registration_date")
     private LocalDate registrationDate;
-    @Column(nullable = false)
+    @Column
     @Enumerated(EnumType.STRING)
     private Role role;
-//    @Column(name = "is_blocked")
+    //    @Column(name = "is_blocked")
 //    private boolean isBlocked;
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "discount_id")
 //    private Discount discount;
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Pet> pets;
 
     @Override
@@ -59,6 +59,10 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     @Override

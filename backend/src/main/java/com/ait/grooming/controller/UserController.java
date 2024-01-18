@@ -29,9 +29,17 @@ public class UserController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<UserDto>> getAll(){
+    public ResponseEntity<List<UserDto>> getAll() {
         return service.getAll();
     }
 
+    @GetMapping("/user-info")
+    public ResponseEntity<UserDto> getUserInfo(Principal connectedUser) {
+        return service.getUserByPrincipalName(connectedUser.getName());
+    }
 
+    @DeleteMapping
+    public ResponseEntity<?> delete(Principal connectedUser) {
+        return service.delete(connectedUser);
+    }
 }
