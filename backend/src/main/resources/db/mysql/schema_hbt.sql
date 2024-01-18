@@ -45,7 +45,6 @@ create table pets
     owner_id      integer,
     name          varchar(20)        not null,
     special_notes varchar(255),
-    pet_type      enum ('DOG','CAT') not null,
     primary key (id)
 ) engine = InnoDB;
 
