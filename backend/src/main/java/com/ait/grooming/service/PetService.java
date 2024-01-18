@@ -39,7 +39,7 @@ public class PetService {
             pet.setName(requestDto.getName());
             //  pet.setOwner(requestDto.getOwner());
             pet.setOwner(userById);
-            pet.setType(Pet.PetType.valueOf(requestDto.getType().toUpperCase()));
+//            pet.setType(Pet.PetType.valueOf(requestDto.getType().toUpperCase()));
             //  pet.setBreed(requestDto.getBreed());
             pet.setBreed(breedById);
             //   pet.setPhotoUrl(requestDto.getPhotoUrl());
@@ -73,8 +73,8 @@ public class PetService {
         return ResponseEntity.ok(toPetDto(pet));
     }
 
-    public ResponseEntity<?> getAllTypes() {
-        List<String> petTypes = List.of(Arrays.toString(Pet.PetType.values()));
-        return ResponseEntity.ok(petTypes.stream().map(String::toLowerCase));
-    }
+//    public ResponseEntity<?> getAllTypes() {
+//        List<String> petTypes = List.of(Arrays.toString(Pet.PetType.values()));
+//        return ResponseEntity.ok(petTypes.stream().map(String::toLowerCase));
+//    }
 }

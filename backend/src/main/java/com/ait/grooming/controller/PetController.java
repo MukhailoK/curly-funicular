@@ -26,10 +26,10 @@ public class PetController {
         return petService.getAllBreed();
     }
 
-    @GetMapping("/types")
-    public ResponseEntity<?> getAllTypes(){
-        return petService.getAllTypes();
-    }
+//    @GetMapping("/types")
+//    public ResponseEntity<?> getAllTypes(){
+//        return petService.getAllTypes();
+//    }
     @GetMapping("/findByName/{petName}")
     public ResponseEntity<?> getPetByName(@PathVariable String petName, Principal connectedUser){
         return petService.findByPetName(petName, connectedUser);
