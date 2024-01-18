@@ -56,6 +56,9 @@ public class UserService {
             user.setName(request.getName());
             user.setLastName(request.getLastname());
             user.setEmail(request.getEmail());
+            user.setPhone(request.getPhone());
+            user.setUserName(request.getUserName());
+            user.setAddress(request.getAddress());
             user.setPassword(passwordEncoder.encode(request.getPassword()));
             user.setRole(Role.CLIENT);
             user.setRegistrationDate(LocalDate.now());

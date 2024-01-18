@@ -6,7 +6,6 @@ import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -55,5 +54,4 @@ public class AuthenticationController {
         }
         return ResponseEntity.badRequest().build();
     }
-
 }

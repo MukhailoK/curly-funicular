@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="refactoring packages">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/PetRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/PetRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "swagger",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/Subs_Checker/curly-funicular/backend/src/main/java/com/ait/grooming/config",
@@ -358,7 +351,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705445614623</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="configure swagger and change petsDto">
+      <option name="closed" value="true" />
+      <created>1705519904719</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705519904719</updated>
+    </task>
+    <task id="LOCAL-00025" summary="configure swagger and change petsDto">
+      <option name="closed" value="true" />
+      <created>1705520008089</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1705520008089</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +418,8 @@
     <MESSAGE value="update to last db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="create endpoint for registration new user" />
-    <option name="LAST_COMMIT_MESSAGE" value="create endpoint for registration new user" />
+    <MESSAGE value="configure swagger and change petsDto" />
+    <option name="LAST_COMMIT_MESSAGE" value="configure swagger and change petsDto" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
