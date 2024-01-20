@@ -27,6 +27,7 @@ public class SecurityConfiguration {
             "/api/pets/types",
             "/api/appointment/**",
             "/api/booking/**",
+
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",

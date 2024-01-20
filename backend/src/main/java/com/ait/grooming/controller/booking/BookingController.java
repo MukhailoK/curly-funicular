@@ -40,25 +40,21 @@ public class BookingController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(dtos);
-
-
     }
-
-    @GetMapping("/")
-    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
-        LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = LocalDateTime.MAX;
-
-        Map<LocalDate, Map<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
-        // Преобразование Map в список DTO с сортировкой временных слотов
-        List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
-                .map(entry -> {
-                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
-                })
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(dtos);
-    }
-
+//    @GetMapping
+//    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
+//        LocalDateTime start = LocalDateTime.now();
+//        LocalDateTime end = LocalDateTime.MAX;
+//
+//        Map<LocalDate, Map<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
+//        // Преобразование Map в список DTO с сортировкой временных слотов
+//        List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
+//                .map(entry -> {
+//                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
+//                })
+//                .collect(Collectors.toList());
+//
+//        return ResponseEntity.ok(dtos);
+//    }
 }
 

@@ -39,6 +39,3 @@ import java.util.stream.Collectors;
             return timeSlots.values().stream().anyMatch(value -> value == null);
         }
     }
-
-
-
