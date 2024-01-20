@@ -2,9 +2,12 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.service.UserService;
+import com.ait.grooming.utils.AuthHelper;
 import com.ait.grooming.utils.request.ChangePasswordRequest;
+import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,14 +21,15 @@ import java.util.List;
 public class UserController {
 
     private final UserService service;
+    private final AuthHelper helper;
 
     @PatchMapping
-    public ResponseEntity<?> changePassword(
+    public ResponseEntity<AuthenticationResponse> changePassword(
             @RequestBody ChangePasswordRequest request,
             Principal connectedUser
     ) {
-
-        return service.changePassword(request, connectedUser);
+        service.changePassword(request, connectedUser);
+        return new ResponseEntity<>(helper.generateAuthResponse(connectedUser.getName(), request.getNewPassword()), HttpStatus.OK);
     }
 
     @GetMapping("/all")

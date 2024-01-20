@@ -1,5 +1,6 @@
 package com.ait.grooming.service;
 
+import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.model.Pet;
 import com.ait.grooming.model.User;
@@ -14,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.ait.grooming.utils.maper.pet.PetMapper.toPetDto;
@@ -27,7 +27,7 @@ public class PetService {
     private final BreedRepository breedRepository;
     private final UserRepository userRepository;
 
-    public ResponseEntity<?> createPet(PetRequest requestDto, Principal connectedUser) {
+    public ResponseEntity<PetDto> createPet(PetRequest requestDto, Principal connectedUser) {
         if (!petRepository.existsByName(requestDto.getName())) {
             Breed breedById = breedRepository.findById(requestDto.getBreedId())
                     .orElseThrow(() -> new NotFoundException("Breed with id " + requestDto.getBreedId() + " not found!"));
@@ -37,13 +37,13 @@ public class PetService {
 
             Pet pet = new Pet();
             pet.setName(requestDto.getName());
-            //  pet.setOwner(requestDto.getOwner());
             pet.setOwner(userById);
+            pet.setBreed(breedById);
+            pet.setSpecial_notes(requestDto.getSpecialNotes());
+            //  pet.setOwner(requestDto.getOwner());
 //            pet.setType(Pet.PetType.valueOf(requestDto.getType().toUpperCase()));
             //  pet.setBreed(requestDto.getBreed());
-            pet.setBreed(breedById);
             //   pet.setPhotoUrl(requestDto.getPhotoUrl());
-            pet.setSpecial_notes(requestDto.getSpecialNotes());
             petRepository.save(pet);
             return ResponseEntity.ok(toPetDto(pet));
 
@@ -51,7 +51,7 @@ public class PetService {
         throw new IsAlreadyExistException("Pet is already exist");
     }
 
-    public ResponseEntity<?> getAllBreed() {
+    public ResponseEntity<List<Breed>> getAllBreed() {
         List<Breed> breeds = breedRepository.findAll();
         if (breeds.isEmpty()) {
             throw new NotFoundException("Breeds not found");
@@ -60,7 +60,7 @@ public class PetService {
 
     }
 
-    public ResponseEntity<?> findByPetName(String petName, Principal connectedUser) {
+    public ResponseEntity<PetDto> findByPetName(String petName, Principal connectedUser) {
         User owner = userRepository.findByEmail(connectedUser.getName())
                 .orElseThrow(() -> new NotFoundException("User not found"));
         List<Pet> pets = petRepository

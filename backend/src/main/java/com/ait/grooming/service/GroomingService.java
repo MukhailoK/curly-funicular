@@ -1,12 +1,14 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.grooming.GroomingDto;
-import com.ait.grooming.utils.request.GroomingRequestDto;
-
 import com.ait.grooming.model.Grooming;
 import com.ait.grooming.repository.GroomingRepository;
-
+import com.ait.grooming.service.exceptions.IsAlreadyExistException;
+import com.ait.grooming.service.exceptions.NotFoundException;
+import com.ait.grooming.utils.request.GroomingRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,15 +22,23 @@ public class GroomingService {
 
     private final GroomingRepository groomingRepository;
 
-    public List<GroomingDto> getAll() {
-        return allToGroomingDto(groomingRepository.findAll());
+    public ResponseEntity<List<GroomingDto>> getAll() {
+        List<Grooming> groomings = (groomingRepository.findAll());
+        if (groomings.isEmpty()) {
+            throw new NotFoundException("Groomings not found");
+        }
+
+        return new ResponseEntity<>(allToGroomingDto(groomings), HttpStatus.OK);
     }
 
-    public GroomingDto getById(Integer id) {
-        return toGroomingDto(groomingRepository.getReferenceById(id));
+    public ResponseEntity<GroomingDto> getById(Integer id) {
+        Grooming grooming = groomingRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Grooming service with id " + id + " not found"));
+
+        return new ResponseEntity<>(toGroomingDto(grooming), HttpStatus.OK);
     }
 
-    public boolean create(GroomingRequestDto request) {
+    public ResponseEntity<GroomingDto> create(GroomingRequestDto request) {
         Grooming grooming = new Grooming();
         grooming.setName(request.getName());
         grooming.setSize(request.getSize());
@@ -38,11 +48,11 @@ public class GroomingService {
         if (!groomingRepository.existsByName(grooming.getName())) {
             try {
                 groomingRepository.save(grooming);
-                return true;
+                return new ResponseEntity<>(toGroomingDto(grooming), HttpStatus.CREATED);
             } catch (Exception e) {
-                e.printStackTrace();
+                throw new IllegalArgumentException();
             }
         }
-        return false;
+        throw new IsAlreadyExistException("Grooming service is already exist");
     }
 }

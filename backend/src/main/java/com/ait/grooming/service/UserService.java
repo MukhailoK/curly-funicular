@@ -1,5 +1,6 @@
 package com.ait.grooming.service;
 
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Role;
 import com.ait.grooming.model.User;
@@ -14,6 +15,7 @@ import com.ait.grooming.utils.request.ChangePasswordRequest;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,7 +38,7 @@ public class UserService {
     private final PetRepository petRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public ResponseEntity<String> changePassword(ChangePasswordRequest request, Principal connectedUser) {
+    public ResponseEntity<Response> changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         log.info("principal: " + ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal());
         // check if the current password is correct
@@ -53,18 +55,18 @@ public class UserService {
 
         // save the new password
         userRepository.save(user);
-        return ResponseEntity.ok("Password changed");
+        return ResponseEntity.ok(new Response("Password changed"));
     }
 
-    public ResponseEntity<?> delete(Principal connectedUser) {
+    public ResponseEntity<Response> delete(Principal connectedUser) {
         User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow();
         userRepository.deleteAppointmentsByUserId(user.getId());
         userRepository.deletePetsByUserId(user.getId());
         userRepository.deleteByUserId(user.getId());
         if (userRepository.findByEmail(user.getEmail()).isEmpty()) {
-            return ResponseEntity.ok().build();
+            return new  ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
         } else
-            return ResponseEntity.badRequest().build();
+           throw new NotFoundException("User not found");
     }
 
     public boolean register(RegisterRequest request) {
