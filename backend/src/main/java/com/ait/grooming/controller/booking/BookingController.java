@@ -27,34 +27,34 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @GetMapping("/available-slots")
-    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlots1(
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
-        // Map<LocalDate, Map<Integer, Long>>
-        Map<LocalDate, Map<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
-
-        // Преобразование Map в список DTO
-        List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
-                .map(entry -> new AvailableTimeSlotDto(entry.getKey(), entry.getValue()))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(dtos);
-    }
-//    @GetMapping
-//    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
-//        LocalDateTime start = LocalDateTime.now();
-//        LocalDateTime end = LocalDateTime.MAX;
-//
+//    @GetMapping("/available-slots")
+//    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlots1(
+//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
+//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
+//        // Map<LocalDate, Map<Integer, Long>>
 //        Map<LocalDate, Map<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
-//        // Преобразование Map в список DTO с сортировкой временных слотов
+//
+//        // Преобразование Map в список DTO
 //        List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
-//                .map(entry -> {
-//                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
-//                })
+//                .map(entry -> new AvailableTimeSlotDto(entry.getKey(), entry.getValue()))
 //                .collect(Collectors.toList());
 //
 //        return ResponseEntity.ok(dtos);
 //    }
+    @GetMapping
+    public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
+        LocalDateTime start = LocalDateTime.now();
+        LocalDateTime end = LocalDateTime.MAX;
+
+        Map<LocalDate, Map<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
+        // Преобразование Map в список DTO с сортировкой временных слотов
+        List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
+                .map(entry -> {
+                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
+                })
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(dtos);
+    }
 }
 
