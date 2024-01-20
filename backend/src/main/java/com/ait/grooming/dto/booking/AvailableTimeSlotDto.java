@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Data
@@ -20,19 +18,13 @@ import java.util.stream.Collectors;
     private boolean isFree;
     //ключ время (10, 12, 14, 16)
     // значение - идентификатор визита (Appointment_ID) или null, если слот свободен
-   // private Map<Integer, Long> timeSlots;
-    private Map<Integer, Integer> timeSlots;
+   // private TreeMap<Integer, Long> timeSlots;
+    private TreeMap<Integer, Integer> timeSlots;
 
-    public AvailableTimeSlotDto(LocalDate date, Map<Integer, Integer> timeSlots) {
+    public AvailableTimeSlotDto(LocalDate date, TreeMap<Integer, Integer> timeSlots) {
         this.date = date;
-        this.timeSlots = timeSlots;//sortTimeSlots(timeSlots);
+        this.timeSlots = timeSlots;
         this.isFree = calculateIsFree();
-    }
-
-    private Map<Integer, Long> sortTimeSlots(Map<Integer, Long> unsortedTimeSlots) {
-       return unsortedTimeSlots.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     private boolean calculateIsFree() {
