@@ -28,7 +28,7 @@ public class BookingController {
     public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlots1(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
-        // Map<LocalDate, Map<Integer, Long>>
+
         Map<LocalDate, TreeMap<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
 
         // Преобразование Map в список DTO
