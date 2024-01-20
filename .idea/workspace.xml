@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="configure examples for AuthController &amp; UserController.changePassword">
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="update petController &#10;createPet request&#10;&#10;add getAllBreeds(), getAllTypes, getPetByName()  methods">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/booking/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +62,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "configure-swagger",
+    "git-widget-placeholder": "features/calendar",
+
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/Users/kolot/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar",
