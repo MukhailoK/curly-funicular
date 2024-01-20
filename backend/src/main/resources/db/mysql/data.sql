@@ -57,12 +57,18 @@ VALUES ('Labrador'),
        ('ShetlandSheepdog'),
        ('SaintBernard');
 
+ALTER TABLE appointments
+    AUTO_INCREMENT = 1;
 INSERT INTO pets (name, owner_id, breed_id, special_notes)
-VALUES ('Joy', 3,  1, 'Likes to play with toys'),
-       ('Joschy', 3,  2, 'Enjoys long walks'),
-       ('Fluffy', 4,  1,  'Likes to play with toys'),
-       ('Buddy', 5,  2,  'Enjoys long walks'),
-      ('Mittens', 6,  3,  'Loves to nap in the sun');
+VALUES ('Joy', 1, 1, 'Likes to play with toys'),
+       ('Joschy', 1, 2, 'Enjoys long walks'),
+       ('Fluffy', 2, 1, 'Likes to play with toys'),
+       ('Buddy', 2, 2, 'Enjoys long walks'),
+       ('Mittens', 3, 3, 'Loves to nap in the sun'),
+       ('Max', 4, 2,  'Enjoys long walks'),
+       ('Tuzik', 5,  1, 'Likes to play with toys'),
+       ('Bobik', 5, 2, 'Enjoys long walks'),
+       ('Scharik', 6,  3, 'Loves to nap in the sun');
 
 INSERT INTO grooming_services (name, size, description, price, duration_procedure)
  VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
@@ -95,8 +101,12 @@ INSERT INTO grooming_services (name, size, description, price, duration_procedur
          209.00, '02:00:00');
 
  INSERT INTO appointments (client_id, service_id, pet_id, date_time_start, date_time_end, status)
- VALUES (3, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
-        (4, 2, 2, '2023-12-10T11:30:00', '2023-12-10T12:30:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
-        (5, 1, 3, '2023-12-11T14:00:00', '2023-12-11T15:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
-        (6, 2, 4, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
-        (7, 3, 5, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled');
+ VALUES (1,  1, 1, '2024-02-02T10:00:00', '2024-02-02T12:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
+        (1,  2, 2, '2024-02-02T12:00:00', '2024-02-02T14:00:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
+        (2,  1, 3, '2024-02-02T14:00:00', '2024-02-02T16:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
+        (2,  2, 4, '2024-02-02T16:00:00', '2024-02-02T18:00:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
+        (3, 3, 5, '2024-02-05T10:00:00', '2024-02-02T12:00:00', 'scheduled'),-- клиет 3, мастер 1, собака 5
+        (1,  1, 1, '2024-02-05T12:00:00', '2024-02-02T14:00:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
+        (1,  2, 2, '2024-02-06T14:00:00', '2024-02-02T16:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
+        (2,  2, 2, '2024-02-06T16:00:00', '2024-02-02T18:00:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
+        (2,  2, 5, '2024-02-07T10:00:00', '2024-02-02T12:00:00', 'scheduled');-- клиет 3, мастер 1, собака 5
