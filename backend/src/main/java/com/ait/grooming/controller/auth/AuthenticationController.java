@@ -6,7 +6,6 @@ import com.ait.grooming.utils.AuthHelper;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -28,7 +27,7 @@ public class AuthenticationController {
     private final AuthHelper helper;
 
     @PostMapping("/login")
-    @ApiOperation(value = "Authenticate user", notes = "Authenticate user with email and password")
+    @Operation(description = "Authenticate user")
     public ResponseEntity<AuthenticationResponse> authenticationManager(
             @Valid @RequestBody AuthenticationRequest authRequest) {
         return new ResponseEntity<>(

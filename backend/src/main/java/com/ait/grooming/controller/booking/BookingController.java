@@ -24,6 +24,7 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+
     @GetMapping("/available-slots")
     public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlots1(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
@@ -38,12 +39,16 @@ public class BookingController {
 
         return ResponseEntity.ok(dtos);
     }
+
+
     @GetMapping
     public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.MAX;
 
+
         Map<LocalDate, TreeMap<Integer, Integer>> availableSlots = bookingService.analyzeAppointmentsByDay(start, end);
+
         // Преобразование Map в список DTO с сортировкой временных слотов
         List<AvailableTimeSlotDto> dtos = availableSlots.entrySet().stream()
                 .map(entry -> {
