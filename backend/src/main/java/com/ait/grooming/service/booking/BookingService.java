@@ -9,10 +9,7 @@ import com.ait.grooming.repository.BookingRepository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,7 +22,7 @@ public class BookingService {
         public List<BookingDto> getAppointmentsByTimeInterval(LocalDateTime start, LocalDateTime end) {
            if (start.isBefore(LocalDateTime.now())) //LocalDateTime.now()+1
            {
-            //   LocalDateTime.now();
+              LocalDateTime.now();
                // Выбрасываем исключение так как время планируемого визита не может быть раньше текущего
              //  throw new IllegalArgumentException("Неверное значение времени начала");
            }
@@ -51,7 +48,7 @@ public class BookingService {
 
     // Метод для анализа Appointments  и формирования коллекции веменных слотов
     //Todo сделать полноценный метод для следующего релиза по новый фронт
-    public Map<LocalDate, Map<Integer, Integer>> analyzeAppointmentsByDay(LocalDateTime start, LocalDateTime end) {
+    public Map<LocalDate, TreeMap<Integer, Integer>> analyzeAppointmentsByDay(LocalDateTime start, LocalDateTime end) {
 
         if (start.isBefore(LocalDateTime.now())) //LocalDateTime.now()+1
         {
@@ -65,14 +62,14 @@ public class BookingService {
       //  List<Appointment> appointments = bookingRepository.findByDateTimeStartBetween(start, end);
         List<Appointment> appointments = bookingRepository.findAll();
         // Создание коллекции для хранения данных
-            Map<LocalDate, Map<Integer, Integer>> result = new HashMap<>();
+            Map<LocalDate, TreeMap<Integer, Integer>> result = new HashMap<>();
         // Проход по всем визитам и анализ времени
         for (Appointment appointment : appointments) {
             LocalDate date = appointment.getDateTimeStart().toLocalDate();
             int hour = appointment.getDateTimeStart().getHour();
 
             // Инициализация внутренней мапы для даты, если ее еще нет
-            result.putIfAbsent(date, new HashMap<>());
+            result.putIfAbsent(date, new TreeMap<>());
             //TODO анализ на статус для следующего релиза
             // Добавление данных в мапу
             result.get(date).put(hour, appointment.getId());
