@@ -28,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="petController" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,9 +63,10 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "features/calendar",
+
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/backend/src/main/java/com/ait/grooming/config",
+    "last_opened_file_path": "C:/Users/kolot/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -417,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705581714544</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="configure examples for AuthController &amp; UserController.changePassword">
+      <option name="closed" value="true" />
+      <created>1705702652426</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705702652426</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add base repository" />
     <MESSAGE value="create data.sql&#10;need add role relations for client and employee" />
     <MESSAGE value="solve problem with start project&#10;need add role relations for client and employee" />
     <MESSAGE value="add react structure to project (client directory)" />
@@ -472,7 +480,8 @@
     <MESSAGE value="change RegisterRequest:&#10;add variables username, phone, address&#10;implement changes in the UserService" />
     <MESSAGE value="update user controller:&#10;add getAll(), getUserInfo, methods" />
     <MESSAGE value="update petController &#10;createPet request&#10;&#10;add getAllBreeds(), getAllTypes, getPetByName()  methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="update petController &#10;createPet request&#10;&#10;add getAllBreeds(), getAllTypes, getPetByName()  methods" />
+    <MESSAGE value="configure examples for AuthController &amp; UserController.changePassword" />
+    <option name="LAST_COMMIT_MESSAGE" value="configure examples for AuthController &amp; UserController.changePassword" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
