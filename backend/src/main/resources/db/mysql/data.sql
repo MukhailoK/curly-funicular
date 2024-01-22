@@ -15,7 +15,7 @@ VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOU
         'client2@example.com', '987654321', CURRENT_TIMESTAMP,
         'CLIENT',
         'userAddress2'),
-       ('Name3', 'LastName3', 'username3', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+       ('Name3', 'LastName3', 'username3', '$2a$10$vytP7ZHpIRRJx6HknSeTv.J/AIIZD3Hqk6.DtG2fOz6rk9vgNGJX6',
         'client3@example.com', '111223344', CURRENT_TIMESTAMP,
         'CLIENT',
         'userAddress3' ),

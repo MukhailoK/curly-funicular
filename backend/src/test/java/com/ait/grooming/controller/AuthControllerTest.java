@@ -9,6 +9,7 @@ import com.ait.grooming.repository.UserRepository;
 import com.ait.grooming.service.UserService;
 import com.ait.grooming.service.auth.JwtTokenProvider;
 import com.ait.grooming.service.exceptions.IsAlreadyExistException;
+import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -40,10 +40,6 @@ public class AuthControllerTest {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     @Autowired
     private UserService userService;
     @Autowired
@@ -57,10 +53,48 @@ public class AuthControllerTest {
     UserController userController;
 
     @Test
+    void testLogIn_Success() throws Exception {
+        AuthenticationRequest request = new AuthenticationRequest(
+                "client3@example.com", "password1"
+        );
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
+                        .post("/api/v1/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(request)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        String token = mvcResult.getResponse().getContentAsString()
+                .replaceAll("\"", "")
+                .replaceFirst("access_token:", "")
+                .replaceAll("\\{", "")
+                .replaceAll("\\}", "");
+
+        assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
+        assertTrue(tokenProvider.validateToken(token));
+        assertEquals(request.getEmail(), tokenProvider.getUserEmailFromJWT(token));
+    }
+
+    @Test
+    void testLogIn_Failed() throws Exception {
+        AuthenticationRequest request = new AuthenticationRequest(
+                "client3@example.com", "password2"
+        );
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
+                        .post("/api/v1/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(request)))
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andReturn();
+
+        assertEquals(HttpStatus.UNAUTHORIZED.value(), mvcResult.getResponse().getStatus());
+    }
+
+    @Test
     void testRegister_Success() throws Exception {
         RegisterRequest registerRequest = new RegisterRequest(
                 "John", "Doe",
-                "123456789","john.doe@example.com", "password123",
+                "123456789", "john.doe@example.com", "password123",
                 null);
         PetDto petDto = new PetDto("Lucky", registerRequest.getEmail(), breedRepository.findById(1).get().getName(), "can bite");
         registerRequest.setPet(List.of(petDto));
@@ -107,7 +141,7 @@ public class AuthControllerTest {
 
         RegisterRequest registerRequest = new RegisterRequest(
                 "John", "Doe",
-                "123456789","john.doe@example.com", "password123",
+                "123456789", "john.doe@example.com", "password123",
                 null);
 
         User existingUser = new User();
