@@ -86,6 +86,7 @@ public class UserService {
         userRepository.deleteById(user.getId());
     }
 
+    @Transactional
     public ResponseEntity<Response> delete(Principal connectedUser) {
         User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
         deleteById(user.getId());
@@ -103,8 +104,9 @@ public class UserService {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
             user.setRole(Role.CLIENT);
             user.setRegistrationDate(LocalDate.now());
-            user.getPets().addAll(petMapper.allToEntity(request.getPet()));
             userRepository.save(user);
+//            user.getPets().addAll(petMapper.allToEntity(request.getPet()));
+            petRepository.saveAll(petMapper.allToEntity(request.getPet()));
             return true;
         }
         throw new IsAlreadyExistException("user with this email is already exist");

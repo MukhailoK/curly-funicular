@@ -48,7 +48,10 @@ public class User implements UserDetails {
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "discount_id")
 //    private Discount discount;
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "owner",
+            cascade = CascadeType.REMOVE,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
     private List<Pet> pets;
 
     @Override
