@@ -95,8 +95,8 @@ VALUES ('Joy', 3, 'DOG', 1, 'joy.jpg', 'Likes to play with toys'),
 --
 --
 -- # FROM grooming_services;
--- # ALTER TABLE grooming_services
--- #     AUTO_INCREMENT = 1;
+#  ALTER TABLE grooming_services
+#      AUTO_INCREMENT = 1;
 -- -- Вставка данных о услугах грумминг сервисах
 INSERT INTO grooming_services (name, size, description, price, duration_procedure, active)
  VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
@@ -132,20 +132,20 @@ INSERT INTO grooming_services (name, size, description, price, duration_procedur
 --
 -- # DELETE
 -- # FROM appointments;
--- # ALTER TABLE appointments
--- #     AUTO_INCREMENT = 1;
+#  ALTER TABLE appointments
+#   AUTO_INCREMENT = 1;
  INSERT INTO appointments (client_id, service_id, pet_id, date_time_start, date_time_end, status)
- VALUES (3, 1, 1, '2023-12-10T10:00:00', '2023-12-10T11:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
-        (4, 2, 2, '2023-12-10T11:30:00', '2023-12-10T12:30:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
-        (5, 1, 3, '2023-12-11T14:00:00', '2023-12-11T15:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
-        (6, 2, 4, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
-        (7, 3, 5, '2023-12-11T15:30:00', '2023-12-11T16:30:00', 'scheduled');
+ VALUES (3, 1, 1, '2023-12-10T10:00:00', '2023-12-10T12:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
+        (4, 2, 2, '2023-12-10T12:00:00', '2023-12-10T14:00:00', 'scheduled'), -- клиент 1, мастер 2, собака 2
+        (5, 1, 3, '2023-12-11T10:00:00', '2023-12-11T12:00:00', 'scheduled'), -- клиент 2, мастер 1, собака 3
+        (6, 2, 4, '2023-12-11T12:00:00', '2023-12-11T14:00:00', 'scheduled'), -- клиент 2, мастер 2, собака 4
+        (7, 3, 5, '2023-12-11T16:00:00', '2023-12-11T18:00:00', 'scheduled');
 --  клиет 3, мастер 1, собака 5
 --
 -- # DELETE
 -- # FROM ratings;
--- # ALTER TABLE review
--- #     AUTO_INCREMENT = 1;
+#  ALTER TABLE review
+#    AUTO_INCREMENT = 1;
  INSERT INTO review  (rating, review)
  VALUES (4.5, 'Great service and friendly staff!'),
         (5.0, 'Excellent grooming, very satisfied!'),
