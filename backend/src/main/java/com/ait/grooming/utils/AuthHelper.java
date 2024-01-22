@@ -1,6 +1,7 @@
 package com.ait.grooming.utils;
 
 import com.ait.grooming.service.auth.JwtTokenProvider;
+import com.ait.grooming.service.exceptions.WrongPasswordException;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,15 +19,18 @@ public class AuthHelper {
 
 
     public AuthenticationResponse generateAuthResponse(String email, String password) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        email,
-                        password)
-        );
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            email,
+                            password)
+            );
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        String jwt = tokenProvider.createToken(email);
-        return new AuthenticationResponse(jwt);
+            String jwt = tokenProvider.createToken(email);
+            return new AuthenticationResponse(jwt);
+        } catch (Exception e) {
+            throw new WrongPasswordException("Email or Password is wrong");
+        }
     }
 }
