@@ -57,8 +57,6 @@ VALUES ('Labrador'),
        ('ShetlandSheepdog'),
        ('SaintBernard');
 
-ALTER TABLE appointments
-    AUTO_INCREMENT = 1;
 INSERT INTO pets (name, owner_id, breed_id, special_notes)
 VALUES ('Joy', 1, 1, 'Likes to play with toys'),
        ('Joschy', 1, 2, 'Enjoys long walks'),
@@ -71,34 +69,27 @@ VALUES ('Joy', 1, 1, 'Likes to play with toys'),
        ('Scharik', 6,  3, 'Loves to nap in the sun');
 
 INSERT INTO grooming_services (name, size, description, price, duration_procedure)
- VALUES ('SmallCare: XS', 'bis 2.5 kg (small breed)',
-         'Hunde bis 2.5kg mit kurzem Fell, wie z.B. Mops. Dogs up to 2.5kg with short coat, such as pugs.', 69.00,
-         '01:30:00'),
-       ('SmallCare: S', '2.5-8 kg (Zwergspitz, Pomeranian)',
-         'Kleine Rassen bis 2.5-8kg, z.B. Zwergspitz, Poms. Small breeds up to 2.5-8kg, e.g. Miniature Spitz, Poms.',
-        69.00, '01:30:00'),
-        ('SmallCare: M', '9-15 kg (medium breed)',
-         'Mittlere Rassen bis 8-15kg, z.B. Doodles.. Medium breeds up to 8-15kg, e.g. doodles....', 79.00, '01:30:00'),
-        ('SmallCare: L', 'ab 16 kg (large breed)',
-         'Große Rassen ab 16kg, z.B. Labrador, golden Retriever.. Large breeds from 16kg, e.g. Labrador, golden Retriever....',
-        119.00, '01:30:00'),
-        ('Completely: XS short', 'Bis 2.5 kg (short hair, Mops etc.)',
-         'Hunde bis 2.5kg mit kurzem Fell, wie z.B. Mops. Dogs up to 2.5kg with short coat, such as pugs.', 89.00,
-         '02:00:00'),
-        ('Completely: XS long', 'Bis 2.5kg (long hair)',
-         'Hunde bis 2.5kg mit längerem. voluminösem Fell wie York, Maltipoo etc. Dogs up to 2.5kg with short coat, such as pugs.',
-        99.00, '02:00:00'),
-        ('Completely: S', '2.5-8kg',
-         'Hunde, die zwischen 2.5-8kg wiegen, z.B. ZWERGSPITZ, POMERANIAN etc. Dogs weighing between 2.5-8kg, e.g. ZWERGSPITZ, POMERANIAN etc.',
-         109.00, '02:00:00'),
-        ('Completely: M', '9-15kg',
-         'Hunde mit 9-15 kg Gewicht (Doodles, Shepard etc.) Dogs weighing 9-15 kg (Doodles, Shepard etc.)', 125.00,
-        '02:00:00'),
-        ('Completely: L', '16-40kg', 'Große Rassen 16-40kg (z.B. Labrador) Large breeds 16-40kg (e...MORE', 189.00,
-         '02:00:00'),
-        ('Completely: XL', 'ab 40kg',
-         'XL Rassen ab 40kg. z.B. Chow Chow, Sennenhund, Neufundländer, American Akita, Königspudel.. XL breeds from 40kg. e.g. Chow Chow, Mountain Dog, Newfoundland, American Akita, Roya',
-         209.00, '02:00:00');
+VALUES
+    ('SmallCare: XS', 'up to 2.5 kg (small breed)',
+     'Dogs up to 2.5 kg with short coat, such as pugs.', 69.00, '01:30:00'),
+    ('SmallCare: S', '2.5-8 kg (Miniature Spitz, Pomeranian)',
+     'Small breeds from 2.5-8 kg, e.g. Miniature Spitz, Poms.', 69.00, '01:30:00'),
+    ('SmallCare: M', '9-15 kg (medium breed)',
+     'Medium breeds from 9-15 kg, e.g. Doodles.', 79.00, '01:30:00'),
+    ('SmallCare: L', '16 kg and above (large breed)',
+     'Large breeds from 16 kg, e.g. Labrador, Golden Retriever.', 119.00, '01:30:00'),
+    ('Completely: XS short', 'Up to 2.5 kg (short hair, Mops etc.)',
+     'Dogs up to 2.5 kg with short coat, such as pugs.', 89.00, '02:00:00'),
+    ('Completely: XS long', 'Up to 2.5 kg (long hair)',
+     'Dogs up to 2.5 kg with long and voluminous coat like York, Maltipoo etc.', 99.00, '02:00:00'),
+    ('Completely: S', '2.5-8 kg',
+     'Dogs weighing between 2.5-8 kg, e.g. Miniature Spitz, Pomeranian etc.', 109.00, '02:00:00'),
+    ('Completely: M', '9-15 kg',
+     'Dogs weighing 9-15 kg (Doodles, Shepherd etc.)', 125.00, '02:00:00'),
+    ('Completely: L', '16-40 kg',
+     'Large breeds weighing 16-40 kg (e.g. Labrador)', 189.00, '02:00:00'),
+    ('Completely: XL', '40 kg and above',
+     'XL breeds from 40 kg, e.g. Chow Chow, Mountain Dog, Newfoundland, American Akita, Royal Poodle.', 209.00, '02:00:00');
 
  INSERT INTO appointments (client_id, service_id, pet_id, date_time_start, date_time_end, status)
  VALUES (1,  1, 1, '2024-02-02T10:00:00', '2024-02-02T12:00:00', 'scheduled'), -- клиент 1, мастер 1, собака 1
