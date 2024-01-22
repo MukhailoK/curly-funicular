@@ -44,10 +44,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(IsAlreadyExistException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseEntity<Response> handlerIsAlreadyExistException(IsAlreadyExistException e) {
         Response response = new Response(e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(NotFoundException.class)

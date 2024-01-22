@@ -21,7 +21,7 @@ public class PetMapper {
     public static PetDto toPetDto(Pet pet) {
         PetDto petDto = new PetDto();
         petDto.setName(pet.getName());
-        petDto.setOwnerEmail(pet.getOwner().getName());
+        petDto.setOwnerEmail(pet.getOwner().getEmail());
 //        petDto.setType(pet.getType().name());
         petDto.setBreed(pet.getBreed().getName());
 //        petDto.setPhotoUrl(pet.getPhotoUrl());
@@ -38,7 +38,6 @@ public class PetMapper {
         pet.setName(petDto.getName());
         pet.setBreed(breedRepository.findByName(petDto.getBreed()));
         pet.setSpecial_notes(petDto.getSpecialNotes());
-        ;
         pet.setOwner(userRepository.findByEmail(petDto.getOwnerEmail()).orElseThrow(() -> new NotFoundException("userNot found")));
         return pet;
     }
