@@ -2,6 +2,7 @@ package com.ait.grooming.service;
 
 import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.dto.user.UserDto;
+import com.ait.grooming.model.Appointment;
 import com.ait.grooming.model.Role;
 import com.ait.grooming.model.User;
 import com.ait.grooming.repository.AppointmentRepository;
@@ -11,6 +12,7 @@ import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.service.exceptions.NotFoundException;
 import com.ait.grooming.service.exceptions.PasswordNotSameException;
 import com.ait.grooming.service.exceptions.WrongPasswordException;
+import com.ait.grooming.utils.maper.pet.PetMapper;
 import com.ait.grooming.utils.request.ChangePasswordRequest;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
 import lombok.Data;
@@ -20,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
 import java.time.LocalDate;
@@ -37,6 +40,7 @@ public class UserService {
     private final AppointmentRepository appointmentRepository;
     private final PetRepository petRepository;
     private final PasswordEncoder passwordEncoder;
+    private final PetMapper petMapper;
 
     public ResponseEntity<Response> changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
@@ -58,15 +62,35 @@ public class UserService {
         return ResponseEntity.ok(new Response("Password changed"));
     }
 
+    public ResponseEntity<Response> deleteAll() {
+        List<User> users = userRepository.findAll();
+        for (User user : users) {
+            deleteById(user.getId());
+        }
+        if (userRepository.findAll().isEmpty()) {
+            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+        } else throw new NotFoundException("User not found");
+    }
+
+    @Transactional
+    public void deleteById(Integer id) {
+        User user = userRepository.findById(id).orElseThrow();
+        List<Appointment> appointments = appointmentRepository.findAllByClientId(user.getId());
+        // Remove associations with appointments
+        for (Appointment appointment : appointments) {
+            appointmentRepository.deleteById(appointment.getId());
+            // Optionally, you may want to delete the appointment or handle it based on your requirements
+            // appointmentRepository.deleteById(appointment.getId());
+        }
+        petRepository.deleteAllByOwnerId(user.getId());
+        userRepository.deleteById(user.getId());
+    }
+
     public ResponseEntity<Response> delete(Principal connectedUser) {
-        User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow();
-        userRepository.deleteAppointmentsByUserId(user.getId());
-        userRepository.deletePetsByUserId(user.getId());
-        userRepository.deleteByUserId(user.getId());
-        if (userRepository.findByEmail(user.getEmail()).isEmpty()) {
-            return new  ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
-        } else
-           throw new NotFoundException("User not found");
+        User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
+        deleteById(user.getId());
+        return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+
     }
 
     public boolean register(RegisterRequest request) {
@@ -76,11 +100,10 @@ public class UserService {
             user.setLastName(request.getLastName());
             user.setEmail(request.getEmail());
             user.setPhone(request.getPhone());
-            user.setUserName(request.getUserName());
-            user.setAddress(request.getAddress());
             user.setPassword(passwordEncoder.encode(request.getPassword()));
             user.setRole(Role.CLIENT);
             user.setRegistrationDate(LocalDate.now());
+            user.getPets().addAll(petMapper.allToEntity(request.getPet()));
             userRepository.save(user);
             return true;
         }

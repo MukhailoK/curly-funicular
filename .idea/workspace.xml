@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="update petController &#10;createPet request&#10;&#10;add getAllBreeds(), getAllTypes, getPetByName()  methods">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/booking/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="create registration tests">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/BreedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/BreedRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/pet/PetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/pet/PetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="tests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,8 +67,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "features/calendar",
-
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/Users/kolot/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar",
@@ -106,6 +110,9 @@
       <recent name="D:\Subs_Checker\curly-funicular" />
       <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\db" />
       <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\sql" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ait.grooming.controller" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GroomingApplication">
@@ -169,6 +176,7 @@
       <workItem from="1705147031864" duration="50000" />
       <workItem from="1705147120133" duration="29806000" />
       <workItem from="1705307814880" duration="19366000" />
+      <workItem from="1705921772064" duration="2464000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -426,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705702652426</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="create registration tests">
+      <option name="closed" value="true" />
+      <created>1705775701983</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705775701983</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create data.sql&#10;need add role relations for client and employee" />
     <MESSAGE value="solve problem with start project&#10;need add role relations for client and employee" />
     <MESSAGE value="add react structure to project (client directory)" />
     <MESSAGE value="add dtos &amp; mappers, add connection-tables to init.sql" />
@@ -481,7 +496,8 @@
     <MESSAGE value="update user controller:&#10;add getAll(), getUserInfo, methods" />
     <MESSAGE value="update petController &#10;createPet request&#10;&#10;add getAllBreeds(), getAllTypes, getPetByName()  methods" />
     <MESSAGE value="configure examples for AuthController &amp; UserController.changePassword" />
-    <option name="LAST_COMMIT_MESSAGE" value="configure examples for AuthController &amp; UserController.changePassword" />
+    <MESSAGE value="create registration tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="create registration tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
