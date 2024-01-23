@@ -1,12 +1,13 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.appointment.AppointmentResponseDto;
-import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.service.AppointmentService;
+import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -20,9 +21,10 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public ResponseEntity<AppointmentResponseDto> create(@RequestBody AppointmentRequest appointmentRequest) {
+    public ResponseEntity<AppointmentResponseDto> create(@RequestBody NewUserAppointmentRequest appointmentRequest,
+                                                         Principal connectedUser) {
         System.out.println(appointmentRequest);
-        return appointmentService.create(appointmentRequest);
+        return appointmentService.create(appointmentRequest, connectedUser);
     }
 
     @GetMapping("/{id}")
