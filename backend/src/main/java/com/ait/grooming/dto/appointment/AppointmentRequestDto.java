@@ -12,14 +12,9 @@ import java.time.LocalDateTime;
 
 @Data
 @RequiredArgsConstructor
-public class AppointmentDto {
-
-//    private ClientDto clientDto;
-//    private EmployeeDto employeeDto;
+public class AppointmentRequestDto {
     private UserDto userDto;
     private GroomingDto groomingDto;
-    private PetDto petDto;
     private LocalDateTime dateTimeStart;
-    private LocalDateTime dateTimeEnd;
-    private String status;
+
 }

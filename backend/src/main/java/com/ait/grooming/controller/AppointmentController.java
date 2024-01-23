@@ -1,6 +1,6 @@
 package com.ait.grooming.controller;
 
-import com.ait.grooming.dto.appointment.AppointmentDto;
+import com.ait.grooming.dto.appointment.AppointmentResponseDto;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.service.AppointmentService;
 import lombok.Data;
@@ -14,18 +14,18 @@ import java.util.List;
 public class AppointmentController {
     private final AppointmentService appointmentService;
     @GetMapping
-    private List<AppointmentDto> getAll(){
+    private List<AppointmentResponseDto> getAll(){
         return appointmentService.getAll();
     }
 
     @PostMapping
-    public AppointmentDto create(@RequestBody AppointmentRequest appointmentRequest) {
+    public AppointmentResponseDto create(@RequestBody AppointmentRequest appointmentRequest) {
         System.out.println(appointmentRequest);
         return appointmentService.create(appointmentRequest);
     }
 
     @GetMapping("/{id}")
-    private AppointmentDto getById(@PathVariable Integer id) {
+    private AppointmentResponseDto getById(@PathVariable Integer id) {
         return appointmentService.getById(id);
     }
 }
