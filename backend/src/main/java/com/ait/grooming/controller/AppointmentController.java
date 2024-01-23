@@ -23,7 +23,6 @@ public class AppointmentController {
     @PostMapping
     public ResponseEntity<AppointmentResponseDto> create(@RequestBody NewUserAppointmentRequest appointmentRequest,
                                                          Principal connectedUser) {
-        System.out.println(appointmentRequest);
         return appointmentService.create(appointmentRequest, connectedUser);
     }
 

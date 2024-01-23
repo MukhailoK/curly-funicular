@@ -49,7 +49,9 @@ public class AppointmentService {
             appointment.setPet(pet);
             appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());
             appointment.setStatus("Created");
+            appointment.setDateTimeEnd(appointmentRequest.getDateTimeStart().plusHours(2));
             appointmentRepository.save(appointment);
+
             return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
         } else if (userRepository.findByEmail(appointmentRequest.getEmail()).isPresent()) {
             guest = userRepository.findByEmail(appointmentRequest.getEmail())
@@ -95,7 +97,9 @@ public class AppointmentService {
                 .orElseThrow(() -> new NotFoundException("grooming not found")));
         appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());
         appointment.setStatus("scheduled");
+        appointment.setDateTimeEnd(appointmentRequest.getDateTimeStart().plusHours(2));
         appointmentRepository.save(appointment);
+
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }
 
