@@ -1,6 +1,6 @@
 package com.ait.grooming.dto.review;
 
-import com.ait.grooming.dto.appointment.AppointmentDto;
+//import com.ait.grooming.dto.appointment.AppointmentDto;
 import com.ait.grooming.model.Appointment;
 import lombok.Data;
 
