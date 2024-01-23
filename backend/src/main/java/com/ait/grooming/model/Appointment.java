@@ -17,16 +17,16 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private User client;
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "master_id")
 //    private User master;
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Grooming groomingService;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pet_id")
     private Pet pet;
     @Column(name = "date_time_start")

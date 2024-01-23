@@ -25,8 +25,8 @@ public class SecurityConfiguration {
             "/api/grooming/**",
             "/api/pets/breeds",
             "/api/pets/types",
-            "/api/appointments/**",
             "/api/booking/**",
+            "/openapi/v1/appointments/**",
 
             "/v2/api-docs",
             "/v3/api-docs",
@@ -41,6 +41,7 @@ public class SecurityConfiguration {
             "/api-docs/swagger-config"};
 
     private static final String[] SECURED_LIST_URL = {
+            "/api/v1/appointments/**",
             "/api/v1/users/**",
             "/api/employee/**",
             "/api-client/**",

@@ -3,7 +3,7 @@ package com.ait.grooming.controller;
 import com.ait.grooming.dto.grooming.GroomingDto;
 import com.ait.grooming.service.GroomingService;
 import com.ait.grooming.utils.request.GroomingRequestDto;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/grooming")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class GroomingController {
 
     private final GroomingService groomingService;
