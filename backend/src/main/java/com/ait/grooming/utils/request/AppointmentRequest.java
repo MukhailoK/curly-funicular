@@ -20,7 +20,7 @@ public class AppointmentRequest {
     @Schema(example = "1")
     private Integer groomingId;
  //   private Integer petId;
-    @Schema(example = "024-02-08 10:00:00.000000")
+    @Schema(example = "024-02-08T10:00:00")
     private LocalDateTime dateTimeStart;
  //   private LocalDateTime dateTimeEnd;
  //   private String status;
