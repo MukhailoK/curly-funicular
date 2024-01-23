@@ -2,6 +2,7 @@ package com.ait.grooming.dto.appointment;
 
 //import com.ait.grooming.dto.client.ClientDto;
 //import com.ait.grooming.dto.employee.EmployeeDto;
+
 import com.ait.grooming.dto.grooming.GroomingDto;
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.user.UserDto;
@@ -13,10 +14,9 @@ import java.time.LocalDateTime;
 @Data
 @RequiredArgsConstructor
 public class AppointmentResponseDto {
-    private Integer id;
-    private UserDto userDto;
-    private GroomingDto groomingDto;
-    private PetDto petDto;
     private LocalDateTime dateTimeStart;
+    private GroomingDto groomingDto;
+    private UserDto userDto;
+    private PetDto petDto;
     private String status;
 }

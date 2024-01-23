@@ -111,4 +111,10 @@ public class AppointmentService {
     public List<AppointmentResponseDto> getAll() {
         return allToAppointmentDto(appointmentRepository.findAll());
     }
+
+    public ResponseEntity<List<AppointmentResponseDto>> getAllByUserEmail(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow();
+        List<Appointment> appointments = appointmentRepository.findAllByClientId(user.getId());
+        return new ResponseEntity<>(allToAppointmentDto(appointments), HttpStatus.OK);
+    }
 }
