@@ -4,6 +4,7 @@ import com.ait.grooming.dto.appointment.AppointmentResponseDto;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import com.ait.grooming.service.exceptions.NotFoundException;
+import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
@@ -28,32 +29,35 @@ public class AppointmentService {
     private final UserRepository userRepository;
     private final BreedRepository breedRepository;
 
-    public ResponseEntity<AppointmentResponseDto> create(NewUserAppointmentRequest appointmentRequest,
-                                                         Principal connectedUser) {
+    public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest request, Principal connectedUser) {
+        Pet pet = new Pet();
+
+        User client = userRepository.findByEmail(connectedUser.getName())
+                .orElseThrow(() -> new IllegalArgumentException("client not found"));
+
+        Grooming grooming = groomingRepository.findById(request.getGroomingId())
+                .orElseThrow(() -> new IllegalArgumentException("grooming service not found"));
+        pet = petRepository.findAllByOwner(client)
+                .orElseThrow(() -> new IllegalArgumentException("pet not found"))
+                .stream()
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("pet not found"));
+        Appointment appointment = new Appointment();
+        appointment.setClient(client);
+        appointment.setGroomingService(grooming);
+        appointment.setPet(pet);
+        appointment.setDateTimeStart(request.getDateTimeStart());
+        appointment.setStatus("Created");
+        appointment.setDateTimeEnd(request.getDateTimeStart().plusHours(2));
+        appointmentRepository.save(appointment);
+
+        return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<AppointmentResponseDto> create(NewUserAppointmentRequest appointmentRequest) {
         User guest = new User();
         Pet pet = new Pet();
-        if (connectedUser != null) {
-            User client = userRepository.findByEmail(connectedUser.getName())
-                    .orElseThrow(() -> new IllegalArgumentException("client not found"));
-
-            Grooming grooming = groomingRepository.findById(appointmentRequest.getGroomingId())
-                    .orElseThrow(() -> new IllegalArgumentException("grooming service not found"));
-            pet = petRepository.findAllByOwner(client)
-                    .orElseThrow(() -> new IllegalArgumentException("pet not found"))
-                    .stream()
-                    .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("pet not found"));
-            Appointment appointment = new Appointment();
-            appointment.setClient(client);
-            appointment.setGroomingService(grooming);
-            appointment.setPet(pet);
-            appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());
-            appointment.setStatus("Created");
-            appointment.setDateTimeEnd(appointmentRequest.getDateTimeStart().plusHours(2));
-            appointmentRepository.save(appointment);
-
-            return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
-        } else if (userRepository.findByEmail(appointmentRequest.getEmail()).isPresent()) {
+        if (userRepository.findByEmail(appointmentRequest.getEmail()).isPresent()) {
             guest = userRepository.findByEmail(appointmentRequest.getEmail())
                     .orElseThrow(() -> new NotFoundException("User not found"));
             for (Pet userPet : guest.getPets()) {

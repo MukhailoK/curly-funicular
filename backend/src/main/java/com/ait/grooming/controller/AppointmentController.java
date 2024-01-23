@@ -2,9 +2,9 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.appointment.AppointmentResponseDto;
 import com.ait.grooming.service.AppointmentService;
-import com.ait.grooming.utils.request.NewUserAppointmentRequest;
+import com.ait.grooming.utils.request.AppointmentRequest;
 import io.swagger.v3.oas.annotations.Operation;
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,17 +12,18 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/appointments")
-@Data
+@RequestMapping("/api/v1/appointments")
+@AllArgsConstructor
 public class AppointmentController {
     private final AppointmentService appointmentService;
+
     @GetMapping
-    public List<AppointmentResponseDto> getAll(){
+    public List<AppointmentResponseDto> getAll() {
         return appointmentService.getAll();
     }
 
     @PostMapping
-    public ResponseEntity<AppointmentResponseDto> create(@RequestBody NewUserAppointmentRequest appointmentRequest,
+    public ResponseEntity<AppointmentResponseDto> create(@RequestBody AppointmentRequest appointmentRequest,
                                                          Principal connectedUser) {
         return appointmentService.create(appointmentRequest, connectedUser);
     }
@@ -32,10 +33,10 @@ public class AppointmentController {
         return appointmentService.getById(id);
     }
 
-    @Operation(description = "get all appointments by user email. Is correct send email in path variable for this?")
-    @GetMapping("/users/{email}")
-    public ResponseEntity<List<AppointmentResponseDto>> getAllByUserEmail(@PathVariable String email){
-        return appointmentService.getAllByUserEmail(email);
+    @Operation(description = "get all appointments by token.")
+    @GetMapping("/user")
+    public ResponseEntity<List<AppointmentResponseDto>> getAllByUserEmail(Principal principal) {
+        return appointmentService.getAllByUserEmail(principal.getName());
     }
 
 }

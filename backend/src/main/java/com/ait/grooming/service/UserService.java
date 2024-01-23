@@ -62,6 +62,7 @@ public class UserService {
         return ResponseEntity.ok(new Response("Password changed"));
     }
 
+    @Transactional
     public ResponseEntity<Response> deleteAll() {
         List<User> users = userRepository.findAll();
         for (User user : users) {
@@ -74,16 +75,13 @@ public class UserService {
 
     @Transactional
     public void deleteById(Integer id) {
-        User user = userRepository.findById(id).orElseThrow();
-        List<Appointment> appointments = appointmentRepository.findAllByClientId(user.getId());
-        // Remove associations with appointments
+        List<Appointment> appointments = appointmentRepository.findAllByClientId(id);
         for (Appointment appointment : appointments) {
             appointmentRepository.deleteById(appointment.getId());
-            // Optionally, you may want to delete the appointment or handle it based on your requirements
-            // appointmentRepository.deleteById(appointment.getId());
         }
-        petRepository.deleteAllByOwnerId(user.getId());
-        userRepository.deleteById(user.getId());
+        petRepository.deleteAllByOwnerId(id);
+        userRepository.deleteById(id);
+
     }
 
     @Transactional
@@ -91,7 +89,6 @@ public class UserService {
         User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
         deleteById(user.getId());
         return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
-
     }
 
     public boolean register(RegisterRequest request) {
@@ -105,7 +102,6 @@ public class UserService {
             user.setRole(Role.CLIENT);
             user.setRegistrationDate(LocalDate.now());
             userRepository.save(user);
-//            user.getPets().addAll(petMapper.allToEntity(request.getPet()));
             petRepository.saveAll(petMapper.allToEntity(request.getPet()));
             return true;
         }
