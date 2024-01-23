@@ -59,7 +59,7 @@ create table users
     username          varchar(20),
     address           varchar(255),
     password          varchar(255),
-    role              enum ('CLIENT','ADMIN','MASTER') not null,
+    role              enum ('CLIENT','ADMIN','MASTER','GUEST') not null,
     primary key (id)
 ) engine = InnoDB;
 
