@@ -1,5 +1,7 @@
 package com.ait.grooming.utils.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -8,11 +10,15 @@ import java.time.LocalDateTime;
 @Data
 @RequiredArgsConstructor
 public class AppointmentRequest {
+//    @JsonProperty("access_token")
+//    private String accessToken;
+   @Schema(example = "client1@example.com")
     private String clientEmail;
-  //  private String masterUserName;
+    @Schema(example = "1")
     private Integer groomingId;
-    private Integer petId;
+ //   private Integer petId;
+    @Schema(example = "024-02-08 10:00:00.000000")
     private LocalDateTime dateTimeStart;
-    private LocalDateTime dateTimeEnd;
-    private String status;
+ //   private LocalDateTime dateTimeEnd;
+ //   private String status;
 }

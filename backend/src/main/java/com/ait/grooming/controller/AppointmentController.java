@@ -4,12 +4,13 @@ import com.ait.grooming.dto.appointment.AppointmentResponseDto;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.service.AppointmentService;
 import lombok.Data;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/appointment")
+@RequestMapping("/api/appointments")
 @Data
 public class AppointmentController {
     private final AppointmentService appointmentService;
@@ -19,7 +20,7 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public AppointmentResponseDto create(@RequestBody AppointmentRequest appointmentRequest) {
+    public ResponseEntity<AppointmentResponseDto> create(@RequestBody AppointmentRequest appointmentRequest) {
         System.out.println(appointmentRequest);
         return appointmentService.create(appointmentRequest);
     }

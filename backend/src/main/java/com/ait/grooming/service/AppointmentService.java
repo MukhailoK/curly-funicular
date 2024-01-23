@@ -5,6 +5,7 @@ import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import lombok.Data;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,37 +23,29 @@ public class AppointmentService {
     private final PetRepository petRepository;
     private final UserRepository userRepository;
 
-    public AppointmentResponseDto create(AppointmentRequest appointmentRequest) {
-//        User client = clientRepository.findByEmail(appointmentRequest.getClientEmail())
-//                .orElseThrow(() -> new IllegalArgumentException("client not found"));
-
+    public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest appointmentRequest) {
         User client = userRepository.findByEmail(appointmentRequest.getClientEmail())
                 .orElseThrow(() -> new IllegalArgumentException("client not found"));
-
-//        User employee = employeeRepository.findByUserName(appointmentRequest.getMasterUserName())
-//                .orElseThrow(() -> new IllegalArgumentException("master not found"));
         Grooming grooming = groomingRepository.findById(appointmentRequest.getGroomingId())
                 .orElseThrow(() -> new IllegalArgumentException("grooming service not found"));
-//        Pet pet = petRepository.findById(;)
-//                .orElseThrow(() -> new IllegalArgumentException("pet not found"));
-        Pet pet = petRepository.findById(appointmentRequest.getPetId())
+        Pet pet = petRepository.findById(getFirstPetId(client))
                 .orElseThrow(() -> new IllegalArgumentException("pet not found"));
+//        Pet pet = petRepository.findById(appointmentRequest.getPetId())
+//                .orElseThrow(() -> new IllegalArgumentException("pet not found"));
         Appointment appointment = new Appointment();
         appointment.setClient(client);
-      //  appointment.setMaster(employee);
         appointment.setGroomingService(grooming);
         appointment.setPet(pet);
         appointment.setDateTimeStart(appointmentRequest.getDateTimeStart());
-        appointment.setDateTimeEnd(appointmentRequest.getDateTimeEnd());
-        appointment.setStatus(appointmentRequest.getStatus());
+       // appointment.setDateTimeEnd(appointmentRequest.getDateTimeEnd());
+        appointment.setStatus("scheduled");
         appointmentRepository.save(appointment);
-        return toAppointmentDto(appointment);
+        return ResponseEntity.ok(toAppointmentDto(appointment));
     }
     public Integer getFirstPetId(User user) {
         List<Pet> pets = user.getPets();
 
         if (pets != null && !pets.isEmpty()) {
-            // Assuming Pet has an 'id' field
             Pet firstPet = pets.get(0);
             return firstPet.getId();
         } else {
