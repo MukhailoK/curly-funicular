@@ -43,8 +43,6 @@ public class SecurityConfiguration {
     private static final String[] SECURED_LIST_URL = {
             "/api/v1/appointments/**",
             "/api/v1/users/**",
-            "/api/employee/**",
-            "/api-client/**",
             "/api/pets/new",
             "/api/pets/findByName/**"
     };

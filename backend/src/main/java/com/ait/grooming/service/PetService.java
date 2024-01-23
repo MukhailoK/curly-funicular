@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.security.Principal;
 import java.util.List;
 
+import static com.ait.grooming.utils.maper.pet.PetMapper.allToPetDto;
 import static com.ait.grooming.utils.maper.pet.PetMapper.toPetDto;
 
 @Service
@@ -28,16 +29,17 @@ public class PetService {
     private final UserRepository userRepository;
 
     public ResponseEntity<PetDto> createPet(PetRequest requestDto, Principal connectedUser) {
-        if (!petRepository.existsByName(requestDto.getName())) {
+        User user = userRepository.findByEmail(connectedUser.getName())
+                .orElseThrow(() -> new NotFoundException("User with email " + connectedUser.getName() + " not found!"));
+
+        List<Pet> pets = petRepository.findAllByOwner(user).get();
+        if (pets.stream().noneMatch(pet -> pet.getName().equals(requestDto.getName()))) {
             Breed breedById = breedRepository.findById(requestDto.getBreedId())
                     .orElseThrow(() -> new NotFoundException("Breed with id " + requestDto.getBreedId() + " not found!"));
 
-            User userById = userRepository.findByEmail(connectedUser.getName())
-                    .orElseThrow(() -> new NotFoundException("User with email " + connectedUser.getName() + " not found!"));
-
             Pet pet = new Pet();
             pet.setName(requestDto.getName());
-            pet.setOwner(userById);
+            pet.setOwner(user);
             pet.setBreed(breedById);
             pet.setSpecial_notes(requestDto.getSpecialNotes());
             //  pet.setOwner(requestDto.getOwner());
@@ -70,7 +72,15 @@ public class PetService {
                 .filter(p -> p.getName().equals(petName))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Pet with name " + petName + " not found"));
+
         return ResponseEntity.ok(toPetDto(pet));
+    }
+
+    public ResponseEntity<List<PetDto>> findAllByPetName(String petName) {
+        List<Pet> pets = petRepository
+                .findAllByName(petName)
+                .orElseThrow(() -> new NotFoundException("pets not found"));
+        return ResponseEntity.ok(allToPetDto(pets));
     }
 
 //    public ResponseEntity<?> getAllTypes() {

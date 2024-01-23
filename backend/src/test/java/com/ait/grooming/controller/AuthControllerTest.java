@@ -48,9 +48,8 @@ public class AuthControllerTest {
     private JwtTokenProvider tokenProvider;
     @Autowired
     private BreedRepository breedRepository;
-
     @Autowired
-    UserController userController;
+    private UserController userController;
 
     @Test
     void testLogIn_Success() throws Exception {
@@ -178,5 +177,4 @@ public class AuthControllerTest {
             throw new RuntimeException(e);
         }
     }
-
 }

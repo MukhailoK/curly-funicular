@@ -33,5 +33,10 @@ public class PetController {
         return petService.findByPetName(petName, connectedUser);
     }
 
+    @GetMapping("/findAllByName/{petName}")
+    public ResponseEntity<List<PetDto>> getAllPetByName(@PathVariable String petName) {
+        return petService.findAllByPetName(petName);
+    }
+
 
 }
