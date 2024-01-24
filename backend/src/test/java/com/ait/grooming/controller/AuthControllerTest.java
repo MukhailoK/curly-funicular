@@ -29,6 +29,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.security.Principal;
 import java.util.List;
 
+import static com.ait.grooming.TestHelper.asJsonString;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -118,7 +119,7 @@ public class AuthControllerTest {
 
         Principal principal = () -> tokenProvider.getUserEmailFromJWT(token);
 
-        ResponseEntity<UserDto> userResponse = userController.getUserInfo(principal);
+        ResponseEntity<UserDto> userResponse = userController.getUserInfo(principal );
         assertEquals(HttpStatus.OK, userResponse.getStatusCode());
 
         UserDto user = userResponse.getBody();
@@ -170,11 +171,5 @@ public class AuthControllerTest {
         userService.delete(principal);
     }
 
-    private static String asJsonString(final Object obj) {
-        try {
-            return new ObjectMapper().writeValueAsString(obj);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 }
