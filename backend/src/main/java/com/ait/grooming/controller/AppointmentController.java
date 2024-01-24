@@ -39,4 +39,10 @@ public class AppointmentController {
         return appointmentService.getAllByUserEmail(principal.getName());
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        return appointmentService.delete(id);
+    }
+
+
 }
