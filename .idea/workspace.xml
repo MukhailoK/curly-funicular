@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change create appointment method:&#10;we can send two different request to POST /api/appointment (for registered user is head with token + id service, date start in body) and full form with user data and dog data plus service and date.">
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="update pets controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/PetRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +109,7 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
+  <component name="RunManager" selected="JUnit.AuthControllerTest">
     <configuration name="change-password | Register User" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/http/change-password.http" requestIdentifier="Register User" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -189,10 +185,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthControllerTest" />
         <item itemvalue="JUnit.AuthControllerTest.testRegister_Success" />
         <item itemvalue="JUnit.AuthControllerTest.testLogIn_Success" />
         <item itemvalue="JUnit.AuthControllerTest.testLogIn_Failed" />
-        <item itemvalue="JUnit.AuthControllerTest" />
         <item itemvalue="HTTP Request.change-password | Register User" />
       </list>
     </recent_temporary>
@@ -504,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706020291459</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update pets controller">
+      <option name="closed" value="true" />
+      <created>1706048301780</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1706048301780</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +538,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add dtos &amp; mappers, add connection-tables to init.sql" />
     <MESSAGE value="create appointment controller with methods create, getAll, getById." />
     <MESSAGE value="some update for review" />
     <MESSAGE value="change structure db to one User instead client + employee" />
@@ -559,7 +562,8 @@
     <MESSAGE value="create registration tests" />
     <MESSAGE value="add register test" />
     <MESSAGE value="change create appointment method:&#10;we can send two different request to POST /api/appointment (for registered user is head with token + id service, date start in body) and full form with user data and dog data plus service and date." />
-    <option name="LAST_COMMIT_MESSAGE" value="change create appointment method:&#10;we can send two different request to POST /api/appointment (for registered user is head with token + id service, date start in body) and full form with user data and dog data plus service and date." />
+    <MESSAGE value="update pets controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pets controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
