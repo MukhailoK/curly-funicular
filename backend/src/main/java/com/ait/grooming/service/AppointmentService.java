@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.allToAppointmentDto;
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppointmentDto;
@@ -21,8 +22,6 @@ import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppoi
 @Service
 @Data
 public class AppointmentService {
-    //    private final ClientRepository clientRepository;
-//    private final EmployeeRepository employeeRepository;
     private final AppointmentRepository appointmentRepository;
     private final GroomingRepository groomingRepository;
     private final PetRepository petRepository;
@@ -120,5 +119,20 @@ public class AppointmentService {
         User user = userRepository.findByEmail(email).orElseThrow();
         List<Appointment> appointments = appointmentRepository.findAllByClientId(user.getId());
         return new ResponseEntity<>(allToAppointmentDto(appointments), HttpStatus.OK);
+    }
+
+    public ResponseEntity<String> delete(Integer appointmentId) {
+        try {
+            Appointment appointment = appointmentRepository.findById(appointmentId)
+                    .orElseThrow(() -> new NotFoundException("Appointment not found with id: " + appointmentId));
+
+            appointmentRepository.delete(appointment);
+            return ResponseEntity.ok("Appointment deleted successfully");
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error occurred while deleting appointment");
+        }
     }
 }
