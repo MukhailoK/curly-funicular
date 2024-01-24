@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class GroomingMapper {
     public static GroomingDto toGroomingDto(Grooming grooming) {
         GroomingDto groomingDto = new GroomingDto();
+        groomingDto.setId(grooming.getId());
         groomingDto.setName(grooming.getName());
         groomingDto.setSize(grooming.getSize());
         groomingDto.setDescription(grooming.getDescription());
