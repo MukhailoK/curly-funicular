@@ -1,5 +1,6 @@
 package com.ait.grooming.controller;
 
+import com.ait.grooming.TestHelper;
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Role;
@@ -11,7 +12,6 @@ import com.ait.grooming.service.auth.JwtTokenProvider;
 import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -50,6 +50,8 @@ public class AuthControllerTest {
     private BreedRepository breedRepository;
     @Autowired
     private UserController userController;
+    @Autowired
+    private TestHelper helper;
 
     @Test
     void testLogIn_Success() throws Exception {
@@ -60,14 +62,10 @@ public class AuthControllerTest {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(request)))
+                        .content(helper.asJsonString(request)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
-        String token = mvcResult.getResponse().getContentAsString()
-                .replaceAll("\"", "")
-                .replaceFirst("access_token:", "")
-                .replaceAll("\\{", "")
-                .replaceAll("\\}", "");
+        String token = helper.getToken(mvcResult.getResponse().getContentAsString());
 
         assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
         assertTrue(tokenProvider.validateToken(token));
@@ -75,18 +73,38 @@ public class AuthControllerTest {
     }
 
     @Test
-    void testLogIn_Failed() throws Exception {
+    void testLogIn_FailedPassword() throws Exception {
         AuthenticationRequest request = new AuthenticationRequest(
                 "client3@example.com", "password2"
         );
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
+        mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(request)))
+                        .content(helper.asJsonString(request)))
                 .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-                .andReturn();
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                        "message": "Email or Password is wrong"
+                        }"""));
 
-        assertEquals(HttpStatus.UNAUTHORIZED.value(), mvcResult.getResponse().getStatus());
+    }
+
+
+    @Test
+    void testLogIn_FailedEmail() throws Exception {
+        AuthenticationRequest request = new AuthenticationRequest(
+                "clients3@example.com", "password1"
+        );
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/api/v1/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(helper.asJsonString(request)))
+                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                        "message": "Email or Password is wrong"
+                        }"""));
+
     }
 
     @Test
@@ -101,15 +119,11 @@ public class AuthControllerTest {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(registerRequest)))
+                        .content(helper.asJsonString(registerRequest)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andReturn();
 
-        String token = mvcResult.getResponse().getContentAsString()
-                .replaceAll("\"", "")
-                .replaceFirst("access_token:", "")
-                .replaceAll("\\{", "")
-                .replaceAll("\\}", "");
+        String token = helper.getToken(mvcResult.getResponse().getContentAsString());
 
 
         assertEquals(HttpStatus.CREATED.value(), mvcResult.getResponse().getStatus());
@@ -153,28 +167,100 @@ public class AuthControllerTest {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(registerRequest)))
+                        .content(helper.asJsonString(registerRequest)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andReturn();
 
         assertEquals(HttpStatus.CONFLICT.value(), mvcResult.getResponse().getStatus());
 
         assertThrows(IsAlreadyExistException.class, () -> userService.register(registerRequest));
-        String token = tokenProvider.createToken(existingUser.getEmail())
-                .replaceAll("\"", "")
-                .replaceFirst("access_token:", "")
-                .replaceAll("\\{", "")
-                .replaceAll("\\}", "");
+        String token = helper.getToken(tokenProvider.createToken(existingUser.getEmail()));
 
         Principal principal = () -> tokenProvider.getUserEmailFromJWT(token);
         userService.delete(principal);
     }
 
-    private static String asJsonString(final Object obj) {
-        try {
-            return new ObjectMapper().writeValueAsString(obj);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    @Test
+    void testRegister_WrongEmail() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                 { 
+                                 "email": "invalid_email",
+                                 "name": "name",
+                                 "password":"Password123!"
+                                 }
+                                """))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                         "email": "Invalid email format"
+                        }""")
+                );
+
+    }
+
+    @Test
+    void testRegister_EmptyEmail() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                 { 
+                                 "email": "",
+                                 "name": "name",
+                                 "password":"Password123!"
+                                 }
+                                """))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                         "email": "Email is required"
+                        }""")
+                );
+
+    }
+
+    @Test
+    void testRegister_EmptyName() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                 {\s
+                                 "email": "valid@email.com",
+                                 "name": "",
+                                 "password":"Password123!"
+                                 }
+                                """))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                         "name": "Name is required"
+                        }""")
+                );
+
+    }
+
+    @Test
+    void testRegister_EmptyPassword() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                 {\s
+                                 "email": "valid@email.com",
+                                 "name": "name",
+                                 "password":""
+                                 }
+                                """))
+                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                         "password": "Password is required"
+                        }""")
+                );
+
     }
 }

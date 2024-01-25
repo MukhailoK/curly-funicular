@@ -8,7 +8,7 @@ VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOU
         'MASTER',
         'Address2'),
        ('Name1', 'LastName1', 'username1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
-        'client1@example.com', '123456789', CURRENT_TIMESTAMP,
+        'client1@example.com', '123456789', '2023-04-12',
         'CLIENT',
         'userAddress1'),
        ('Name2', 'LastName2', 'username2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',

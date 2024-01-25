@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="update pets controller">
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="add UserControllerTest for user-info and user change password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/GroomingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/GroomingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/user/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/TestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/TestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/appointment-open-close-endpoints" />
+        <entry key="$PROJECT_DIR$" value="features/logout" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,7 +73,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "test/userController-test",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/Users/kolot/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar",
@@ -111,11 +121,8 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
-    <configuration name="change-password | Register User" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/backend/http/change-password.http" requestIdentifier="Register User" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserControllerTest">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -124,13 +131,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testLogIn_Failed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testDelete_Filed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -139,14 +146,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLogIn_Failed" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testDelete_Filed" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testLogIn_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testDelete_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -155,14 +162,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLogIn_Success" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testDelete_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthControllerTest.testRegister_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testGetAll_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -171,8 +178,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testRegister_Success" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testGetAll_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testGetUserInfo_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testGetUserInfo_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AuthControllerTest" />
-        <item itemvalue="JUnit.AuthControllerTest.testRegister_Success" />
-        <item itemvalue="JUnit.AuthControllerTest.testLogIn_Success" />
-        <item itemvalue="JUnit.AuthControllerTest.testLogIn_Failed" />
-        <item itemvalue="HTTP Request.change-password | Register User" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testDelete_Success" />
+        <item itemvalue="JUnit.UserControllerTest.testGetUserInfo_Success" />
+        <item itemvalue="JUnit.UserControllerTest.testGetAll_Success" />
+        <item itemvalue="JUnit.UserControllerTest.testDelete_Filed" />
       </list>
     </recent_temporary>
   </component>
@@ -518,7 +541,39 @@
       <option name="project" value="LOCAL" />
       <updated>1706091258008</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="add id for grooming">
+      <option name="closed" value="true" />
+      <created>1706092263035</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1706092263035</updated>
+    </task>
+    <task id="LOCAL-00040" summary="add id for grooming">
+      <option name="closed" value="true" />
+      <created>1706092277446</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1706092277446</updated>
+    </task>
+    <task id="LOCAL-00041" summary="add logout by &quot;/api/v1/auth/logout&quot;">
+      <option name="closed" value="true" />
+      <created>1706130468312</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1706130468312</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add UserControllerTest for user-info and user change password">
+      <option name="closed" value="true" />
+      <created>1706130543495</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1706130543495</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,9 +603,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create appointment controller with methods create, getAll, getById." />
-    <MESSAGE value="some update for review" />
-    <MESSAGE value="change structure db to one User instead client + employee" />
     <MESSAGE value="fix relations bugs" />
     <MESSAGE value="change ReviewDto to next view -&#10;{&#10;id : Long&#10;nameClient : string&#10;rating : double&#10;review : string&#10;}" />
     <MESSAGE value="create auth by jwt" />
@@ -573,7 +625,10 @@
     <MESSAGE value="add register test" />
     <MESSAGE value="change create appointment method:&#10;we can send two different request to POST /api/appointment (for registered user is head with token + id service, date start in body) and full form with user data and dog data plus service and date." />
     <MESSAGE value="update pets controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="update pets controller" />
+    <MESSAGE value="add id for grooming" />
+    <MESSAGE value="add logout by &quot;/api/v1/auth/logout&quot;" />
+    <MESSAGE value="add UserControllerTest for user-info and user change password" />
+    <option name="LAST_COMMIT_MESSAGE" value="add UserControllerTest for user-info and user change password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

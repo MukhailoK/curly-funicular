@@ -18,6 +18,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",
@@ -26,20 +27,28 @@ public class User implements UserDetails {
 
     @Column(name = "name", length = 20, nullable = false)
     private String name;
+
     @Column(name = "lastname", length = 20)
     private String lastName;
+
     @Column(name = "username", unique = true, length = 20)
     private String userName;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "email", unique = true, length = 20, nullable = false)
     private String email;
+
     @Column(name = "phone", length = 20, nullable = false)
     private String phone;
+
     @Column(name = "address")
     private String address;
+
     @Column(name = "registration_date")
     private LocalDate registrationDate;
+
     @Column
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -48,6 +57,7 @@ public class User implements UserDetails {
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "discount_id")
 //    private Discount discount;
+
     @OneToMany(mappedBy = "owner",
             cascade = CascadeType.REMOVE,
             orphanRemoval = true,
