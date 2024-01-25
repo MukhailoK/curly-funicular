@@ -1,5 +1,6 @@
 package com.ait.grooming.service;
 
+import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Appointment;
@@ -17,7 +18,6 @@ import com.ait.grooming.utils.maper.pet.PetMapper;
 import com.ait.grooming.utils.request.ChangePasswordRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationResponse;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
-import jakarta.xml.bind.DataBindingException;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.BindingResult;
 
 import java.security.Principal;
 import java.time.LocalDate;
@@ -91,34 +90,38 @@ public class UserService {
 
     @Transactional
     public ResponseEntity<Response> delete(Principal connectedUser) {
-        if (connectedUser!=null){
-        User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
-        deleteById(user.getId());
-        return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
-    }
+        if (connectedUser != null) {
+            User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
+            deleteById(user.getId());
+            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+        }
         return new ResponseEntity<>(new Response("Unauthorized"), HttpStatus.UNAUTHORIZED);
     }
 
     public ResponseEntity<AuthenticationResponse> register(RegisterRequest request) {
 
-            if (userRepository.findByEmail(request.getEmail()).isEmpty()) {
-                User user = new User();
-                user.setName(request.getName());
-                user.setLastName(request.getLastName());
-                user.setEmail(request.getEmail());
-                user.setPhone(request.getPhone());
-                user.setPassword(passwordEncoder.encode(request.getPassword()));
-                user.setRole(Role.CLIENT);
-                user.setRegistrationDate(LocalDate.now());
-                userRepository.save(user);
-                petRepository.saveAll(petMapper.allToEntity(request.getPet()));
+        if (userRepository.findByEmail(request.getEmail()).isEmpty()) {
+            User user = new User();
+            user.setName(request.getName());
+            user.setLastName(request.getLastName());
+            user.setEmail(request.getEmail());
+            user.setPhone(request.getPhone());
+            user.setPassword(passwordEncoder.encode(request.getPassword()));
+            user.setRole(Role.CLIENT);
+            user.setRegistrationDate(LocalDate.now());
+            userRepository.save(user);
 
-                return new ResponseEntity<>(
-                        helper.generateAuthResponse(request.getEmail(), request.getPassword()),
-                        HttpStatus.CREATED);
+            if (request.getPet() != null && !request.getPet().isEmpty()) {
+                List<PetDto> pets = request.getPet();
+                pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
+                petRepository.saveAll(petMapper.allToEntity(request.getPet()));
             }
-            throw new IsAlreadyExistException("user with this email is already exist");
+            return new ResponseEntity<>(
+                    helper.generateAuthResponse(request.getEmail(), request.getPassword()),
+                    HttpStatus.CREATED);
         }
+        throw new IsAlreadyExistException("user with this email is already exist");
+    }
 
 
     public ResponseEntity<List<UserDto>> getAll() {

@@ -113,6 +113,45 @@ public class AuthControllerTest {
                 "John", "Doe",
                 "123456789", "john.doe@example.com", "password123",
                 null);
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
+                        .post("/api/v1/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(helper.asJsonString(registerRequest)))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andReturn();
+
+        String token = helper.getToken(mvcResult.getResponse().getContentAsString());
+
+
+        assertEquals(HttpStatus.CREATED.value(), mvcResult.getResponse().getStatus());
+        assertTrue(tokenProvider.validateToken(token));
+        assertEquals(registerRequest.getEmail(), tokenProvider.getUserEmailFromJWT(token));
+
+        Principal principal = () -> tokenProvider.getUserEmailFromJWT(token);
+
+        ResponseEntity<UserDto> userResponse = userController.getUserInfo(principal);
+        assertEquals(HttpStatus.OK, userResponse.getStatusCode());
+
+        UserDto user = userResponse.getBody();
+
+        assertEquals("John", user.getName());
+
+        assertEquals("Doe", user.getLastName());
+
+        assertEquals("john.doe@example.com", user.getEmail());
+
+        assertEquals("123456789", user.getPhone());
+
+        userService.delete(principal);
+    }
+
+    @Test
+    void testRegisterWithPet_Success() throws Exception {
+        RegisterRequest registerRequest = new RegisterRequest(
+                "John", "Doe",
+                "123456789", "john.doe@example.com", "password123",
+                null);
         PetDto petDto = new PetDto("Lucky", registerRequest.getEmail(), breedRepository.findById(1).get().getName(), "can bite");
         registerRequest.setPet(List.of(petDto));
 
@@ -186,7 +225,7 @@ public class AuthControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                                 { 
+                                 {
                                  "email": "invalid_email",
                                  "name": "name",
                                  "password":"Password123!"
@@ -207,7 +246,7 @@ public class AuthControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                                 { 
+                                 {
                                  "email": "",
                                  "name": "name",
                                  "password":"Password123!"
@@ -240,7 +279,6 @@ public class AuthControllerTest {
                          "name": "Name is required"
                         }""")
                 );
-
     }
 
     @Test
@@ -261,6 +299,5 @@ public class AuthControllerTest {
                          "password": "Password is required"
                         }""")
                 );
-
     }
 }

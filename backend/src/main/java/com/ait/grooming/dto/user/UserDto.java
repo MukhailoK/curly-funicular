@@ -17,7 +17,6 @@ public class UserDto {
     @Email(message = "Invalid email format")
     private String email;
     private String phone;
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate registrationDate;
     private Role role;
     //    private boolean isBlocked;

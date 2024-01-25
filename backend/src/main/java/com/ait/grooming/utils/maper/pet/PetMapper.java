@@ -38,7 +38,7 @@ public class PetMapper {
         pet.setName(petDto.getName());
         pet.setBreed(breedRepository.findByName(petDto.getBreed()));
         pet.setSpecial_notes(petDto.getSpecialNotes());
-        pet.setOwner(userRepository.findByEmail(petDto.getOwnerEmail()).orElseThrow(() -> new NotFoundException("userNot found")));
+        pet.setOwner(userRepository.findByEmail(petDto.getOwnerEmail()).orElseThrow(() -> new NotFoundException("Owner not found")));
         return pet;
     }
 

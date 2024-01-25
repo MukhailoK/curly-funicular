@@ -1,6 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.appointment.AppointmentResponseDto;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.service.AppointmentService;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,7 +41,7 @@ public class AppointmentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer id) {
+    public ResponseEntity<Response> delete(@PathVariable Integer id) {
         return appointmentService.delete(id);
     }
 

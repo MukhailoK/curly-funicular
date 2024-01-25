@@ -12,5 +12,4 @@ public class GroomingApplication {
         SpringApplication.run(GroomingApplication.class, args);
     }
 
-
 }

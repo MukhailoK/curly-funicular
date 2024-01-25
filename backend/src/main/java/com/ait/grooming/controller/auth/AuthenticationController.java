@@ -42,7 +42,6 @@ public class AuthenticationController {
     @Operation(description = "Register new User")
     public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody RegisterRequest request) {
         return userService.register(request);
-
     }
 
 

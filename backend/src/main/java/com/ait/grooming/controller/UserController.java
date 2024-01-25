@@ -23,8 +23,7 @@ public class UserController {
     @PatchMapping
     public ResponseEntity<Response> changePassword(
             @RequestBody ChangePasswordRequest request,
-            Principal connectedUser
-    ) {
+            Principal connectedUser) {
         return service.changePassword(request, connectedUser);
     }
 
@@ -39,7 +38,7 @@ public class UserController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(Principal connectedUser) {
+    public ResponseEntity<Response> delete(Principal connectedUser) {
         return service.delete(connectedUser);
     }
 }

@@ -1,6 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.appointment.AppointmentResponseDto;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import com.ait.grooming.service.exceptions.NotFoundException;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.allToAppointmentDto;
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppointmentDto;
@@ -121,18 +121,18 @@ public class AppointmentService {
         return new ResponseEntity<>(allToAppointmentDto(appointments), HttpStatus.OK);
     }
 
-    public ResponseEntity<String> delete(Integer appointmentId) {
+    public ResponseEntity<Response> delete(Integer appointmentId) {
         try {
             Appointment appointment = appointmentRepository.findById(appointmentId)
                     .orElseThrow(() -> new NotFoundException("Appointment not found with id: " + appointmentId));
 
             appointmentRepository.delete(appointment);
-            return ResponseEntity.ok("Appointment deleted successfully");
+            return ResponseEntity.ok(new Response("Appointment deleted successfully"));
         } catch (NotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Response((e.getMessage())));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error occurred while deleting appointment");
+                    .body(new Response("Error occurred while deleting appointment"));
         }
     }
 }
