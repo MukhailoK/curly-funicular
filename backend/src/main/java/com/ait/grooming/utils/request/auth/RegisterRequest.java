@@ -1,6 +1,7 @@
 package com.ait.grooming.utils.request.auth;
 
 import com.ait.grooming.dto.pet.PetDto;
+import com.ait.grooming.dto.pet.PetRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -36,5 +37,5 @@ public class RegisterRequest {
     @Schema(example = "password1")
     private String password;
 
-    private List<PetDto> pet;
+    private List<PetRequest> pet;
 }

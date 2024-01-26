@@ -1,6 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.pet.PetDto;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.model.Pet;
 import com.ait.grooming.model.User;
@@ -11,6 +12,7 @@ import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.service.exceptions.NotFoundException;
 import com.ait.grooming.utils.request.PetRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +44,6 @@ public class PetService {
             pet.setOwner(user);
             pet.setBreed(breedById);
             pet.setSpecial_notes(requestDto.getSpecialNotes());
-            //  pet.setOwner(requestDto.getOwner());
-//            pet.setType(Pet.PetType.valueOf(requestDto.getType().toUpperCase()));
-            //  pet.setBreed(requestDto.getBreed());
-            //   pet.setPhotoUrl(requestDto.getPhotoUrl());
             petRepository.save(pet);
             return ResponseEntity.ok(toPetDto(pet));
 
@@ -81,6 +79,17 @@ public class PetService {
                 .findAllByName(petName)
                 .orElseThrow(() -> new NotFoundException("pets not found"));
         return ResponseEntity.ok(allToPetDto(pets));
+    }
+
+    public ResponseEntity<Response> delete(String petName, Principal connectedUser) {
+        List<Pet> pets = petRepository.findAllByOwner(userRepository.findByEmail(connectedUser.getName()).orElseThrow()).orElseThrow();
+        for (Pet pet : pets) {
+            if (pet.getName().equals(petName)) {
+                petRepository.delete(pet);
+                return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+            }
+        }
+        throw new NotFoundException("pet not found");
     }
 
 //    public ResponseEntity<?> getAllTypes() {

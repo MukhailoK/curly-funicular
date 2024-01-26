@@ -1,6 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.pet.PetDto;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.service.PetService;
 import com.ait.grooming.utils.request.PetRequest;
@@ -28,15 +29,19 @@ public class PetController {
         return petService.getAllBreed();
     }
 
-    @GetMapping("/findByName/{petName}")
+    @GetMapping("/{petName}")
     public ResponseEntity<PetDto> getPetByName(@PathVariable String petName, Principal connectedUser) {
         return petService.findByPetName(petName, connectedUser);
     }
 
-    @GetMapping("/findAllByName/{petName}")
+    @GetMapping("/all/{petName}")
     public ResponseEntity<List<PetDto>> getAllPetByName(@PathVariable String petName) {
         return petService.findAllByPetName(petName);
     }
 
+    @DeleteMapping("{petName}")
+    public ResponseEntity<Response> delete(@PathVariable String petName, Principal principal){
+        return petService.delete(petName, principal);
+    }
 
 }

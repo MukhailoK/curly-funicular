@@ -1,6 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.pet.PetDto;
+import com.ait.grooming.dto.pet.PetRequest;
 import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Appointment;
@@ -31,6 +32,7 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
+import static com.ait.grooming.dto.pet.PetRequest.allToPetDto;
 import static com.ait.grooming.utils.maper.user.UserMapper.allToUserDtos;
 import static com.ait.grooming.utils.maper.user.UserMapper.toUserDto;
 
@@ -112,9 +114,10 @@ public class UserService {
             userRepository.save(user);
 
             if (request.getPet() != null && !request.getPet().isEmpty()) {
-                List<PetDto> pets = request.getPet();
+                List<PetRequest> petRequest = request.getPet();
+                List<PetDto> pets = allToPetDto(petRequest);
                 pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
-                petRepository.saveAll(petMapper.allToEntity(request.getPet()));
+                petRepository.saveAll(petMapper.allToEntity(pets));
             }
             return new ResponseEntity<>(
                     helper.generateAuthResponse(request.getEmail(), request.getPassword()),
