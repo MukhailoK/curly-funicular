@@ -5,6 +5,7 @@ import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import com.ait.grooming.service.exceptions.NotFoundException;
+import com.ait.grooming.service.mail.InternetMailSender;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
@@ -27,7 +28,7 @@ public class AppointmentService {
     private final PetRepository petRepository;
     private final UserRepository userRepository;
     private final BreedRepository breedRepository;
-
+    private final InternetMailSender mailSender;
     public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest request, Principal connectedUser) {
         Pet pet = new Pet();
 
@@ -49,6 +50,10 @@ public class AppointmentService {
         appointment.setStatus("Created");
         appointment.setDateTimeEnd(request.getDateTimeStart().plusHours(2));
         appointmentRepository.save(appointment);
+
+        String emailbody="Appointment on " +appointment.getDateTimeStart() + " for pet by name " + pet.getName() + " is booked.";
+
+        mailSender.send(connectedUser.getName(), "You appointment in grooming salon", emailbody);
 
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }

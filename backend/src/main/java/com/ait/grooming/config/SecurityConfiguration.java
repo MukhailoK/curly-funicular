@@ -29,6 +29,7 @@ public class SecurityConfiguration {
             "/api/pets/types",
             "/api/booking/**",
             "/openapi/v1/appointments/**",
+            "/api/v1/mail_sender",
 
             "/v2/api-docs",
             "/v3/api-docs",
