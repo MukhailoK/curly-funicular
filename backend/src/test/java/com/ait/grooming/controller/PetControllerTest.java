@@ -108,5 +108,4 @@ public class PetControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(petDto)));
     }
-
 }

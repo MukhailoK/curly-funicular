@@ -149,7 +149,6 @@ public class UserControllerTest {
                         .delete("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isForbidden());
-
     }
 
     @Test

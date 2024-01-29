@@ -1,7 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.TestHelper;
-import com.ait.grooming.dto.pet.PetDto;
+import com.ait.grooming.dto.pet.PetRequest;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Role;
 import com.ait.grooming.model.User;
@@ -152,8 +152,8 @@ public class AuthControllerTest {
                 "John", "Doe",
                 "123456789", "john.doe@example.com", "password123",
                 null);
-        PetDto petDto = new PetDto("Lucky", registerRequest.getEmail(), breedRepository.findById(1).get().getName(), "can bite");
-        registerRequest.setPet(List.of(petDto));
+        PetRequest petRequests = new PetRequest("Lucky", breedRepository.findById(1).get().getName(), "can bite");
+        registerRequest.setPet(List.of(petRequests));
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/register")

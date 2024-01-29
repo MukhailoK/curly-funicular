@@ -110,7 +110,5 @@ public class AppointmentsControllerTest {
                         .header("Authorization", "Bearer " + token))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andReturn();
-
-
     }
     }

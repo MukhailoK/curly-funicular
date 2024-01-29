@@ -4,16 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="fix auth response">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="fix pet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/PetRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/EmployeeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/ReviewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/client/ClientDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/discount/DiscountDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/employee/EmployeeDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/review/ReviewDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/schedule/ScheduleDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Discount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ClientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/DiscountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/EmployeeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/ReviewRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/EmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/ReviewService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/client/ClientMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/discount/DiscountMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/employee/EmployeeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/review/ReviewMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +135,22 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
+  <component name="RunManager" selected="JUnit.AppointmentsControllerTest">
+    <configuration name="AppointmentsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentsControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -129,38 +162,6 @@
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
       <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest.testCreatePet_Forbidden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="METHOD_NAME" value="testCreatePet_Forbidden" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest.testCreatePet_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="METHOD_NAME" value="testCreatePet_Success" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,6 +198,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ait.grooming.GroomingApplication" />
@@ -206,11 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppointmentsControllerTest" />
+        <item itemvalue="JUnit.controller in backend" />
         <item itemvalue="JUnit.PetControllerTest.testGetPetByName" />
         <item itemvalue="JUnit.PetControllerTest" />
         <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
-        <item itemvalue="JUnit.PetControllerTest.testCreatePet_Forbidden" />
-        <item itemvalue="JUnit.PetControllerTest.testCreatePet_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +243,7 @@
       <workItem from="1705921772064" duration="2464000" />
       <workItem from="1706200297948" duration="5450000" />
       <workItem from="1706272572328" duration="1204000" />
-      <workItem from="1706293679392" duration="773000" />
+      <workItem from="1706293679392" duration="8474000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -580,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706199471186</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fix pet">
+      <option name="closed" value="true" />
+      <created>1706294530423</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1706294530423</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change ReviewDto to next view -&#10;{&#10;id : Long&#10;nameClient : string&#10;rating : double&#10;review : string&#10;}" />
     <MESSAGE value="create auth by jwt" />
     <MESSAGE value="create init_hbt.sql configured .properties to init db and fill automatic" />
     <MESSAGE value="remove garbage from WHITELIST" />
@@ -646,7 +662,8 @@
     <MESSAGE value="add logout by &quot;/api/v1/auth/logout&quot;" />
     <MESSAGE value="add UserControllerTest for user-info and user change password" />
     <MESSAGE value="fix auth response" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix auth response" />
+    <MESSAGE value="fix pet" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix pet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

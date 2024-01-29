@@ -5,6 +5,7 @@ import com.ait.grooming.service.exceptions.*;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.mail.MessagingException;
 import jakarta.validation.ConstraintViolationException;
+import org.springdoc.api.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailAuthenticationException;
@@ -15,9 +16,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.context.request.WebRequest;
 
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -134,5 +138,11 @@ public class GlobalExceptionHandler {
             errors.put(fieldName, errorMessage);
         });
         return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public final ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ex) {
+        ErrorMessage errorDetails = new ErrorMessage(ex.getMessage());
+        return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
     }
 }
