@@ -8,11 +8,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -21,9 +24,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.time.LocalDateTime;
 
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @AutoConfigureMockMvc
 @Data
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class AppointmentsControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -41,7 +44,7 @@ public class AppointmentsControllerTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        AuthenticationRequest request = new AuthenticationRequest("client1@example.com", "password1");
+        AuthenticationRequest request = new AuthenticationRequest("client2@example.com", "password1");
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -57,7 +60,7 @@ public class AppointmentsControllerTest {
         LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
         LocalDateTime end = LocalDateTime.of(2024, 2, 28, 12, 0, 0);
         AppointmentRequest request1 = new AppointmentRequest(1, start);
-         mvcResult1 = mockMvc.perform(MockMvcRequestBuilders
+        mvcResult1 = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/appointments")
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
@@ -75,6 +78,7 @@ public class AppointmentsControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
+
     @Test
     void testNegativeGetAllAppointments() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
@@ -91,15 +95,17 @@ public class AppointmentsControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
     @Test
     void testGetAppointmentsByUserEmail() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/appointments/user")
-                               //"Bearer YOUR_ACCESS_TOKEN"
-                        .header("Authorization","Bearer " + token)
+                        //"Bearer YOUR_ACCESS_TOKEN"
+                        .header("Authorization", "Bearer " + token)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
     @Test
     void testDeleteAppointment() throws Exception {
         LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
@@ -111,4 +117,5 @@ public class AppointmentsControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andReturn();
     }
-    }
+}
+

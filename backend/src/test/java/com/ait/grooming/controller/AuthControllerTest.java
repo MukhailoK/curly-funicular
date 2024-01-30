@@ -12,6 +12,7 @@ import com.ait.grooming.service.auth.JwtTokenProvider;
 import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.ait.grooming.utils.request.auth.RegisterRequest;
+import lombok.Data;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -33,9 +35,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ComponentScan(basePackages = "com.ait.grooming")
 @AutoConfigureMockMvc
+@Data
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class AuthControllerTest {
 
     @Autowired
