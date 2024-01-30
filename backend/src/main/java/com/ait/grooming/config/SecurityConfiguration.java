@@ -49,6 +49,11 @@ public class SecurityConfiguration {
             "/api/pets/new",
             "/api/pets/findByName/**"
     };
+
+    private static final String[] ACTUATOR_LIST_URL = {
+            "/actuator/health",
+            "/actuator/metrics"
+    };
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final ApplicationConfig applicationConfig;
 
@@ -61,6 +66,7 @@ public class SecurityConfiguration {
                         req.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
                                 .requestMatchers(SECURED_LIST_URL).hasAnyAuthority(ADMIN.name(), CLIENT.name())
+                                .requestMatchers(ACTUATOR_LIST_URL).hasAnyAuthority(ADMIN.name())
                                 .anyRequest()
                                 .authenticated()
                 )

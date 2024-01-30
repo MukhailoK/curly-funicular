@@ -1,7 +1,7 @@
 INSERT INTO users (name, lastname, username, password, email, phone, registration_date, role, address)
-VALUES ('Master1', 'LastName1', 'master1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
-        'master1@example.com', '123456789', '2023-01-01',
-        'MASTER',
+VALUES ('ADMIN', 'AIT', 'Mykhailo', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'admin@mail.com', '123456789', '2023-01-01',
+        'ADMIN',
         'Address1'),
        ('Master2', 'LastName2', 'master2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
         'master2@example.com', '987654321', '2023-01-01',
