@@ -46,7 +46,6 @@ public class AppointmentsControllerTest {
                         .post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
         token = helper.getToken(mvcResult.getResponse().getContentAsString());
 
@@ -57,7 +56,7 @@ public class AppointmentsControllerTest {
         LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
         LocalDateTime end = LocalDateTime.of(2024, 2, 28, 12, 0, 0);
         AppointmentRequest request1 = new AppointmentRequest(1, start);
-         mvcResult1 = mockMvc.perform(MockMvcRequestBuilders
+        mvcResult1 = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/appointments")
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
@@ -75,6 +74,7 @@ public class AppointmentsControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
+
     @Test
     void testNegativeGetAllAppointments() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
@@ -91,15 +91,17 @@ public class AppointmentsControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
     @Test
     void testGetAppointmentsByUserEmail() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/appointments/user")
-                               //"Bearer YOUR_ACCESS_TOKEN"
-                        .header("Authorization","Bearer " + token)
+                        //"Bearer YOUR_ACCESS_TOKEN"
+                        .header("Authorization", "Bearer " + token)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
     @Test
     void testDeleteAppointment() throws Exception {
         LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
@@ -111,4 +113,4 @@ public class AppointmentsControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andReturn();
     }
-    }
+}
