@@ -33,7 +33,6 @@ public class AuthenticationController {
             @Valid @RequestBody AuthenticationRequest authRequest) {
 
         return new ResponseEntity<>(
-
                 helper.generateAuthResponse(authRequest.getEmail(), authRequest.getPassword()),
                 HttpStatus.OK);
     }
