@@ -4,20 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="clean project">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/h2/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/h2/schema_hbt.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" afterDir="false" />
+
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="configure Environment value in app.properties">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.js" beforeDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,6 +244,8 @@
       <workItem from="1706200297948" duration="5450000" />
       <workItem from="1706272572328" duration="1204000" />
       <workItem from="1706293679392" duration="16155000" />
+      <workItem from="1706618587139" duration="437000" />
+      <workItem from="1706619040263" duration="2107000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -591,7 +607,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706526720271</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="configure Environment value in app.properties">
+      <option name="closed" value="true" />
+      <created>1706618906097</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1706618906097</updated>
+    </task>
+    <task id="LOCAL-00047" summary="configure Environment value in app.properties">
+      <option name="closed" value="true" />
+      <created>1706619070022</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1706619070022</updated>
+    </task>
+    <task id="LOCAL-00048" summary="configure Environment value in app.properties">
+      <option name="closed" value="true" />
+      <created>1706619153808</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1706619153808</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create init_hbt.sql configured .properties to init db and fill automatic" />
     <MESSAGE value="remove garbage from WHITELIST" />
     <MESSAGE value="working variant of auth" />
     <MESSAGE value="add GlobalExceptionHandler for user change password" />
@@ -657,7 +696,8 @@
     <MESSAGE value="fix auth response" />
     <MESSAGE value="fix pet" />
     <MESSAGE value="clean project" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean project" />
+    <MESSAGE value="configure Environment value in app.properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="configure Environment value in app.properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

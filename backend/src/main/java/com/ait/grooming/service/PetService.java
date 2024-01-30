@@ -47,8 +47,8 @@ public class PetService {
             petRepository.save(pet);
             return ResponseEntity.ok(toPetDto(pet));
 
-        }
-        throw new IsAlreadyExistException("Pet is already exist");
+        } else
+            throw new IsAlreadyExistException("Pet is already exist");
     }
 
     public ResponseEntity<List<Breed>> getAllBreed() {

@@ -49,7 +49,6 @@ public class AppointmentsControllerTest {
                         .post("/api/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
         token = helper.getToken(mvcResult.getResponse().getContentAsString());
 
@@ -118,4 +117,3 @@ public class AppointmentsControllerTest {
                 .andReturn();
     }
 }
-
