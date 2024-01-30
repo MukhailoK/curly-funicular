@@ -9,12 +9,14 @@ import com.ait.grooming.service.mail.InternetMailSender;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.allToAppointmentDto;
@@ -29,6 +31,9 @@ public class AppointmentService {
     private final UserRepository userRepository;
     private final BreedRepository breedRepository;
     private final InternetMailSender mailSender;
+    @Value("${send.email.after.appointment.creation}")
+    private boolean emailAfterAppointmentCreation;
+
     public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest request, Principal connectedUser) {
         Pet pet = new Pet();
 
@@ -51,9 +56,11 @@ public class AppointmentService {
         appointment.setDateTimeEnd(request.getDateTimeStart().plusHours(2));
         appointmentRepository.save(appointment);
 
-        String emailbody="Appointment on " +appointment.getDateTimeStart() + " for pet by name " + pet.getName() + " is booked.";
 
-        mailSender.send(connectedUser.getName(), "You appointment in grooming salon", emailbody);
+        System.out.println("emailAfterAppointmentCreation"+emailAfterAppointmentCreation);
+        if (emailAfterAppointmentCreation) {
+            sendAppointmentConfirmationEmail(client, pet, appointment.getDateTimeStart());
+        }
 
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }
@@ -91,6 +98,7 @@ public class AppointmentService {
 
         userRepository.save(guest);
         petRepository.save(pet);
+
         return guestRegister(appointmentRequest, guest, pet);
 
     }
@@ -108,6 +116,9 @@ public class AppointmentService {
         appointment.setDateTimeEnd(appointmentRequest.getDateTimeStart().plusHours(2));
         appointmentRepository.save(appointment);
 
+        if (emailAfterAppointmentCreation) {
+            sendAppointmentConfirmationEmail(guest, pet, appointment.getDateTimeStart());
+        }
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }
 
@@ -139,5 +150,12 @@ public class AppointmentService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new Response("Error occurred while deleting appointment"));
         }
+    }
+
+    private void sendAppointmentConfirmationEmail(User connectedUser, Pet pet, LocalDateTime appointmentDateTime) {
+        String emailBody = "Appointment on " + appointmentDateTime +
+                " for pet by name " + pet.getName() + " is booked.";
+
+        mailSender.send(connectedUser.getEmail(), "Your appointment in the BeGroomed salon", emailBody);
     }
 }
