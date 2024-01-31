@@ -15,6 +15,7 @@
     <description>grooming</description>
     <properties>
         <java.version>17</java.version>
+        <start.class>com/ait/grooming/GroomingApplication</start.class>
     </properties>
     <dependencies>
 
@@ -135,6 +136,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>${start.class}</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
