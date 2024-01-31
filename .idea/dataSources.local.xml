@@ -41,12 +41,5 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="@server.redshift.amazonaws.com" uuid="0e642bf4-1b29-4a7d-918e-915d57574b32">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="REDSHIFT" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <auth-provider>dg.aws.profile</auth-provider>
-      <user-name>MykhailoK</user-name>
-      <schema-mapping />
-    </data-source>
   </component>
 </project>

@@ -18,6 +18,11 @@
         <start.class>com/ait/grooming/GroomingApplication</start.class>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -46,11 +51,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.28</version> <!-- Use the version suitable for your MySQL server -->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>8.0.28</version> &lt;!&ndash; Use the version suitable for your MySQL server &ndash;&gt;-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.h2database</groupId>
