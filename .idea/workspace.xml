@@ -4,34 +4,108 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="configure Environment value in app.properties">
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="prepare to deploy">
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799/storage_v2/_src_/schema/grooming_salon.HrgdYw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.js" beforeDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/http/change-password.http" beforeDir="false" afterPath="$PROJECT_DIR$/http/change-password.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/AppointmentOpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/AppointmentOpenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/GroomingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/GroomingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/auth/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/booking/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/email/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/email/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/appointment/AppointmentRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/appointment/AppointmentRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/appointment/AppointmentResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/appointment/AppointmentResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/booking/AvailableTimeSlotDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/booking/BookingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/booking/BookingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/breed/BreedDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/breed/BreedDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/grooming/GroomingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/grooming/GroomingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/pet/PetDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/pet/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/pet/PetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/dto/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/user/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Breed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/Breed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Grooming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/Grooming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/model/email/EmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/email/EmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/AppointmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/BreedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/BreedRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/GroomingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/GroomingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/PetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/GroomingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/GroomingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/PetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/auth/CustomUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/auth/CustomUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/auth/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/auth/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/booking/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/InvalidJwtException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/exceptions/InvalidJwtException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/IsAlreadyExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/exceptions/IsAlreadyExistException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/exceptions/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/PasswordNotSameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/exceptions/PasswordNotSameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/exceptions/WrongPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/exceptions/WrongPasswordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/service/mail/InternetMailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/mail/InternetMailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/AuthHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/AuthHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/appointment/AppointmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/appointment/AppointmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/booking/BookingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/booking/BookingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/breed/BreedMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/breed/BreedMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/grooming/GroomingMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/pet/PetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/pet/PetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/maper/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/maper/user/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/AppointmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/AppointmentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/ChangePasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/ChangePasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/GroomingRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/GroomingRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/NewUserAppointmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/NewUserAppointmentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/PetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/PetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/ReviewRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/ReviewRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/auth/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/utils/request/auth/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/h2/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/h2/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/h2/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/h2/schema_hbt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysql/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysql/schema_hbt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysqlOld/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysqlOld/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysqlOld/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysqlOld/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysqlOld/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysqlOld/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/mysqlOld/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/mysqlOld/schema_hbt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/GroomingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/GroomingApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/TestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/TestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/BookingControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/BookingControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/PetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/PetControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +139,16 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -87,10 +171,10 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "test/H2-configure",
+    "git-widget-placeholder": "deploy",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/backend/src/main/resources/db/h2",
+    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,7 +187,8 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "mysql"
+      "mysql",
+      "redshift"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
       "MySQL"
@@ -119,15 +204,15 @@
       <recent name="com.ait.grooming.dto.petType" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Subs_Checker\curly-funicular\src\main\resources" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\h2" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\java\com\ait\grooming\config" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\mysqlOld" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\http" />
-      <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db" />
       <recent name="D:\Subs_Checker\curly-funicular" />
+      <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db" />
       <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\db" />
       <recent name="D:\Subs_Checker\curly-funicular\grooming\src\main\resources\sql" />
     </key>
@@ -135,69 +220,7 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in backend">
-    <configuration name="AppointmentsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentsControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest.testGetBreeds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="METHOD_NAME" value="testGetBreeds" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest.testGetPetByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="METHOD_NAME" value="testGetPetByName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.GroomingApplication">
     <configuration name="java in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="TEST_OBJECT" value="directory" />
@@ -207,19 +230,103 @@
       </method>
     </configuration>
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="DATABASE_HOST" value="localhost" />
+        <env name="DATABASE_NAME" value="grooming_salon" />
+        <env name="JWT_SECRET_KEY" value="404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970" />
+        <env name="MAIL_PASSWORD" value="hkzo cvzp aoha imcq" />
+        <env name="MYSQL_PASSWORD" value="root" />
+        <env name="MYSQL_USERNAME" value="root" />
+        <env name="PORT_MYSQL" value="3306" />
+        <env name="MYSQL_DATABASE" value="grooming_salon" />
+      </envs>
       <module name="backend" />
+      <projectPathOnTarget name="projectPathOnTarget" value="/app" />
+      <target name="@@@LOCAL@@@" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ait.grooming.GroomingApplication" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="true" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="app" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.mysqldb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysqldb" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.mysqldb: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JUnit.java in backend" />
+      <item itemvalue="Spring Boot.GroomingApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.docker-compose.yml.mysqldb: Compose Deployment" />
         <item itemvalue="JUnit.java in backend" />
-        <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.AppointmentsControllerTest" />
-        <item itemvalue="JUnit.PetControllerTest.testGetPetByName" />
-        <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
       </list>
     </recent_temporary>
   </component>
@@ -246,6 +353,7 @@
       <workItem from="1706293679392" duration="16155000" />
       <workItem from="1706618587139" duration="437000" />
       <workItem from="1706619040263" duration="2107000" />
+      <workItem from="1706704946153" duration="19852000" />
     </task>
     <task id="LOCAL-00001" summary="add base repository">
       <option name="closed" value="true" />
@@ -637,6 +745,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
+  </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
       <list>
@@ -672,8 +783,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remove garbage from WHITELIST" />
-    <MESSAGE value="working variant of auth" />
     <MESSAGE value="add GlobalExceptionHandler for user change password" />
     <MESSAGE value="init" />
     <MESSAGE value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
@@ -697,7 +806,9 @@
     <MESSAGE value="fix pet" />
     <MESSAGE value="clean project" />
     <MESSAGE value="configure Environment value in app.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="configure Environment value in app.properties" />
+    <MESSAGE value="delete &quot;backend&quot; package" />
+    <MESSAGE value="prepare to deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare to deploy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

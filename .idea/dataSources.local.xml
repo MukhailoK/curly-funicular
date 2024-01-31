@@ -22,5 +22,31 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="docker" uuid="a3ab8cf3-65c2-400a-a988-d2abf216d6b7">
+      <database-info product="MySQL" version="8.0.28" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.28" exact-driver-version="8.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="grooming_salon" />
+            <name qname="@" />
+            <name qname="grooming_service" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="@server.redshift.amazonaws.com" uuid="0e642bf4-1b29-4a7d-918e-915d57574b32">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="REDSHIFT" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>dg.aws.profile</auth-provider>
+      <user-name>MykhailoK</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

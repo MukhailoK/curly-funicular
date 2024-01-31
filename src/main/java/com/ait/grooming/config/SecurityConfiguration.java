@@ -21,7 +21,6 @@ import static com.ait.grooming.model.Role.CLIENT;
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
             "/api/review/**",
             "/api/grooming/**",
@@ -41,7 +40,8 @@ public class SecurityConfiguration {
             "/swagger-ui/**",
             "/webjars/**",
             "/swagger-ui.html",
-            "/api-docs/swagger-config"};
+            "/api-docs/swagger-config",
+            "/actuator/health/**"};
 
     private static final String[] SECURED_LIST_URL = {
             "/api/v1/appointments/**",

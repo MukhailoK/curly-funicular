@@ -10,11 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Integer> {
-    boolean existsByName(String name);
 
     Optional<List<Pet>> findAllByName(String name);
     Optional<List<Pet>> findAllByOwner(User user);
-    void deleteAllByOwner(User owner);
-
     void deleteAllByOwnerId(Integer id);
 }

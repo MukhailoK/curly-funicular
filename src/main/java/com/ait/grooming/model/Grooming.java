@@ -23,6 +23,5 @@ public class Grooming {
     private double price;
     @Column(name = "duration_procedure")
     private LocalTime durationProcedure;
-//    @Column(name = "active")
-//    private Boolean isActive = false;
+
 }
