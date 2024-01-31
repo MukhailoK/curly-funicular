@@ -4,6 +4,7 @@ import com.ait.grooming.dto.appointment.AppointmentResponseDto;
 import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
+import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.service.exceptions.NotFoundException;
 import com.ait.grooming.service.mail.InternetMailSender;
 import com.ait.grooming.utils.request.AppointmentRequest;
@@ -66,6 +67,18 @@ public class AppointmentService {
     }
 
     public ResponseEntity<AppointmentResponseDto> create(NewUserAppointmentRequest appointmentRequest) {
+
+        LocalDateTime appointmentStart = appointmentRequest.getDateTimeStart();
+        // Проверка наличия других записей для данной даты и времени
+        if (appointmentExists(appointmentStart)) {
+            throw new IsAlreadyExistException("Appointment for the time: "  +appointmentStart+" already exists");
+//            AppointmentResponseDto existingAppointment =new AppointmentResponseDto();
+//            existingAppointment.setDateTimeStart(appointmentStart);
+//            existingAppointment.setStatus("Appointment for the specified time already exists");
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+//                    .body(existingAppointment);
+        }
+
         User guest = new User();
         Pet pet = new Pet();
         if (userRepository.findByEmail(appointmentRequest.getEmail()).isPresent()) {
@@ -157,5 +170,8 @@ public class AppointmentService {
                 " for pet by name " + pet.getName() + " is booked.";
 
         mailSender.send(connectedUser.getEmail(), "Your appointment in the BeGroomed salon", emailBody);
+    }
+    private boolean appointmentExists(LocalDateTime dateTimeStart) {
+        return appointmentRepository.existsByDateTimeStart(dateTimeStart);
     }
 }
