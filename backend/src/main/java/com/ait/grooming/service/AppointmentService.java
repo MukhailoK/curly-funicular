@@ -36,8 +36,13 @@ public class AppointmentService {
     private boolean emailAfterAppointmentCreation;
 
     public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest request, Principal connectedUser) {
-        Pet pet = new Pet();
+        // Проверка наличия других записей для данной даты и времени
+        LocalDateTime appointmentStart = request.getDateTimeStart();
+        if (appointmentExists(appointmentStart)) {
+            throw new IsAlreadyExistException("Appointment for the time: " + appointmentStart + " already exists");
+        }
 
+        Pet pet = new Pet();
         User client = userRepository.findByEmail(connectedUser.getName())
                 .orElseThrow(() -> new IllegalArgumentException("client not found"));
 
@@ -57,8 +62,6 @@ public class AppointmentService {
         appointment.setDateTimeEnd(request.getDateTimeStart().plusHours(2));
         appointmentRepository.save(appointment);
 
-
-        System.out.println("emailAfterAppointmentCreation"+emailAfterAppointmentCreation);
         if (emailAfterAppointmentCreation) {
             sendAppointmentConfirmationEmail(client, pet, appointment.getDateTimeStart());
         }
@@ -67,16 +70,10 @@ public class AppointmentService {
     }
 
     public ResponseEntity<AppointmentResponseDto> create(NewUserAppointmentRequest appointmentRequest) {
-
-        LocalDateTime appointmentStart = appointmentRequest.getDateTimeStart();
         // Проверка наличия других записей для данной даты и времени
+        LocalDateTime appointmentStart = appointmentRequest.getDateTimeStart();
         if (appointmentExists(appointmentStart)) {
-            throw new IsAlreadyExistException("Appointment for the time: "  +appointmentStart+" already exists");
-//            AppointmentResponseDto existingAppointment =new AppointmentResponseDto();
-//            existingAppointment.setDateTimeStart(appointmentStart);
-//            existingAppointment.setStatus("Appointment for the specified time already exists");
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-//                    .body(existingAppointment);
+            throw new IsAlreadyExistException("Appointment for the time: " + appointmentStart + " already exists");
         }
 
         User guest = new User();
