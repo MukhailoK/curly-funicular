@@ -1,3 +1,15 @@
+#FROM maven as build
+#
+#WORKDIR /workspace/app
+#
+#COPY pom.xml .
+#
+#COPY src src
+#
+#RUN mvn clean package
+#
+#RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+
 FROM openjdk:17
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} backend-0.0.1-SNAPSHOT.jar
