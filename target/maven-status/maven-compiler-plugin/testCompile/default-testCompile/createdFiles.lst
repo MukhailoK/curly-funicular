@@ -1,7 +1,0 @@
-com\ait\grooming\TestHelper.class
-com\ait\grooming\controller\UserControllerTest.class
-com\ait\grooming\controller\AuthControllerTest.class
-com\ait\grooming\controller\PetControllerTest.class
-com\ait\grooming\controller\BookingControllerTest.class
-com\ait\grooming\GroomingApplicationTests.class
-com\ait\grooming\controller\AppointmentsControllerTest.class
