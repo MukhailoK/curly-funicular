@@ -4,24 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="prepare to deploy">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/postgres/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/postgres/schema_hbt.sql" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change docker file">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/sql/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/h2/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/h2/schema_hbt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/ApplicationConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/SecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/AppointmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/AppointmentOpenController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/GroomingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/PetController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/auth/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/booking/BookingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/email/EmailController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/appointment/AppointmentRequestDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/appointment/AppointmentResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/booking/AvailableTimeSlotDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/booking/BookingDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/breed/BreedDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/grooming/GroomingDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/pet/PetDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/pet/PetRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/response/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/user/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Appointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Breed.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Grooming.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Pet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/User$UserBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/email/EmailRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/AppointmentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/BookingRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/BreedRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/GroomingRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/PetRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/AppointmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/GroomingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/PetService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/auth/CustomUserDetailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/auth/JwtTokenProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/booking/BookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/InvalidJwtException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/IsAlreadyExistException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/NotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/PasswordNotSameException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/WrongPasswordException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/mail/InternetMailSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/AuthHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/appointment/AppointmentMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/booking/BookingMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/breed/BreedMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/grooming/GroomingMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/pet/PetMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/user/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/AppointmentRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/ChangePasswordRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/GroomingRequestDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/NewUserAppointmentRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/PetRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/ReviewRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationRequest$AuthenticationRequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/RegisterRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/h2/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/h2/schema_hbt.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysql/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysql/schema_hbt.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/schema_hbt.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ait/grooming/controller/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ait/grooming/controller/UserControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +162,7 @@
     "git-widget-placeholder": "deploy",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/main/resources/db/postgres",
+    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/test/resources/sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,7 +180,8 @@
     "DatabaseDriversLRU": [
       "mysql",
       "redshift",
-      "postgresql"
+      "postgresql",
+      "h2"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
       "MySQL"
@@ -121,11 +197,11 @@
       <recent name="com.ait.grooming.dto.petType" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Subs_Checker\curly-funicular\src\test\resources\sql" />
       <recent name="D:\Subs_Checker\curly-funicular\src\main\resources\db\postgres" />
       <recent name="D:\Subs_Checker\curly-funicular\src\main\resources" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\h2" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\java\com\ait\grooming\config" />
-      <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\mysqlOld" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Subs_Checker\curly-funicular" />
@@ -137,11 +213,71 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
-    <configuration name="java in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.java in backend (1)">
+    <configuration name="AppointmentsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentsControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in backend (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/backend/src/test/java" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,6 +292,13 @@
         <env name="MYSQL_PASSWORD" value="root" />
         <env name="MYSQL_USERNAME" value="root" />
         <env name="PORT_MYSQL" value="3306" />
+        <env name="send_email_after_appointment_creation" value="false" />
+        <env name="spring_mail_host" value="smtp.gmail.com" />
+        <env name="spring_mail_password" value="hkzo cvzp aoha imcq" />
+        <env name="spring_mail_port" value="587" />
+        <env name="spring_mail_properties_mail_smtp_auth" value="true" />
+        <env name="spring_mail_properties_mail_smtp_starttls_enable" value="true" />
+        <env name="spring_mail_username" value="begroomedpets@gmail.com" />
         <env name="MYSQL_DATABASE" value="grooming_salon" />
       </envs>
       <module name="backend" />
@@ -176,14 +319,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -196,55 +331,21 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="app" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.mysqldb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="mysqldb" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.mysqldb: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="JUnit.java in backend" />
+      <item itemvalue="JUnit.AppointmentsControllerTest" />
+      <item itemvalue="JUnit.AuthControllerTest" />
+      <item itemvalue="JUnit.PetControllerTest" />
+      <item itemvalue="JUnit.UserControllerTest" />
+      <item itemvalue="JUnit.java in backend (1)" />
       <item itemvalue="Spring Boot.GroomingApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
-        <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Docker.docker-compose.yml.mysqldb: Compose Deployment" />
-        <item itemvalue="JUnit.java in backend" />
+        <item itemvalue="JUnit.java in backend (1)" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.AuthControllerTest" />
+        <item itemvalue="JUnit.PetControllerTest" />
+        <item itemvalue="JUnit.AppointmentsControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -271,15 +372,7 @@
       <workItem from="1706293679392" duration="16155000" />
       <workItem from="1706618587139" duration="437000" />
       <workItem from="1706619040263" duration="2107000" />
-      <workItem from="1706704946153" duration="28233000" />
-    </task>
-    <task id="LOCAL-00004" summary="create data.sql&#10;need add role relations for client and employee">
-      <option name="closed" value="true" />
-      <created>1703702377734</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1703702377734</updated>
+      <workItem from="1706704946153" duration="30500000" />
     </task>
     <task id="LOCAL-00005" summary="solve problem with start project&#10;need add role relations for client and employee">
       <option name="closed" value="true" />
@@ -665,7 +758,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706734896097</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="change docker file">
+      <option name="closed" value="true" />
+      <created>1706789366878</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1706789366878</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +810,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add GlobalExceptionHandler for user change password" />
     <MESSAGE value="init" />
     <MESSAGE value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
     <MESSAGE value="added to ReviewController exceptions handler" />
@@ -734,7 +834,8 @@
     <MESSAGE value="configure Environment value in app.properties" />
     <MESSAGE value="delete &quot;backend&quot; package" />
     <MESSAGE value="prepare to deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="prepare to deploy" />
+    <MESSAGE value="change docker file" />
+    <option name="LAST_COMMIT_MESSAGE" value="change docker file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -743,6 +844,16 @@
           <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

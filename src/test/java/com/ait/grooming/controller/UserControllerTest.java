@@ -34,13 +34,14 @@ import static com.ait.grooming.utils.maper.user.UserMapper.toUserDto;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
 
-//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-//@ExtendWith(SpringExtension.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 @Data
 @TestPropertySource(locations = "classpath:application-test.properties")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 public class UserControllerTest {
 
     @Autowired
@@ -61,6 +62,7 @@ public class UserControllerTest {
     private TestHelper helper;
 
     private String token;
+
 
     @BeforeEach
     void init() throws Exception {
