@@ -5,98 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change docker file">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/sql/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/h2/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/h2/schema_hbt.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/ApplicationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/config/SecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/AppointmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/AppointmentOpenController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/GroomingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/PetController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/auth/AuthenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/booking/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/email/EmailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/controller/exception/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/appointment/AppointmentRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/appointment/AppointmentResponseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/booking/AvailableTimeSlotDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/booking/BookingDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/breed/BreedDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/grooming/GroomingDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/pet/PetDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/pet/PetRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/response/Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/dto/user/UserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Appointment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Breed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Grooming.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Pet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/User$UserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/model/email/EmailRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/AppointmentRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/BookingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/BreedRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/GroomingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/PetRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/AppointmentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/GroomingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/PetService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/auth/CustomUserDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/auth/JwtTokenProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/booking/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/InvalidJwtException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/IsAlreadyExistException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/NotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/PasswordNotSameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/exceptions/WrongPasswordException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/service/mail/InternetMailSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/AuthHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/appointment/AppointmentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/booking/BookingMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/breed/BreedMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/grooming/GroomingMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/pet/PetMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/maper/user/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/AppointmentRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/ChangePasswordRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/GroomingRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/NewUserAppointmentRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/PetRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/ReviewRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationRequest$AuthenticationRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/AuthenticationResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/utils/request/auth/RegisterRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/h2/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/h2/schema_hbt.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysql/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysql/schema_hbt.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/init.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/schema.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/mysqlOld/schema_hbt.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ait/grooming/controller/UserControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ait/grooming/controller/UserControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +49,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -146,48 +61,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "deploy",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/test/resources/sql",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;deploy&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Subs_Checker/curly-funicular/src/test/resources/sql&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "redshift",
-      "postgresql",
-      "h2"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redshift&quot;,
+      &quot;postgresql&quot;,
+      &quot;h2&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ait.grooming.service" />
