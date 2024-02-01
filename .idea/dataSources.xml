@@ -21,11 +21,11 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="groomingdb@app-26a89a6a-64bf-4a79-8ece-a8f4653a92b5-do-user-15738375-0.c.db.ondigitalocean.com" uuid="f906cfbb-b5e5-4f55-82f0-d6b5bdd6b22d">
+    <data-source source="LOCAL" name="groomingdb@app-bf2bbbec-a13a-4cf5-81a4-f1d5395b7e44-do-user-15738375-0.c.db.ondigitalocean.com" uuid="f906cfbb-b5e5-4f55-82f0-d6b5bdd6b22d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://app-26a89a6a-64bf-4a79-8ece-a8f4653a92b5-do-user-15738375-0.c.db.ondigitalocean.com:25060/groomingdb</jdbc-url>
+      <jdbc-url>jdbc:postgresql://app-bf2bbbec-a13a-4cf5-81a4-f1d5395b7e44-do-user-15738375-0.c.db.ondigitalocean.com:25060/groomingdb</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
       </jdbc-additional-properties>

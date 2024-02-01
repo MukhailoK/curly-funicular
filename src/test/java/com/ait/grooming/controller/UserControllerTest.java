@@ -10,10 +10,8 @@ import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -21,7 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -31,17 +28,14 @@ import java.util.List;
 
 import static com.ait.grooming.utils.maper.user.UserMapper.allToUserDtos;
 import static com.ait.grooming.utils.maper.user.UserMapper.toUserDto;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
 
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 @Data
-@TestPropertySource(locations = "classpath:application-test.properties")
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
+@TestPropertySource(locations = "classpath:application-test.properties")
+@DisplayName("Endpoint /api/v1/users is works:")
 public class UserControllerTest {
 
     @Autowired
@@ -76,76 +70,122 @@ public class UserControllerTest {
         token = helper.getToken(mvcResult.getResponse().getContentAsString());
     }
 
-    @Test
-    @Order(1)
-    void testChangePassword_Failed_WrongPassword() throws Exception {
+    @Nested
+    @DisplayName("PATCH /api/v1/users:")
+    public class ChangePassword {
+        @Test
+        @Order(1)
+        void return_407_for_wrong_password() throws Exception {
 
-        ChangePasswordRequest request = new ChangePasswordRequest(
-                "password2", "password3",
-                "password3"
-        );
+            ChangePasswordRequest request = new ChangePasswordRequest(
+                    "passwor", "password3",
+                    "password3"
+            );
 
-        mockMvc.perform(MockMvcRequestBuilders
-                        .patch("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer " + token)
-                        .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-                .andExpect(MockMvcResultMatchers.content().json("""
-                        {
-                        "message":"Wrong password"
-                        }
-                           """)
-                );
+            mockMvc.perform(MockMvcRequestBuilders
+                            .patch("/api/v1/users")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .header("Authorization", "Bearer " + token)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                    .andExpect(MockMvcResultMatchers.content().json("""
+                                                            
+                                        {
+                                    "message":"Wrong password"
+                                    }
+                                          
+                                    """
+                            )
+                    );
+        }
+
+        @Test
+        @Order(2)
+        void return_403_password_not_same(
+
+        ) throws Exception {
+
+            ChangePasswordRequest request = new ChangePasswordRequest(
+                    "password1",
+                    "password2",
+                    "password3"
+            );
+
+            mockMvc.perform
+                            (MockMvcRequestBuilders
+                                    .patch("/api/v1/users")
+                                    .contentType(MediaType.APPLICATION_JSON)
+                                    .header("Authorization", "Bearer " + token)
+                                    .content(helper.asJsonString(request)))
+                            .
+                    andExpect(MockMvcResultMatchers.status().isBadRequest())
+                    .andExpect(
+                            MockMvcResultMatchers.content().json(
+                                    """
+                                            {
+                                                  
+
+                                                            "message":"Password are not the same"
+                                            }
+                                               """)
+                    );
+
+        }
+
+        @Test
+        @Order(10)
+        void return_200_success() throws Exception {
+            ChangePasswordRequest request = new ChangePasswordRequest(
+                    "password1", "password2",
+                    "password2"
+            );
+
+            mockMvc.perform(MockMvcRequestBuilders
+                            .patch("/api/v1/users")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .header("Authorization", "Bearer " + token)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().json("""
+                            {
+                            "message":"Password changed"
+                            }
+                            """));
+
+            Assertions.assertTrue(tokenProvider.validateToken(token));
+        }
+
     }
 
-    @Test
-    @Order(2)
-    void testChangePassword_Failed_PasswordNotSame() throws Exception {
+    @Nested
+    @DisplayName("GET /api/v1/users/user-info:")
+    public class GetUserInfo {
 
-        ChangePasswordRequest request = new ChangePasswordRequest(
-                "password1", "password2",
-                "password3"
-        );
+        @Test
+        @Order(3)
+        void return_200_for_user_info() throws Exception {
+            UserDto userDto = toUserDto(userRepository.findByEmail("client1@example.com").get());
 
-        mockMvc.perform(MockMvcRequestBuilders
-                        .patch("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer " + token)
-                        .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.content().json("""
-                        {
-                        "message":"Password are not the same"
-                        }
-                           """)
-                );
+            given(userService.getUserByPrincipalName("client2@example.com")).willReturn(ResponseEntity.ok(userDto));
 
-    }
+            mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
+                            .header("Authorization", "Bearer " + token)
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(userDto)));
+        }
 
-    @Test
-    @Order(3)
-    void testGetUserInfo_Success() throws Exception {
-        UserDto userDto = toUserDto(userRepository.findByEmail("client1@example.com").get());
+        @Test
+        @Order(4)
+        void return_407_for_user_info() throws Exception {
 
-        given(userService.getUserByPrincipalName("client2@example.com")).willReturn(ResponseEntity.ok(userDto));
+            given(userService.getUserByPrincipalName("")).willReturn(new ResponseEntity<>(HttpStatus.FORBIDDEN));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
-                        .header("Authorization", "Bearer " + token)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(userDto)));
-    }
-
-    @Test
-    @Order(4)
-    void testGetUserInfo_Failed() throws Exception {
-
-        given(userService.getUserByPrincipalName("")).willReturn(new ResponseEntity<>(HttpStatus.FORBIDDEN));
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isForbidden());
+            mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+        }
     }
 
     @Test
@@ -161,7 +201,7 @@ public class UserControllerTest {
 
     @Test
     @Order(6)
-    void testGetAll_Success() throws Exception {
+    void return_200_for_get_all_user() throws Exception {
         List<UserDto> userDtos = allToUserDtos(userRepository.findAll());
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/users/all")
@@ -197,28 +237,5 @@ public class UserControllerTest {
                 );
     }
 
-    @Test
-    @Order(10)
-    void testChangePassword_Success() throws Exception {
 
-        ChangePasswordRequest request = new ChangePasswordRequest(
-                "password1", "password2",
-                "password2"
-        );
-
-        mockMvc.perform(MockMvcRequestBuilders
-                        .patch("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer " + token)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("""
-                        {
-                        "message":"Password changed"
-                        }
-                        """)
-                );
-        assertTrue(tokenProvider.validateToken(token));
-    }
 }

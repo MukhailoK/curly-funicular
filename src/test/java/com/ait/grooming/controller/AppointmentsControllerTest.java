@@ -7,6 +7,7 @@ import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import java.time.LocalDateTime;
 @Data
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 @TestPropertySource(locations = "classpath:application-test.properties")
+@DisplayName("Endpoint /api/v1/appointments is works:")
 public class AppointmentsControllerTest {
     @Autowired
     private MockMvc mockMvc;

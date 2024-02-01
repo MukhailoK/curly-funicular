@@ -10,11 +10,13 @@ import com.ait.grooming.utils.request.PetRequest;
 import com.ait.grooming.utils.request.auth.AuthenticationRequest;
 import lombok.Data;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
@@ -29,14 +31,12 @@ import java.util.Objects;
 @SpringBootTest
 @AutoConfigureMockMvc
 @Data
-@TestPropertySource(locations = "classpath:application-test.properties")
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
+@TestPropertySource(locations = "classpath:application-test.properties")
+@DisplayName("Endpoint /api/pets is works:")
 public class PetControllerTest {
 
-    @Autowired
-    private PetController petController;
-
-    @Autowired
+     @Autowired
     private PetService petService;
     @Autowired
     private BreedRepository breedRepository;

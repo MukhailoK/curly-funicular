@@ -48,8 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = customUserDetailService.loadUserByUsername(userEmail);
                 Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-            }else
-                throw new AccessDeniedException("GIVE ME ACCESS_TOKEN");
+            }
         } catch (Exception e) {
             logger.error("Could not set user authentication in security context", e);
 
