@@ -51,11 +51,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <version>8.0.28</version> &lt;!&ndash; Use the version suitable for your MySQL server &ndash;&gt;-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version> <!-- Use the version suitable for your MySQL server -->
+        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
@@ -116,7 +116,7 @@
             <version>2.2.15</version>
         </dependency>
 
-<!--        Metric for docker-->
+        <!--        Metric for docker-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -127,7 +127,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-      
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -136,6 +136,9 @@
     </dependencies>
 
     <build>
+
+        <outputDirectory>${project.build.directory}/dependency</outputDirectory>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

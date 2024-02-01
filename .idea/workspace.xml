@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="prepare to deploy">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/postgres/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/postgres/schema_hbt.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ait/grooming/GroomingApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +62,6 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -75,7 +87,7 @@
     "git-widget-placeholder": "deploy",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/main/resources",
+    "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/main/resources/db/postgres",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,7 +104,8 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "mysql",
-      "redshift"
+      "redshift",
+      "postgresql"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
       "MySQL"
@@ -108,11 +121,11 @@
       <recent name="com.ait.grooming.dto.petType" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Subs_Checker\curly-funicular\src\main\resources\db\postgres" />
       <recent name="D:\Subs_Checker\curly-funicular\src\main\resources" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\h2" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\java\com\ait\grooming\config" />
       <recent name="D:\Subs_Checker\curly-funicular\backend\src\main\resources\db\mysqlOld" />
-      <recent name="D:\Subs_Checker\curly-funicular\backend\http" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Subs_Checker\curly-funicular" />
@@ -134,6 +147,7 @@
       </method>
     </configuration>
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="local" />
       <envs>
         <env name="DATABASE_HOST" value="localhost" />
         <env name="DATABASE_NAME" value="grooming_salon" />
@@ -257,15 +271,7 @@
       <workItem from="1706293679392" duration="16155000" />
       <workItem from="1706618587139" duration="437000" />
       <workItem from="1706619040263" duration="2107000" />
-      <workItem from="1706704946153" duration="23064000" />
-    </task>
-    <task id="LOCAL-00003" summary="create data.sql&#10;need add role relations for client and employee">
-      <option name="closed" value="true" />
-      <created>1703698815522</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1703698815522</updated>
+      <workItem from="1706704946153" duration="28233000" />
     </task>
     <task id="LOCAL-00004" summary="create data.sql&#10;need add role relations for client and employee">
       <option name="closed" value="true" />
@@ -651,7 +657,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706731028676</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="prepare to deploy">
+      <option name="closed" value="true" />
+      <created>1706734896097</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1706734896097</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
