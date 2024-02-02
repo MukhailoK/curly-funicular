@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="fix tests">
-      <change afterPath="$PROJECT_DIR$/env.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/GroomingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/GroomingApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/PetControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/PetControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="deploy" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,7 +76,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "deploy",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/test/resources/sql",
@@ -138,7 +130,7 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTest">
+  <component name="RunManager" selected="Spring Boot.GroomingApplication">
     <configuration name="GroomingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -184,22 +176,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.testChangePassword_Failed_WrongPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
-      <option name="METHOD_NAME" value="testChangePassword_Failed_WrongPassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <option name="TEST_OBJECT" value="directory" />
@@ -208,16 +184,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="java in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="local" />
       <envs>
-        <env name="ENV DB_HOST" value="app-bf2bbbec-a13a-4cf5-81a4-f1d5395b7e44-do-user-15738375-0.c.db.ondigitalocean.com" />
-        <env name="ENV DB_NAME" value="groomingdb" />
-        <env name="ENV DB_PASSWORD" value="AVNS_1cByRw9OtRFMMpbrG3S" />
-        <env name="ENV DB_PORT" value="25060" />
-        <env name="ENV DB_USERNAME" value="groomingdb" />
-        <env name="ENV JWT_SECRET_KEY" value="404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970" />
-        <env name="ENV MAIL_PASSWORD" value="&quot;hkzo cvzp aoha imcq&quot;" />
+        <env name="DB_HOST" value="app-bf2bbbec-a13a-4cf5-81a4-f1d5395b7e44-do-user-15738375-0.c.db.ondigitalocean.com" />
+        <env name="DB_NAME" value="groomingdb" />
+        <env name="DB_PASSWORD" value="AVNS_1cByRw9OtRFMMpbrG3S" />
+        <env name="DB_PORT" value="25060" />
+        <env name="DB_USERNAME" value="groomingdb" />
+        <env name="JWT_SECRET_KEY" value="404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970" />
+        <env name="MAIL_PASSWORD" value="&quot;hkzo cvzp aoha imcq&quot;" />
         <env name="MYSQL_DATABASE" value="grooming_salon" />
       </envs>
       <module name="backend" />
@@ -251,8 +247,8 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.java in backend" />
       <item itemvalue="JUnit.GroomingApplicationTests" />
-      <item itemvalue="JUnit.UserControllerTest.testChangePassword_Failed_WrongPassword" />
       <item itemvalue="JUnit.controller in backend" />
       <item itemvalue="JUnit.PetControllerTest" />
       <item itemvalue="JUnit.UserControllerTest" />
@@ -261,10 +257,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.java in backend" />
         <item itemvalue="JUnit.GroomingApplicationTests" />
         <item itemvalue="JUnit.controller in backend" />
         <item itemvalue="JUnit.PetControllerTest" />
-        <item itemvalue="JUnit.UserControllerTest.testChangePassword_Failed_WrongPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -782,5 +778,11 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/curly_funicular$GroomingApplication.ic" NAME="GroomingApplication Coverage Results" MODIFIED="1706873798794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/curly_funicular$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1706873758634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ait.grooming.controller.*</FILTER>
+    </SUITE>
   </component>
 </project>

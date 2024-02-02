@@ -188,54 +188,74 @@ public class UserControllerTest {
         }
     }
 
-    @Test
-    @Order(5)
-    void testDelete_Filed() throws Exception {
+    @Nested
+    @DisplayName("DELETE /api/v1/users:")
+    public class Delete {
+        @Test
+        @Order(5)
+        void return_403_for_delete_user() throws Exception {
 
 
-        mockMvc.perform(MockMvcRequestBuilders
-                        .delete("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isForbidden());
+            mockMvc.perform(MockMvcRequestBuilders
+                            .delete("/api/v1/users")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+        }
+
+        @Test
+        @Order(9)
+        void return_200_for_delete_user() throws Exception {
+            AuthenticationRequest request = new AuthenticationRequest("client5@example.com", "password1");
+            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/v1/auth/login")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andReturn();
+            token = helper.getToken(mvcResult.getResponse().getContentAsString());
+
+            mockMvc.perform(MockMvcRequestBuilders
+                            .delete("/api/v1/users")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .header("Authorization", "Bearer " + token))
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().json("""
+                                                    
+                                {
+                            "message":"deleted"
+                            }
+                            """)
+                    );
+        }
     }
 
-    @Test
-    @Order(6)
-    void return_200_for_get_all_user() throws Exception {
-        List<UserDto> userDtos = allToUserDtos(userRepository.findAll());
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/v1/users/all")
-                        .header("Authorization", "Bearer " + token)
-                        .contentType(MediaType.APPLICATION_JSON))
+    @Nested
+    @DisplayName("GET /api/v1/users/all:")
+    public class GetAllUsers {
 
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(userDtos)));
+        @Test
+        @Order(6)
+        void return_200_for_get_all_user() throws Exception {
+            List<UserDto> userDtos = allToUserDtos(userRepository.findAll());
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/v1/users/all")
+                            .header("Authorization", "Bearer " + token)
+                            .contentType(MediaType.APPLICATION_JSON))
+
+                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(userDtos)));
+        }
+
+        @Test
+        @Order(11)
+        void return_403_for_get_all_user() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/v1/users/all")
+                            .contentType(MediaType.APPLICATION_JSON))
+
+                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+        }
+
+
     }
-
-    @Test
-    @Order(9)
-    void testDelete_Success() throws Exception {
-        AuthenticationRequest request = new AuthenticationRequest("client5@example.com", "password1");
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/auth/login")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andReturn();
-        token = helper.getToken(mvcResult.getResponse().getContentAsString());
-
-        mockMvc.perform(MockMvcRequestBuilders
-                        .delete("/api/v1/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer " + token))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("""
-                        {
-                        "message":"deleted"
-                        }
-                        """)
-                );
-    }
-
-
 }

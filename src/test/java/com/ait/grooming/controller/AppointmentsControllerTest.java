@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +58,8 @@ public class AppointmentsControllerTest {
         token = helper.getToken(mvcResult.getResponse().getContentAsString());
 
     }
-
     @Test
-    void testGetAppointmentbyID() throws Exception {
+    void testGetAppointmentByID() throws Exception {
         LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
         LocalDateTime end = LocalDateTime.of(2024, 2, 28, 12, 0, 0);
         AppointmentRequest request1 = new AppointmentRequest(1, start);
