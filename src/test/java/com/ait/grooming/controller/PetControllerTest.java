@@ -1,23 +1,19 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.TestHelper;
-import com.ait.grooming.controller.auth.AuthenticationController;
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.model.Breed;
-import com.ait.grooming.repository.BreedRepository;
-import com.ait.grooming.service.PetService;
 import com.ait.grooming.utils.request.PetRequest;
-import com.ait.grooming.utils.request.auth.AuthenticationRequest;
-import lombok.Data;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithUserDetails;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
@@ -26,53 +22,33 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Objects;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Data
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 @TestPropertySource(locations = "classpath:application-test.properties")
 @DisplayName("Endpoint /api/pets is works:")
+@DisplayNameGeneration(value = DisplayNameGenerator.ReplaceUnderscores.class)
+@ActiveProfiles("test")
 public class PetControllerTest {
-
-     @Autowired
-    private PetService petService;
-    @Autowired
-    private BreedRepository breedRepository;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    private AuthenticationController authenticationController;
-
-    @Autowired
     private TestHelper helper;
 
-    private String token;
-
-    @BeforeEach
-    public void setUp() {
-        AuthenticationRequest authenticationRequest = new AuthenticationRequest(
-                "client2@example.com", "password1"
-        );
-        token = Objects.requireNonNull(authenticationController.authenticationManager(authenticationRequest).getBody())
-                .getAccessToken();
-    }
-
     @Test
+    @WithUserDetails("client2@example.com")
     public void testCreatePet_Success() throws Exception {
         PetRequest request = new PetRequest(
-                "TestName", 2, "testNotes");
-
+                "TestName", 1, "testNotes");
         PetDto petDto = new PetDto(
                 "TestName", "client2@example.com",
                 "Golden", "testNotes");
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/pets")
-                        .header("Authorization", "Bearer " + token)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -92,23 +68,35 @@ public class PetControllerTest {
 
     @Test
     public void testGetBreeds() throws Exception {
-        List<Breed> breeds = breedRepository.findAll();
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/pets/breeds")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(breeds)));
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        
+                        [
+                          {
+                            "id": 1,
+                            "name": "Golden"
+                          }
+                        ]
+                        """));
     }
 
     @Test
+    @WithUserDetails("client2@example.com")
     public void testGetPetByName() throws Exception {
-        Principal principal = () -> "client2@example.com";
-        PetDto petDto = petService.findByPetName("Max", principal).getBody();
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/pets/Max")
-                        .header("Authorization", "Bearer " + token)
+              mockMvc.perform(MockMvcRequestBuilders
+                        .get("/api/pets/Joschy")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(petDto)));
+                .andExpect(MockMvcResultMatchers.content().json("""
+                        {
+                          "name": "Joschy",
+                          "ownerEmail": "client2@example.com",
+                          "breed": "Golden",
+                          "specialNotes": "Enjoys long walks"
+                        }
+                        """));
     }
 }

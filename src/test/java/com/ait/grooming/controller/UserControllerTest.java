@@ -26,8 +26,6 @@ public class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private TestHelper helper;
 
     @Nested
     @DisplayName("PATCH /api/v1/users:")
@@ -37,15 +35,16 @@ public class UserControllerTest {
         @Order(1)
         void return_401_for_wrong_password() throws Exception {
 
-            ChangePasswordRequest request = new ChangePasswordRequest(
-                    "passwor", "password3",
-                    "password3"
-            );
-
             mockMvc.perform(MockMvcRequestBuilders
                             .patch("/api/v1/users")
                             .contentType(MediaType.APPLICATION_JSON)
-                            .content(helper.asJsonString(request)))
+                            .content("""
+                                            {
+                                              "currentPassword": "passwor",
+                                              "newPassword": "password2",
+                                              "confirmationPassword": "password2"
+                                            }
+                                            """))
                     .andExpect(MockMvcResultMatchers.status().isUnauthorized())
                     .andExpect(MockMvcResultMatchers.content().json("""
                                                             

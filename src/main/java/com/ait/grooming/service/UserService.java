@@ -50,7 +50,6 @@ public class UserService {
 
     public ResponseEntity<ErrorResponse> changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
-        log.info("principal: " + ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal());
         // check if the current password is correct
         if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
             throw new WrongPasswordException("Wrong password");

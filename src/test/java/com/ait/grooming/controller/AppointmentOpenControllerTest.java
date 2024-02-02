@@ -3,13 +3,12 @@ package com.ait.grooming.controller;
 import com.ait.grooming.TestHelper;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,6 +23,8 @@ import java.time.LocalDateTime;
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 @TestPropertySource(locations = "classpath:application-test.properties")
 @DisplayName("Endpoint /openapi/v1/appointments is works:")
+@DisplayNameGeneration(value = DisplayNameGenerator.ReplaceUnderscores.class)
+@ActiveProfiles("test")
 public class AppointmentOpenControllerTest {
 
 
