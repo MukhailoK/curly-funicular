@@ -1,6 +1,6 @@
 package com.ait.grooming.controller;
 
-import com.ait.grooming.dto.response.Response;
+import com.ait.grooming.dto.response.ErrorResponse;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.service.UserService;
 import com.ait.grooming.utils.request.ChangePasswordRequest;
@@ -21,7 +21,7 @@ public class UserController {
     private final UserService service;
 
     @PatchMapping
-    public ResponseEntity<Response> changePassword(
+    public ResponseEntity<ErrorResponse> changePassword(
             @RequestBody ChangePasswordRequest request,
             Principal connectedUser) {
         return service.changePassword(request, connectedUser);
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Response> delete(Principal connectedUser) {
+    public ResponseEntity<ErrorResponse> delete(Principal connectedUser) {
         return service.delete(connectedUser);
     }
 }

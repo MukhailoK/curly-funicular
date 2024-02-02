@@ -2,7 +2,7 @@ package com.ait.grooming.service;
 
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.pet.PetRequest;
-import com.ait.grooming.dto.response.Response;
+import com.ait.grooming.dto.response.ErrorResponse;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Appointment;
 import com.ait.grooming.model.Role;
@@ -48,7 +48,7 @@ public class UserService {
     private final PetMapper petMapper;
     private final AuthHelper helper;
 
-    public ResponseEntity<Response> changePassword(ChangePasswordRequest request, Principal connectedUser) {
+    public ResponseEntity<ErrorResponse> changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         log.info("principal: " + ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal());
         // check if the current password is correct
@@ -65,17 +65,17 @@ public class UserService {
 
         // save the new password
         userRepository.save(user);
-        return ResponseEntity.ok(new Response("Password changed"));
+        return ResponseEntity.ok(new ErrorResponse("Password changed"));
     }
 
     @Transactional
-    public ResponseEntity<Response> deleteAll() {
+    public ResponseEntity<ErrorResponse> deleteAll() {
         List<User> users = userRepository.findAll();
         for (User user : users) {
             deleteById(user.getId());
         }
         if (userRepository.findAll().isEmpty()) {
-            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+            return new ResponseEntity<>(new ErrorResponse("deleted"), HttpStatus.OK);
         } else throw new NotFoundException("User not found");
     }
 
@@ -91,13 +91,13 @@ public class UserService {
     }
 
     @Transactional
-    public ResponseEntity<Response> delete(Principal connectedUser) {
+    public ResponseEntity<ErrorResponse> delete(Principal connectedUser) {
         if (connectedUser != null) {
             User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
             deleteById(user.getId());
-            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
+            return new ResponseEntity<>(new ErrorResponse("deleted"), HttpStatus.OK);
         }
-        return new ResponseEntity<>(new Response("Unauthorized"), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(new ErrorResponse("Unauthorized"), HttpStatus.UNAUTHORIZED);
     }
 
     public ResponseEntity<AuthenticationResponse> register(RegisterRequest request) {
