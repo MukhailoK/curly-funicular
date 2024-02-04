@@ -1,26 +1,40 @@
-# Використовуємо офіційний образ для Node.js
-FROM node:14 AS frontend
+#FROM maven as build
+#
+#WORKDIR /workspace/app
+#
+#COPY pom.xml .
+#
+#COPY src src
+#
+#RUN mvn clean package
+#
+#RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+#
+#FROM eclipse-temurin:17-jre-alpine
+#
+#ARG DEPENDENCY=/workspace/app/target/dependency
+#
+#COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+#
+#COPY --from=build ${DEPENDENCY}/META-INF app/META-INF
+#
+#COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+#
+#
+#ENTRYPOINT ["java","-cp","app:app/lib/*","com/ait/grooming/GroomingApplication"]
+#
+##,"-DJWT_SECRET_KEY=$JWT_SECRET_KEY","-DMYSQL_PASSWORD=$MYSQL_PASSWORD"
 
-# Задаємо робочий каталог для фронтенду
-WORKDIR /frontend
+FROM openjdk:17
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} backend-0.0.1-SNAPSHOT.jar
 
-# Копіюємо файли фронтенду
-COPY frontend/package.json frontend/package-lock.json ./
-COPY frontend/public ./public
-COPY frontend/src ./src
+ENV DB_HOST=$DB_HOST
+ENV DB_PORT=$DB_PORT
+ENV DB_NAME=$DB_NAME
+ENV DB_USERNAME=$DB_USERNAME
+ENV DB_PASSWORD=$DB_PASSWORD
+ENV MAIL_PASSWORD=$MAIL_PASSWORD
+ENV JWT_SECRET_KEY=$JWT_SECRET_KEY
 
-# Встановлюємо залежності та збираємо фронтенд
-RUN npm install
-RUN npm run build
-
-# Використовуємо офіційний образ для Java (OpenJDK)
-FROM openjdk:11-jre-slim AS backend
-
-# Задаємо робочий каталог для бекенду
-WORKDIR /backend
-
-# Копіюємо файли бекенду
-COPY backend/target/*.jar ./
-
-# Задаємо команду для запуску бекенду (може змінюватися залежно від назви вашого JAR файлу)
-CMD ["java", "-jar", "your-backend-app.jar"]
+ENTRYPOINT ["java","-jar","/backend-0.0.1-SNAPSHOT.jar" ]

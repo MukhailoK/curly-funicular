@@ -5,7 +5,6 @@
       <database-info product="MySQL" version="8.0.34" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.34" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
-        <jdbc-catalog-is-schema>true</jdbc-catalog-is-schema>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
@@ -18,6 +17,57 @@
             <name qname="db_grooming" />
             <name qname="grooming_service" />
             <name qname="grooming" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="docker" uuid="a3ab8cf3-65c2-400a-a988-d2abf216d6b7">
+      <database-info product="MySQL" version="8.0.28" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.28" exact-driver-version="8.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="grooming_salon" />
+            <name qname="@" />
+            <name qname="grooming_service" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="groomingdb@app-bf2bbbec-a13a-4cf5-81a4-f1d5395b7e44-do-user-15738375-0.c.db.ondigitalocean.com" uuid="f906cfbb-b5e5-4f55-82f0-d6b5bdd6b22d">
+      <database-info product="PostgreSQL" version="12.17" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="12.17" exact-driver-version="42.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>groomingdb</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="groomingdb" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="testdb" uuid="c24626b9-4b17-401b-86f7-5e07eb876451">
+      <database-info product="H2" version="2.2.220 (2023-07-04)" jdbc-version="4.2" driver-name="H2 JDBC Driver" driver-version="2.2.220 (2023-07-04)" dbms="H2" exact-version="2.2.220" exact-driver-version="2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
           </node>
         </introspection-scope>
       </schema-mapping>

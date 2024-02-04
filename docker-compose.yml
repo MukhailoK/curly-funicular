@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+
+  grooming-app:
+    image: grooming-app:1.0.0
+    ports:
+      - "8081:8080"
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/grooming_salon
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - APPLICATION_SECURITY_JWT_SECRET-KEY=${JWT_SECRET_KEY}
+      - SPRING_MAIL_PASSWORD=${MAIL_PASSWORD}
+    networks:
+      - springboot-mysql-network
+  mysqldb:
+    image: mysql:8.0.28
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - springboot-mysql-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      retries: 10
+      interval: 3s
+      timeout: 30s
+volumes:
+  mysql-data:
+networks:
+  springboot-mysql-network:
+    name: springboot-mysql-network
+
+#    mysql -h mysqldb.cx42cwc82tcs.eu-central-1.rds.amazonaws.com -P 3306 -u root -p
