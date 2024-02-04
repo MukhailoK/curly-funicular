@@ -1,5 +1,6 @@
 package com.ait.grooming.service.booking;
 
+import com.ait.grooming.dto.booking.AvailableTimeSlotDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,72 +16,61 @@ import java.util.stream.Collectors;
 @Service
 public class BookingService {
 
-  @Autowired
-        private BookingRepository bookingRepository;
+    @Autowired
+    private BookingRepository bookingRepository;
 
-        // Метод для получения всех визитов в определенном временном интервале
-        public List<BookingDto> getAppointmentsByTimeInterval(LocalDateTime start, LocalDateTime end) {
-           if (start.isBefore(LocalDateTime.now())) //LocalDateTime.now()+1
-           {
-              LocalDateTime.now();
-               // Выбрасываем исключение так как время планируемого визита не может быть раньше текущего
-             //  throw new IllegalArgumentException("Неверное значение времени начала");
-           }
-          List<Appointment> appointments = bookingRepository.findByDateTimeStartBetween(start, end);
-         // List<Appointment> appointments = appointmentRepository.findAll();
-            // Преобразование сущности в DTO
-            List<BookingDto> appointmentDtos = appointments.stream()
-                    .map(this::convertToDto)
-                    .collect(Collectors.toList());
+    // Метод для анализа Appointments и формирования коллекции занятых временных слотов
 
-            return appointmentDtos;
-        }
-
-        // метод для преобразования сущности в DTO
-        private BookingDto convertToDto(Appointment appointment) {
-            BookingDto dto = new BookingDto();
-            dto.setId(appointment.getId());
-            dto.setDateTimeStart(appointment.getDateTimeStart());
-            dto.setStatus(appointment.getStatus());
-             System.out.println(dto.getId());
-            return dto;
-        }
-
-    // Метод для анализа Appointments  и формирования коллекции веменных слотов
-    //Todo сделать полноценный метод для следующего релиза по новый фронт
-    public Map<LocalDate, TreeMap<Integer, Integer>> analyzeAppointmentsByDay(LocalDateTime start, LocalDateTime end) {
-
-        if (start.isBefore(LocalDateTime.now())) //LocalDateTime.now()+1
-        {
-            start=LocalDateTime.now();
-            // Выбрасываем исключение так как время планируемого визита не может быть раньше текущего
+    public List<AvailableTimeSlotDto> analyzeAppointmentsByDay(LocalDateTime start, LocalDateTime end) {
+        //   try {
+        if (start.isBefore(LocalDateTime.now().minusMinutes(2))) {
             throw new IllegalArgumentException("Неверное значение времени начала");
         }
-
+        if (end.isBefore(start)) {
+            throw new IllegalArgumentException("Неверное значение времени окончания");
+        }
         // Получение всех визитов в заданном временном интервале
+        // List<Appointment> appointments = bookingRepository.findAll();
+        List<Appointment> appointments = bookingRepository.findByDateTimeStartBetween(start, end);
+        Map<LocalDate, TreeMap<Integer, Integer>> slotResult = new HashMap<>();
+        if (appointments != null) {
+            // Создание коллекции для хранения данных slot
+            // Проход по всем визитам и анализ времени
+            for (Appointment appointment : appointments) {
+                LocalDate date = appointment.getDateTimeStart().toLocalDate();
+                int hour = appointment.getDateTimeStart().getHour();
 
-      //  List<Appointment> appointments = bookingRepository.findByDateTimeStartBetween(start, end);
-        List<Appointment> appointments = bookingRepository.findAll();
-        // Создание коллекции для хранения данных
-            Map<LocalDate, TreeMap<Integer, Integer>> result = new HashMap<>();
-        // Проход по всем визитам и анализ времени
-        for (Appointment appointment : appointments) {
-            LocalDate date = appointment.getDateTimeStart().toLocalDate();
-            int hour = appointment.getDateTimeStart().getHour();
-
-            // Инициализация внутренней мапы для даты, если ее еще нет
-            result.putIfAbsent(date, new TreeMap<>());
-            //TODO анализ на статус для следующего релиза
-            // Добавление данных в мапу
-            result.get(date).put(hour, appointment.getId());
-        }
-        // Добавление пропущенных значений (null) в мапу для каждого времени
-        for (LocalDate currentDate : result.keySet()) {
-            for (int hour : Arrays.asList(10, 12, 14, 16)) {
-                result.get(currentDate).putIfAbsent(hour, null);
+                // Инициализация внутренней мапы для даты, если ее еще нет
+                slotResult.putIfAbsent(date, new TreeMap<>());
+                //TODO анализ на статус для следующего релиза
+                slotResult.get(date).put(hour, appointment.getId());
             }
+            // Добавление пропущенных значений (null) в мапу для каждого времени
+            for (LocalDate currentDate : slotResult.keySet()) {
+                for (int hour : Arrays.asList(10, 12, 14, 16)) {
+                    slotResult.get(currentDate).putIfAbsent(hour, null);
+                }
+            }
+        } else {
+            //return null;
+            LocalDate startDate = start.toLocalDate();
+            TreeMap<Integer, Integer> timeSlots = new TreeMap<>();
+            for (int hour : Arrays.asList(10, 12, 14, 16)) {
+                timeSlots.put(hour, null);
+            }
+            slotResult.put(startDate, timeSlots);
         }
-        return result;
+
+
+        List<AvailableTimeSlotDto> availableSlots = slotResult.entrySet().stream()
+                .map(entry -> {
+                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
+                })
+                .collect(Collectors.toList());
+
+        return availableSlots;
+
     }
+
 }
 
