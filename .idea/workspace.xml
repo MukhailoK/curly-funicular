@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="fix tests">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="wrote test for once type">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/config/TestAuthConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AuthControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/booking/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/booking/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -34,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="deploy" />
+        <entry key="$PROJECT_DIR$" value="features/exceptionHandler" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -131,16 +129,16 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.GroomingApplication">
-    <configuration name="GroomingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ait.grooming.*" />
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.GroomingApplicationTests" />
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,7 +159,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PetControllerTest.testGetBreeds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -170,8 +168,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.UserControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
+      <option name="METHOD_NAME" value="testGetBreeds" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -247,20 +246,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.AuthControllerTest" />
+      <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
       <item itemvalue="JUnit.java in backend" />
-      <item itemvalue="JUnit.GroomingApplicationTests" />
       <item itemvalue="JUnit.controller in backend" />
       <item itemvalue="JUnit.PetControllerTest" />
-      <item itemvalue="JUnit.UserControllerTest" />
       <item itemvalue="Spring Boot.GroomingApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.java in backend" />
-        <item itemvalue="JUnit.GroomingApplicationTests" />
         <item itemvalue="JUnit.controller in backend" />
+        <item itemvalue="JUnit.AuthControllerTest" />
         <item itemvalue="JUnit.PetControllerTest" />
+        <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
+        <item itemvalue="JUnit.java in backend" />
       </list>
     </recent_temporary>
   </component>
@@ -296,38 +295,6 @@
       <workItem from="1706619040263" duration="2107000" />
       <workItem from="1706704946153" duration="30500000" />
       <workItem from="1706823032656" duration="6245000" />
-    </task>
-    <task id="LOCAL-00006" summary="add react structure to project (client directory)">
-      <option name="closed" value="true" />
-      <created>1703775913744</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1703775913744</updated>
-    </task>
-    <task id="LOCAL-00007" summary="add dtos &amp; mappers, add connection-tables to init.sql">
-      <option name="closed" value="true" />
-      <created>1704289851242</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1704289851243</updated>
-    </task>
-    <task id="LOCAL-00008" summary="create appointment controller with methods create, getAll, getById.">
-      <option name="closed" value="true" />
-      <created>1704318122336</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1704318122336</updated>
-    </task>
-    <task id="LOCAL-00009" summary="some update for review">
-      <option name="closed" value="true" />
-      <created>1704318178045</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1704318178045</updated>
     </task>
     <task id="LOCAL-00010" summary="change structure db to one User instead client + employee">
       <option name="closed" value="true" />
@@ -689,7 +656,39 @@
       <option name="project" value="LOCAL" />
       <updated>1706794286408</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="fix tests">
+      <option name="closed" value="true" />
+      <created>1706873917501</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1706873917501</updated>
+    </task>
+    <task id="LOCAL-00056" summary="fix tests">
+      <option name="closed" value="true" />
+      <created>1706891294631</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1706891294631</updated>
+    </task>
+    <task id="LOCAL-00057" summary="chane name of response error">
+      <option name="closed" value="true" />
+      <created>1706891392686</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1706891392687</updated>
+    </task>
+    <task id="LOCAL-00058" summary="wrote test for once type">
+      <option name="closed" value="true" />
+      <created>1706896925640</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1706896925640</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -733,8 +732,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="inverted relation between user and discount. create next view for endpoint api-client/all: &#10;[&#10;    {&#10;        &quot;name&quot;: &quot;Name1&quot;,&#10;        &quot;lastName&quot;: &quot;LastName1&quot;,&#10;        &quot;userName&quot;: &quot;client1@example.com&quot;,&#10;        &quot;email&quot;: &quot;client1@example.com&quot;,&#10;        &quot;phone&quot;: &quot;123456789&quot;,&#10;        &quot;registrationDate&quot;: &quot;2024-01-15&quot;,&#10;        &quot;role&quot;: &quot;CLIENT&quot;,&#10;        &quot;discounts&quot;: {&#10;            &quot;discountRate&quot;: 0.7,&#10;            &quot;totalVisit&quot;: 10,&#10;            &quot;name&quot;: &quot;15%&quot;&#10;        },&#10;        &quot;pets&quot;: [&#10;            {&#10;                &quot;name&quot;: &quot;Joy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Labrador&quot;,&#10;                &quot;photoUrl&quot;: &quot;joy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Likes to play with toys&quot;&#10;            },&#10;            {&#10;                &quot;name&quot;: &quot;Joschy&quot;,&#10;                &quot;ownerName&quot;: &quot;Name1&quot;,&#10;                &quot;type&quot;: &quot;DOG&quot;,&#10;                &quot;breed&quot;: &quot;Golden&quot;,&#10;                &quot;photoUrl&quot;: &quot;joschy.jpg&quot;,&#10;                &quot;specialNotes&quot;: &quot;Enjoys long walks&quot;&#10;            }&#10;        ],&#10;        &quot;blocked&quot;: false&#10;    },&#10;    { &quot;name&quot;: &quot;Name2&quot;..." />
-    <MESSAGE value="added to ReviewController exceptions handler" />
     <MESSAGE value="update to last db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="create endpoint for registration new user" />
@@ -758,7 +755,9 @@
     <MESSAGE value="prepare to deploy" />
     <MESSAGE value="change docker file" />
     <MESSAGE value="fix tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix tests" />
+    <MESSAGE value="chane name of response error" />
+    <MESSAGE value="wrote test for once type" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote test for once type" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -767,11 +766,6 @@
           <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ait/grooming/config/JwtAuthenticationFilter.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
