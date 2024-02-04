@@ -42,7 +42,6 @@ public class BookingService {
 
                 // Инициализация внутренней мапы для даты, если ее еще нет
                 slotResult.putIfAbsent(date, new TreeMap<>());
-                //TODO анализ на статус для следующего релиза
                 slotResult.get(date).put(hour, appointment.getId());
             }
             // Добавление пропущенных значений (null) в мапу для каждого времени
