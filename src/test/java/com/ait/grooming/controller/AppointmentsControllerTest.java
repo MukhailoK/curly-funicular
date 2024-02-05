@@ -23,7 +23,6 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Data
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 @TestPropertySource(locations = "classpath:application-test.properties")
 @DisplayName("Endpoint /api/v1/appointments is works:")

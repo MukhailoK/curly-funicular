@@ -102,25 +102,29 @@ public class UserService {
     public ResponseEntity<AuthenticationResponse> register(RegisterRequest request) {
 
         if (userRepository.findByEmail(request.getEmail()).isEmpty()) {
-            User user = new User();
-            user.setName(request.getName());
-            user.setLastName(request.getLastName());
-            user.setEmail(request.getEmail());
-            user.setPhone(request.getPhone());
-            user.setPassword(passwordEncoder.encode(request.getPassword()));
-            user.setRole(Role.CLIENT);
-            user.setRegistrationDate(LocalDate.now());
-            userRepository.save(user);
+            try {
+                User user = new User();
+                user.setName(request.getName());
+                user.setLastName(request.getLastName());
+                user.setEmail(request.getEmail());
+                user.setPhone(request.getPhone());
+                user.setPassword(passwordEncoder.encode(request.getPassword()));
+                user.setRole(Role.CLIENT);
+                user.setRegistrationDate(LocalDate.now());
+                userRepository.save(user);
 
-            if (request.getPet() != null && !request.getPet().isEmpty()) {
-                List<PetRequest> petRequest = request.getPet();
-                List<PetDto> pets = allToPetDto(petRequest);
-                pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
-                petRepository.saveAll(petMapper.allToEntity(pets));
+                if (request.getPet() != null && !request.getPet().isEmpty()) {
+                    List<PetRequest> petRequest = request.getPet();
+                    List<PetDto> pets = allToPetDto(petRequest);
+                    pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
+                    petRepository.saveAll(petMapper.allToEntity(pets));
+                }
+                return new ResponseEntity<>(
+                        helper.generateAuthResponse(request.getEmail(), request.getPassword()),
+                        HttpStatus.CREATED);
+            } catch (NullPointerException e) {
+                throw new IllegalArgumentException(e);
             }
-            return new ResponseEntity<>(
-                    helper.generateAuthResponse(request.getEmail(), request.getPassword()),
-                    HttpStatus.CREATED);
         }
         throw new IsAlreadyExistException("user with this email is already exist");
     }

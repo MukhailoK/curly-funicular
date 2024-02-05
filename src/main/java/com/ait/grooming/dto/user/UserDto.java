@@ -19,7 +19,6 @@ public class UserDto {
     private String phone;
     private LocalDate registrationDate;
     private Role role;
-    //    private boolean isBlocked;
-//    private DiscountDto discounts;
+
     private List<PetDto> pets;
 }

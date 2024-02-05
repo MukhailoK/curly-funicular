@@ -23,7 +23,7 @@ VALUES ('SmallCare: XS', 'up to 2.5 kg (small breed)',
         'Small breeds from 2.5-8 kg, e.g. Miniature Spitz, Poms.', 69.00, '01:30:00');
 
 INSERT INTO appointments (client_id, service_id, pet_id, date_time_start, date_time_end, status)
-VALUES (1, 1, 1, TIMESTAMP '2024-02-02 10:00:00', TIMESTAMP '2024-02-02 12:00:00',
+VALUES (1, 1, 1, TIMESTAMP '2025-02-02 10:00:00', TIMESTAMP '2024-02-02 12:00:00',
         'scheduled'),
-       (1, 2, 2, TIMESTAMP '2024-02-02 12:00:00', TIMESTAMP '2024-02-02 14:00:00',
+       (1, 2, 2, TIMESTAMP '2025-02-02 12:00:00', TIMESTAMP '2024-02-02 14:00:00',
         'scheduled');

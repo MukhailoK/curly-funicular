@@ -70,7 +70,6 @@ public class AppointmentService {
     }
 
     public ResponseEntity<AppointmentResponseDto> create(NewUserAppointmentRequest appointmentRequest) {
-        // Проверка наличия других записей для данной даты и времени
         LocalDateTime appointmentStart = appointmentRequest.getDateTimeStart();
         if (appointmentExists(appointmentStart)) {
             throw new IsAlreadyExistException("Appointment for the time: " + appointmentStart + " already exists");
@@ -110,7 +109,6 @@ public class AppointmentService {
         petRepository.save(pet);
 
         return guestRegister(appointmentRequest, guest, pet);
-
     }
 
     private ResponseEntity<AppointmentResponseDto> guestRegister(NewUserAppointmentRequest appointmentRequest,

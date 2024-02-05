@@ -37,11 +37,11 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<ErrorResponse> handlerSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
         ErrorResponse errorResponse = new ErrorResponse(e.getMessage());
-        log.info(HttpStatus.INTERNAL_SERVER_ERROR.value() + ": " + e);
-        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
 
