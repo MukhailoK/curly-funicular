@@ -6,6 +6,10 @@ VALUES ('Name1', 'LastName1', 'username1', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOU
        ('Name2', 'LastName2', 'username2', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
         'client2@example.com', '987654321', '2023-04-10',
         'ADMIN',
+        'userAddress2'),
+       ('Name3', 'LastName3', 'username3', '$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm',
+        'client3@example.com', '987654321', '2023-04-10',
+        'CLIENT',
         'userAddress2');
 
 INSERT INTO breeds (name)

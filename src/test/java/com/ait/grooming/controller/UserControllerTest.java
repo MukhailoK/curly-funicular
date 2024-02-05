@@ -173,7 +173,7 @@ public class UserControllerTest {
 
         @Test
         @Order(9)
-        @WithUserDetails("client1@example.com")
+        @WithUserDetails("client3@example.com")
         void return_200_for_delete_user() throws Exception {
             mockMvc.perform(MockMvcRequestBuilders
                             .delete("/api/v1/users")
@@ -245,7 +245,21 @@ public class UserControllerTest {
                                    "specialNotes": "Enjoys long walks"
                                  }
                                ]
-                             }]
+                             },
+                             {
+                               "name": "Name3",
+                               "lastName": "LastName3",
+                               "userName": "username3",
+                               "email": "client3@example.com",
+                               "phone": "987654321",
+                               "registrationDate": [
+                                 2023,
+                                 4,
+                                 10
+                               ],
+                               "role": "CLIENT"
+                               }
+                             ]
                             """));
         }
 
