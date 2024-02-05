@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="wrote test for once type">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/config/TestAuthConfig.java" afterDir="false" />
+    <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change build for dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/GroomingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/booking/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/booking/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -32,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/exceptionHandler" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,7 +71,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/test/resources/sql",
@@ -128,8 +125,8 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
-    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.com.ait.grooming.controller in backend">
+    <configuration name="AppointmentOpenControllerTest$Create.return_400_null_date_time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -137,68 +134,71 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AuthControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetControllerTest.testGetBreeds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.PetControllerTest" />
-      <option name="METHOD_NAME" value="testGetBreeds" />
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
+      <option name="METHOD_NAME" value="return_400_null_date_time(java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
+      <option name="METHOD_NAME" value="return_409_conflict_date_time" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppointmentOpenControllerTest$Create.return_409_conflict_date_time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
+      <option name="METHOD_NAME" value="return_409_conflict_date_time(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppointmentOpenControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.ait.grooming.controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,20 +246,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.AuthControllerTest" />
-      <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
-      <item itemvalue="JUnit.java in backend" />
-      <item itemvalue="JUnit.controller in backend" />
-      <item itemvalue="JUnit.PetControllerTest" />
+      <item itemvalue="JUnit.AppointmentOpenControllerTest" />
+      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_400_null_date_time" />
+      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time" />
+      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" />
+      <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
       <item itemvalue="Spring Boot.GroomingApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.controller in backend" />
-        <item itemvalue="JUnit.AuthControllerTest" />
-        <item itemvalue="JUnit.PetControllerTest" />
-        <item itemvalue="JUnit.PetControllerTest.testGetBreeds" />
-        <item itemvalue="JUnit.java in backend" />
+        <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
+        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" />
+        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time" />
+        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_400_null_date_time" />
+        <item itemvalue="JUnit.AppointmentOpenControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +267,7 @@
   <component name="SpringProfilesService">
     <option name="activeProfiles">
       <map>
-        <entry key="backend" value="test" />
+        <entry key="backend" value="production" />
       </map>
     </option>
   </component>
@@ -295,14 +295,6 @@
       <workItem from="1706619040263" duration="2107000" />
       <workItem from="1706704946153" duration="30500000" />
       <workItem from="1706823032656" duration="6245000" />
-    </task>
-    <task id="LOCAL-00010" summary="change structure db to one User instead client + employee">
-      <option name="closed" value="true" />
-      <created>1704461273374</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1704461273374</updated>
     </task>
     <task id="LOCAL-00011" summary="fix relations bugs">
       <option name="closed" value="true" />
@@ -688,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706896925640</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="change build for dockerfile">
+      <option name="closed" value="true" />
+      <created>1707161427492</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1707161427492</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,7 +732,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update to last db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="create endpoint for registration new user" />
     <MESSAGE value="configure swagger and change petsDto" />
@@ -757,7 +756,8 @@
     <MESSAGE value="fix tests" />
     <MESSAGE value="chane name of response error" />
     <MESSAGE value="wrote test for once type" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote test for once type" />
+    <MESSAGE value="change build for dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="change build for dockerfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -766,6 +766,11 @@
           <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ait/grooming/service/AppointmentService.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
