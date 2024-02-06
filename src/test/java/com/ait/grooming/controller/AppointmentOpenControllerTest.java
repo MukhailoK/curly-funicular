@@ -40,7 +40,7 @@ public class AppointmentOpenControllerTest {
     public class Create {
         @Test
         void return_201_create_new_appointment() throws Exception {
-            LocalDateTime start = LocalDateTime.of(2024, 2, 20, 12, 0, 0);
+            LocalDateTime start = LocalDateTime.of(2025, 2, 20, 12, 0, 0);
 
             NewUserAppointmentRequest request = new NewUserAppointmentRequest(
                     "test", "test", "test@mail.com", "1111", "testDog", "Golden", "can bite");
@@ -53,35 +53,38 @@ public class AppointmentOpenControllerTest {
                     .andExpect(MockMvcResultMatchers.status().isCreated())
                     .andExpect(MockMvcResultMatchers.content().json("""
                             {
-                            "dateTimeStart":[2024,2,20,12,0],
-                            "groomingDto":
-                            {"name":"SmallCare: XS",
-                            "size":"up to 2.5 kg (small breed)",
-                            "description":"Dogs up to 2.5 kg with short coat, such as pugs.",
-                            "price":69.0,
-                            "durationProcedure":[1,30],
-                            "id":1
-                            },
-                            "userDto":
-                            {
-                            "name":"test",
-                            "lastName":"test",
-                            "userName":null,
-                            "email":"test@mail.com",
-                            "phone":"1111",
-                            "registrationDate":[2024,2,5],
-                            "role":"GUEST",
-                            "pets":[
-                            {"name":"testDog",
-                            "ownerEmail":
-                            "test@mail.com",
-                            "breed":"Golden",
-                            "specialNotes":"can bite"}]},
-                            "petDto":{"name":"testDog",
-                            "ownerEmail":"test@mail.com",
-                            "breed":"Golden",
-                            "specialNotes":"can bite"
-                            },
+                            "dateTimeStart":[2025,2,20,12,0],
+                            "groomingDto":{
+                                "name":"SmallCare: XS",
+                                "size":"up to 2.5 kg (small breed)",
+                                "description":"Dogs up to 2.5 kg with short coat, such as pugs.",
+                                "price":69.0,
+                                "durationProcedure":[1,30],
+                                "id":1
+                                },
+                            "userDto":{
+                                "name":"test",
+                                "lastName":"test",
+                                "userName":null,
+                                "email":"test@mail.com",
+                                "phone":"1111",
+                                "registrationDate":[2024,2,6],
+                                "role":"GUEST",
+                                "pets":[
+                                        {
+                                        "name":"testDog",
+                                        "ownerEmail":"test@mail.com",
+                                        "breed":"Golden",
+                                        "specialNotes":"can bite"
+                                        }
+                                       ]
+                                },
+                            "petDto":{
+                                "name":"testDog",
+                                "ownerEmail":"test@mail.com",
+                                "breed":"Golden",
+                                "specialNotes":"can bite"
+                                },
                             "status":"scheduled"
                             }
                             """))

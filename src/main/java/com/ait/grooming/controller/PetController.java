@@ -1,7 +1,7 @@
 package com.ait.grooming.controller;
 
 import com.ait.grooming.dto.pet.PetDto;
-import com.ait.grooming.dto.response.ErrorResponse;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.service.PetService;
 import com.ait.grooming.utils.request.PetRequest;
@@ -40,7 +40,7 @@ public class PetController {
     }
 
     @DeleteMapping("{petName}")
-    public ResponseEntity<ErrorResponse> delete(@PathVariable String petName, Principal principal){
+    public ResponseEntity<Response> delete(@PathVariable String petName, Principal principal){
         return petService.delete(petName, principal);
     }
 

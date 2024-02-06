@@ -1,7 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.pet.PetDto;
-import com.ait.grooming.dto.response.ErrorResponse;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.Breed;
 import com.ait.grooming.model.Pet;
 import com.ait.grooming.model.User;
@@ -81,12 +81,12 @@ public class PetService {
         return ResponseEntity.ok(allToPetDto(pets));
     }
 
-    public ResponseEntity<ErrorResponse> delete(String petName, Principal connectedUser) {
+    public ResponseEntity<Response> delete(String petName, Principal connectedUser) {
         List<Pet> pets = petRepository.findAllByOwner(userRepository.findByEmail(connectedUser.getName()).orElseThrow()).orElseThrow();
         for (Pet pet : pets) {
             if (pet.getName().equals(petName)) {
                 petRepository.delete(pet);
-                return new ResponseEntity<>(new ErrorResponse("deleted"), HttpStatus.OK);
+                return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
             }
         }
         throw new NotFoundException("pet not found");

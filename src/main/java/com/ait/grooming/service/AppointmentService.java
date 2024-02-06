@@ -1,7 +1,7 @@
 package com.ait.grooming.service;
 
 import com.ait.grooming.dto.appointment.AppointmentResponseDto;
-import com.ait.grooming.dto.response.ErrorResponse;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.model.*;
 import com.ait.grooming.repository.*;
 import com.ait.grooming.service.exceptions.IsAlreadyExistException;
@@ -145,18 +145,18 @@ public class AppointmentService {
         return new ResponseEntity<>(allToAppointmentDto(appointments), HttpStatus.OK);
     }
 
-    public ResponseEntity<ErrorResponse> delete(Integer appointmentId) {
+    public ResponseEntity<Response> delete(Integer appointmentId) {
         try {
             Appointment appointment = appointmentRepository.findById(appointmentId)
                     .orElseThrow(() -> new NotFoundException("Appointment not found with id: " + appointmentId));
 
             appointmentRepository.delete(appointment);
-            return ResponseEntity.ok(new ErrorResponse("Appointment deleted successfully"));
+            return ResponseEntity.ok(new Response("Appointment deleted successfully"));
         } catch (NotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse((e.getMessage())));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Response((e.getMessage())));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ErrorResponse("Error occurred while deleting appointment"));
+                    .body(new Response("Error occurred while deleting appointment"));
         }
     }
 

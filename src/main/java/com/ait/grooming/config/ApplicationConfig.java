@@ -2,19 +2,16 @@ package com.ait.grooming.config;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -58,10 +55,10 @@ public class ApplicationConfig {
                         ("Bearer Authentication", createAPIKeyScheme()))
                 .info(new Info().title("Grooming API")
                         .description("This API created for AIT last proj.")
-                        .version("1.0").contact(new Contact().name("Kolotailo, Dikaerva")
-                                .email("kolotajlo17@gmail.com").url(""))
-                        .license(new License().name("Open source API")
-                                .url("none")));
+                        .version("1.0")
+                        .contact(new Contact()
+                                .name("Kolotailo, Dikareva")
+                                .email("AIT@mail.com")));
     }
 
     private SecurityScheme createAPIKeyScheme() {
