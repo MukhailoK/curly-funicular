@@ -5,40 +5,33 @@
 
 ### Develop:
 
-1. OOP
-2. Lombok
-3. TomCat server
-4. Spring boot validation
-5. Java17
+1. Java 17
+2. Spring Boot
 
-### Data:
+### Database:
 
-1. database by (Postgres)
-2. Spring Data JPA
-3. H2
-4. Mysql
+- PostgreSQL/MySQL (deploy/local)
+- H2 (testing)
 
 ### Security:
 
-1. Spring Security by Java Wed Token(JWT)
+- JWT
 
 ### Testing:
 
-1. MockMVC
-2. Junit
-3. H2 bata base in memory for testing
-4. Swagger
-5. Postman
+- Spring Boot Test
+- Swagger 
+- Postman
 
-### Deploy/Package:
+### Build/Deploy:
 
-1. Maven
-2. Docker
-3. Spring boot actuator
+- Maven
+- Docker
+
 
 ___
 
-## Instruction for start:
+## Instruction for starting:
 
 ___ 
 
