@@ -25,7 +25,7 @@
 
 1. MockMVC
 2. Junit
-3. H2 bata base in memory for testing
+3. H2 database in memory for testing
 4. Swagger
 5. Postman
 
