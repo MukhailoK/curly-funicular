@@ -19,7 +19,7 @@
 
 ### Security:
 
-1. Spring Security by Java Wed Token(JWT)
+1. Spring Security by Java Web Token(JWT)
 
 ### Testing:
 
