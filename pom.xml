@@ -32,7 +32,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <!-- Версія може змінюватися, перевірте актуальну версію -->
             <version>2.15.3</version>
         </dependency>
 
