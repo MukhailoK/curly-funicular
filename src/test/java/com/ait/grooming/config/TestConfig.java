@@ -17,7 +17,8 @@ public class TestConfig {
 
     public static final String MOCK_USER = "client1@example.com";
     public static final String MOCK_ADMIN = "client2@example.com";
-    public static final String PASSWORD ="$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm";
+    public static final String MOCK_DELETE_USER = "client3@example.com";
+    public static final String PASSWORD = "$2a$10$RwUhI4UxVEVRMxjrWKRa4eIIM.KOUqZNgYuBorTDEIGtu45lvc5lm";
 
     @Bean
     @Primary
@@ -38,6 +39,13 @@ public class TestConfig {
                             .email(MOCK_ADMIN)
                             .password(PASSWORD)
                             .role(Role.ADMIN)
+                            .build();
+                } else if (username.equals(MOCK_DELETE_USER)) {
+                    return User.builder()
+                            .id(1)
+                            .email(MOCK_DELETE_USER)
+                            .password(PASSWORD)
+                            .role(Role.CLIENT)
                             .build();
                 } else throw new UsernameNotFoundException("User not found");
             }

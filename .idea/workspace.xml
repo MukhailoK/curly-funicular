@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change build for dockerfile">
+
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/http/change-password.http" beforeDir="false" afterPath="$PROJECT_DIR$/http/change-password.http" afterDir="false" />
@@ -23,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -46,6 +48,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,7 +90,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/Subs_Checker/curly-funicular/src/test/resources/sql",
@@ -178,6 +181,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
       <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
       <option name="TEST_OBJECT" value="class" />
@@ -185,7 +189,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="GroomingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -193,13 +199,16 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.ait.grooming" />
       <option name="MAIN_CLASS_NAME" value="com.ait.grooming.GroomingApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="com.ait.grooming in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -215,6 +224,8 @@
       </method>
     </configuration>
     <configuration name="com.ait.grooming.controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -222,19 +233,25 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
       <option name="TEST_OBJECT" value="package" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration default="true" type="JetRunConfigurationType">
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -341,19 +358,22 @@
       <method v="2" />
     </configuration>
     <list>
+
       <item itemvalue="JUnit.All in backend" />
       <item itemvalue="JUnit.GroomingApplicationTests" />
       <item itemvalue="JUnit.com.ait.grooming in backend" />
-      <item itemvalue="JUnit.AppointmentOpenControllerTest" />
+
       <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
       <item itemvalue="Spring Boot.GroomingApplication" />
     </list>
     <recent_temporary>
       <list>
+
         <item itemvalue="JUnit.com.ait.grooming in backend" />
         <item itemvalue="JUnit.All in backend" />
         <item itemvalue="JUnit.GroomingApplicationTests" />
         <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
+
         <item itemvalue="JUnit.AppointmentOpenControllerTest" />
       </list>
     </recent_temporary>
@@ -392,30 +412,6 @@
       <workItem from="1706823032656" duration="6245000" />
       <workItem from="1707062172850" duration="14475000" />
       <workItem from="1707226045243" duration="5423000" />
-    </task>
-    <task id="LOCAL-00010" summary="change structure db to one User instead client + employee">
-      <option name="closed" value="true" />
-      <created>1704461273374</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1704461273374</updated>
-    </task>
-    <task id="LOCAL-00011" summary="fix relations bugs">
-      <option name="closed" value="true" />
-      <created>1704471267305</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1704471267305</updated>
-    </task>
-    <task id="LOCAL-00012" summary="change ReviewDto to next view -&#10;{&#10;id : Long&#10;nameClient : string&#10;rating : double&#10;review : string&#10;}">
-      <option name="closed" value="true" />
-      <created>1704984274424</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1704984274424</updated>
     </task>
     <task id="LOCAL-00013" summary="create auth by jwt">
       <option name="closed" value="true" />
@@ -785,7 +781,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706896925640</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="change build for dockerfile">
+      <option name="closed" value="true" />
+      <created>1707161427492</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1707161427492</updated>
+    </task>
+    <task id="LOCAL-00060" summary="change build for dockerfile">
+      <option name="closed" value="true" />
+      <created>1707162428379</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1707162428379</updated>
+    </task>
+    <task id="LOCAL-00061" summary="change build for dockerfile">
+      <option name="closed" value="true" />
+      <created>1707162793531</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1707162793531</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -829,7 +849,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update to last db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="create endpoint for registration new user" />
     <MESSAGE value="configure swagger and change petsDto" />
@@ -854,7 +873,8 @@
     <MESSAGE value="fix tests" />
     <MESSAGE value="chane name of response error" />
     <MESSAGE value="wrote test for once type" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote test for once type" />
+    <MESSAGE value="change build for dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="change build for dockerfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -863,6 +883,11 @@
           <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ait/grooming/service/AppointmentService.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
