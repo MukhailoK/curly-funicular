@@ -2,7 +2,6 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.TestHelper;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
-import lombok.Data;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -21,7 +20,6 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Data
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
 @TestPropertySource(locations = "classpath:application-test.properties")
 @DisplayName("Endpoint /openapi/v1/appointments is works:")
@@ -53,39 +51,36 @@ public class AppointmentOpenControllerTest {
                     .andExpect(MockMvcResultMatchers.status().isCreated())
                     .andExpect(MockMvcResultMatchers.content().json("""
                             {
-                            "dateTimeStart":[2025,2,20,12,0],
-                            "groomingDto":{
-                                "name":"SmallCare: XS",
-                                "size":"up to 2.5 kg (small breed)",
-                                "description":"Dogs up to 2.5 kg with short coat, such as pugs.",
-                                "price":69.0,
-                                "durationProcedure":[1,30],
-                                "id":1
-                                },
-                            "userDto":{
-                                "name":"test",
-                                "lastName":"test",
-                                "userName":null,
-                                "email":"test@mail.com",
-                                "phone":"1111",
-                                "registrationDate":[2024,2,6],
-                                "role":"GUEST",
-                                "pets":[
-                                        {
-                                        "name":"testDog",
-                                        "ownerEmail":"test@mail.com",
-                                        "breed":"Golden",
-                                        "specialNotes":"can bite"
-                                        }
-                                       ]
-                                },
-                            "petDto":{
-                                "name":"testDog",
-                                "ownerEmail":"test@mail.com",
-                                "breed":"Golden",
-                                "specialNotes":"can bite"
-                                },
-                            "status":"scheduled"
+                                "dateTimeStart":[2025,2,20,12,0],
+                                "groomingDto":{
+                                    "name":"SmallCare: XS",
+                                    "size":"up to 2.5 kg (small breed)",
+                                    "description":"Dogs up to 2.5 kg with short coat, such as pugs.",
+                                    "price":69.0,
+                                    "durationProcedure":[1,30],"id":1},
+                                    "userDto":{
+                                        "name":"test",
+                                        "lastName":"test",
+                                        "userName":null,
+                                        "email":"test@mail.com",
+                                        "phone":"1111",
+                                        "registrationDate":[2024,2,7],
+                                        "role":"GUEST",
+                                            "pets":[
+                                                {
+                                                "name":"testDog",
+                                                "ownerEmail":"test@mail.com",
+                                                "breed":"Golden",
+                                                "specialNotes":"can bite"
+                                                }]
+                                        },
+                                        "petDto":{
+                                            "name":"testDog",
+                                            "ownerEmail":"test@mail.com",
+                                            "breed":"Golden",
+                                            "specialNotes":"can bite"
+                                            },
+                                    "status":"scheduled"
                             }
                             """))
                     .andReturn();
