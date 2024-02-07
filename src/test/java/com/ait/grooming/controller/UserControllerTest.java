@@ -1,7 +1,5 @@
 package com.ait.grooming.controller;
 
-import com.ait.grooming.TestHelper;
-import com.ait.grooming.utils.request.ChangePasswordRequest;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -39,12 +37,12 @@ public class UserControllerTest {
                             .patch("/api/v1/users")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content("""
-                                            {
-                                              "currentPassword": "passwor",
-                                              "newPassword": "password2",
-                                              "confirmationPassword": "password2"
-                                            }
-                                            """))
+                                    {
+                                      "currentPassword": "passwor",
+                                      "newPassword": "password2",
+                                      "confirmationPassword": "password2"
+                                    }
+                                    """))
                     .andExpect(MockMvcResultMatchers.status().isUnauthorized())
                     .andExpect(MockMvcResultMatchers.content().json("""
                                                             

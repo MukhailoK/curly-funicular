@@ -2,7 +2,7 @@ package com.ait.grooming.service;
 
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.pet.PetRequest;
-import com.ait.grooming.dto.response.ErrorResponse;
+import com.ait.grooming.dto.response.Response;
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.Appointment;
 import com.ait.grooming.model.Role;
@@ -48,7 +48,7 @@ public class UserService {
     private final PetMapper petMapper;
     private final AuthHelper helper;
 
-    public ResponseEntity<ErrorResponse> changePassword(ChangePasswordRequest request, Principal connectedUser) {
+    public ResponseEntity<Response> changePassword(ChangePasswordRequest request, Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         // check if the current password is correct
         if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
@@ -64,17 +64,17 @@ public class UserService {
 
         // save the new password
         userRepository.save(user);
-        return ResponseEntity.ok(new ErrorResponse("Password changed"));
+        return ResponseEntity.ok(new Response("Password changed"));
     }
 
     @Transactional
-    public ResponseEntity<ErrorResponse> deleteAll() {
+    public ResponseEntity<Response> deleteAll() {
         List<User> users = userRepository.findAll();
         for (User user : users) {
             deleteById(user.getId());
         }
         if (userRepository.findAll().isEmpty()) {
-            return new ResponseEntity<>(new ErrorResponse("deleted"), HttpStatus.OK);
+            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
         } else throw new NotFoundException("User not found");
     }
 
@@ -90,37 +90,41 @@ public class UserService {
     }
 
     @Transactional
-    public ResponseEntity<ErrorResponse> delete(Principal connectedUser) {
+    public ResponseEntity<Response> delete(Principal connectedUser) {
         if (connectedUser != null) {
             User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
             deleteById(user.getId());
-            return new ResponseEntity<>(new ErrorResponse("deleted"), HttpStatus.OK);
+            return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
         }
-        return new ResponseEntity<>(new ErrorResponse("Unauthorized"), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(new Response("Unauthorized"), HttpStatus.UNAUTHORIZED);
     }
 
     public ResponseEntity<AuthenticationResponse> register(RegisterRequest request) {
 
         if (userRepository.findByEmail(request.getEmail()).isEmpty()) {
-            User user = new User();
-            user.setName(request.getName());
-            user.setLastName(request.getLastName());
-            user.setEmail(request.getEmail());
-            user.setPhone(request.getPhone());
-            user.setPassword(passwordEncoder.encode(request.getPassword()));
-            user.setRole(Role.CLIENT);
-            user.setRegistrationDate(LocalDate.now());
-            userRepository.save(user);
+            try {
+                User user = new User();
+                user.setName(request.getName());
+                user.setLastName(request.getLastName());
+                user.setEmail(request.getEmail());
+                user.setPhone(request.getPhone());
+                user.setPassword(passwordEncoder.encode(request.getPassword()));
+                user.setRole(Role.CLIENT);
+                user.setRegistrationDate(LocalDate.now());
+                userRepository.save(user);
 
-            if (request.getPet() != null && !request.getPet().isEmpty()) {
-                List<PetRequest> petRequest = request.getPet();
-                List<PetDto> pets = allToPetDto(petRequest);
-                pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
-                petRepository.saveAll(petMapper.allToEntity(pets));
+                if (request.getPet() != null && !request.getPet().isEmpty()) {
+                    List<PetRequest> petRequest = request.getPet();
+                    List<PetDto> pets = allToPetDto(petRequest);
+                    pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
+                    petRepository.saveAll(petMapper.allToEntity(pets));
+                }
+                return new ResponseEntity<>(
+                        helper.generateAuthResponse(request.getEmail(), request.getPassword()),
+                        HttpStatus.CREATED);
+            } catch (NullPointerException e) {
+                throw new IllegalArgumentException(e);
             }
-            return new ResponseEntity<>(
-                    helper.generateAuthResponse(request.getEmail(), request.getPassword()),
-                    HttpStatus.CREATED);
         }
         throw new IsAlreadyExistException("user with this email is already exist");
     }

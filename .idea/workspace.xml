@@ -5,15 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96273b76-2425-429c-bbb7-1fdcd66ec76a" name="Changes" comment="change build for dockerfile">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ce58817-a9b9-4e5e-9be9-0614dab22799.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/auth/CustomUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/auth/CustomUserDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/GroomingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/GroomingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/config/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/config/TestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http/change-password.http" beforeDir="false" afterPath="$PROJECT_DIR$/http/change-password.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/response/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/dto/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/PetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ait/grooming/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/TestHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/TestHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentOpenControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/AppointmentOpenControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ait/grooming/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sql/schema_hbt.sql" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -36,7 +47,8 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +104,7 @@
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "spring",
-    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a",
+    "spring.configuration.checksum": "0dad33b6f16d5d9e65ec06b5f3e05633",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -132,51 +144,31 @@
       <recent name="com.ait.grooming.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroomingApplication">
-    <configuration name="AppointmentOpenControllerTest$Create.return_400_null_date_time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
-      <option name="METHOD_NAME" value="return_400_null_date_time(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="JUnit.com.ait.grooming in backend">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
     </configuration>
-    <configuration name="AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
-      <option name="METHOD_NAME" value="return_409_conflict_date_time" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppointmentOpenControllerTest$Create.return_409_conflict_date_time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ait.grooming.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
-      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest$Create" />
-      <option name="METHOD_NAME" value="return_409_conflict_date_time(java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,6 +181,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
       <option name="MAIN_CLASS_NAME" value="com.ait.grooming.controller.AppointmentOpenControllerTest" />
       <option name="TEST_OBJECT" value="class" />
@@ -196,7 +189,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
+    <configuration name="GroomingApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+
+      <option name="PACKAGE_NAME" value="com.ait.grooming" />
+      <option name="MAIN_CLASS_NAME" value="com.ait.grooming.GroomingApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+
+    <configuration name="com.ait.grooming in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ait.grooming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ait.grooming" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.ait.grooming.controller in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -204,11 +233,76 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+
       <option name="PACKAGE_NAME" value="com.ait.grooming.controller" />
       <option name="TEST_OBJECT" value="package" />
+
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+
+    <configuration default="true" type="JetRunConfigurationType">
+
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
     </configuration>
     <configuration name="GroomingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="local" />
@@ -240,6 +334,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -253,19 +358,22 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.AppointmentOpenControllerTest" />
-      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_400_null_date_time" />
-      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time" />
-      <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" />
+
+      <item itemvalue="JUnit.All in backend" />
+      <item itemvalue="JUnit.GroomingApplicationTests" />
+      <item itemvalue="JUnit.com.ait.grooming in backend" />
+
       <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
       <item itemvalue="Spring Boot.GroomingApplication" />
     </list>
     <recent_temporary>
       <list>
+
+        <item itemvalue="JUnit.com.ait.grooming in backend" />
+        <item itemvalue="JUnit.All in backend" />
+        <item itemvalue="JUnit.GroomingApplicationTests" />
         <item itemvalue="JUnit.com.ait.grooming.controller in backend" />
-        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time (1)" />
-        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_409_conflict_date_time" />
-        <item itemvalue="JUnit.AppointmentOpenControllerTest$Create.return_400_null_date_time" />
+
         <item itemvalue="JUnit.AppointmentOpenControllerTest" />
       </list>
     </recent_temporary>
@@ -302,6 +410,8 @@
       <workItem from="1706619040263" duration="2107000" />
       <workItem from="1706704946153" duration="30500000" />
       <workItem from="1706823032656" duration="6245000" />
+      <workItem from="1707062172850" duration="14475000" />
+      <workItem from="1707226045243" duration="5423000" />
     </task>
     <task id="LOCAL-00013" summary="create auth by jwt">
       <option name="closed" value="true" />
@@ -726,7 +836,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="origin/test/auth-test" />
                       </list>
                     </value>
                   </entry>

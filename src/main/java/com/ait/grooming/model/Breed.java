@@ -13,6 +13,7 @@ public class Breed {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "name",length = 20,nullable = false)
+
+    @Column(name = "name",length = 20)
     private String name;
 }
