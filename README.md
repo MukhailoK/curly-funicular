@@ -1,3 +1,4 @@
+
 # This project developed by Java@ Spring Boot@
 
 ## Stack of technology:
@@ -19,13 +20,13 @@
 
 ### Security:
 
-1. Spring Security by Java Web Token(JWT)
+1. Spring Security by Java Wed Token(JWT)
 
 ### Testing:
 
 1. MockMVC
 2. Junit
-3. H2 database in memory for testing
+3. H2 bata base in memory for testing
 4. Swagger
 5. Postman
 
@@ -81,4 +82,17 @@ ___
 >  #### #docker run 'my-image-name:x.x.x'
 ___
 
+# Links:
 
+### [Backend production proxy](https://clownfish-app-rrzzv.ondigitalocean.app/)
+
+### [Frontend production](https://clownfish-app-rrzzv.ondigitalocean.app/front/)
+
+### [Swagger](https://clownfish-app-rrzzv.ondigitalocean.app/swagger-ui/index.html)
+
+### [Postman](https://lunar-rocket-878527.postman.co/workspace/Team-Workspace~bb41eb72-1a6e-41bd-86c8-90220f724d60/collection/25310437-4ef92413-b47d-4ad8-961e-7077a7a3d73e)
+
+___
+## Authors:
+### [Kolotailo M.](https://www.linkedin.com/in/mykhailo-kolotailo-53995a23b/)
+### [Dikareva O.]()
