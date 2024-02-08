@@ -29,7 +29,6 @@ public class GroomingService {
         if (groomings.isEmpty()) {
             throw new NotFoundException("Groomings not found");
         }
-        log.info("all grooming services has been sent");
         return new ResponseEntity<>(allToGroomingDto(groomings), HttpStatus.OK);
     }
 
