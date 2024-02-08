@@ -95,4 +95,4 @@ ___
 ___
 ## Authors:
 ### [Kolotailo M.](https://www.linkedin.com/in/mykhailo-kolotailo-53995a23b/)
-### [Dikareva O.]()
+### [Dikareva O.](https://github.com/OlenaDikarieva)
