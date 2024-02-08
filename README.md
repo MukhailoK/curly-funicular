@@ -5,8 +5,8 @@
 
 ### Develop:
 
-1. Java 17
-2. Spring Boot
+- Java 17
+- Spring Boot
 
 ### Database:
 
