@@ -1,6 +1,5 @@
 package com.ait.grooming.utils.request.auth;
 
-import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.dto.pet.PetRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;

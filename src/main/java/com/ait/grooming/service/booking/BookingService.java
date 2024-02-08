@@ -1,12 +1,10 @@
 package com.ait.grooming.service.booking;
 
 import com.ait.grooming.dto.booking.AvailableTimeSlotDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.ait.grooming.dto.booking.BookingDto;
-import com.ait.grooming.model.*;
+import com.ait.grooming.model.Appointment;
 import com.ait.grooming.repository.BookingRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,44 +12,35 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class BookingService {
 
-    @Autowired
-    private BookingRepository bookingRepository;
 
-    // Метод для анализа Appointments и формирования коллекции занятых временных слотов
+    private final BookingRepository bookingRepository;
+
 
     public List<AvailableTimeSlotDto> analyzeAppointmentsByDay(LocalDateTime start, LocalDateTime end) {
-        //   try {
         if (start.isBefore(LocalDateTime.now().minusMinutes(2))) {
-            throw new IllegalArgumentException("Неверное значение времени начала");
+            throw new IllegalArgumentException("wrong value for time start");
         }
         if (end.isBefore(start)) {
-            throw new IllegalArgumentException("Неверное значение времени окончания");
+            throw new IllegalArgumentException("wrong value for time end");
         }
-        // Получение всех визитов в заданном временном интервале
-        // List<Appointment> appointments = bookingRepository.findAll();
         List<Appointment> appointments = bookingRepository.findByDateTimeStartBetween(start, end);
         Map<LocalDate, TreeMap<Integer, Integer>> slotResult = new HashMap<>();
         if (appointments != null) {
-            // Создание коллекции для хранения данных slot
-            // Проход по всем визитам и анализ времени
             for (Appointment appointment : appointments) {
                 LocalDate date = appointment.getDateTimeStart().toLocalDate();
                 int hour = appointment.getDateTimeStart().getHour();
-
-                // Инициализация внутренней мапы для даты, если ее еще нет
                 slotResult.putIfAbsent(date, new TreeMap<>());
                 slotResult.get(date).put(hour, appointment.getId());
             }
-            // Добавление пропущенных значений (null) в мапу для каждого времени
             for (LocalDate currentDate : slotResult.keySet()) {
                 for (int hour : Arrays.asList(10, 12, 14, 16)) {
                     slotResult.get(currentDate).putIfAbsent(hour, null);
                 }
             }
         } else {
-            //return null;
             LocalDate startDate = start.toLocalDate();
             TreeMap<Integer, Integer> timeSlots = new TreeMap<>();
             for (int hour : Arrays.asList(10, 12, 14, 16)) {
@@ -61,13 +50,11 @@ public class BookingService {
         }
 
 
-        List<AvailableTimeSlotDto> availableSlots = slotResult.entrySet().stream()
-                .map(entry -> {
-                    return new AvailableTimeSlotDto(entry.getKey(), entry.getValue());
-                })
+        return slotResult
+                .entrySet()
+                .stream()
+                .map(entry -> new AvailableTimeSlotDto(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
-
-        return availableSlots;
 
     }
 

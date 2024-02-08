@@ -17,11 +17,10 @@ public class InternetMailSender {
     @Async
     public void send(String email, String subject, String text) {
 
-        MimeMessage message = javaMailSender.createMimeMessage(); // создаем сообщение
-        MimeMessageHelper helper = new MimeMessageHelper(message, "UTF-8"); // создаем обертку для удобства работы
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, "UTF-8");
 
         try {
-            // наполняем данными письмо которое хотим отправить
             helper.setTo(email);
             helper.setSubject(subject);
             helper.setText(text, true);
@@ -29,8 +28,6 @@ public class InternetMailSender {
             throw new IllegalStateException(e);
         }
 
-        // отправить письмо
         javaMailSender.send(message);
-
     }
 }

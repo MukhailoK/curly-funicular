@@ -26,28 +26,27 @@ public class TestConfig {
         return new InMemoryUserDetailsManager() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                if (username.equals(MOCK_USER)) {
-                    return User.builder()
+                return switch (username) {
+                    case MOCK_USER -> User.builder()
                             .id(1)
                             .email(MOCK_USER)
                             .password(PASSWORD)
                             .role(Role.CLIENT)
                             .build();
-                } else if (username.equals(MOCK_ADMIN)) {
-                    return User.builder()
+                    case MOCK_ADMIN -> User.builder()
                             .id(1)
                             .email(MOCK_ADMIN)
                             .password(PASSWORD)
                             .role(Role.ADMIN)
                             .build();
-                } else if (username.equals(MOCK_DELETE_USER)) {
-                    return User.builder()
+                    case MOCK_DELETE_USER -> User.builder()
                             .id(1)
                             .email(MOCK_DELETE_USER)
                             .password(PASSWORD)
                             .role(Role.CLIENT)
                             .build();
-                } else throw new UsernameNotFoundException("User not found");
+                    default -> throw new UsernameNotFoundException("User not found");
+                };
             }
         };
     }

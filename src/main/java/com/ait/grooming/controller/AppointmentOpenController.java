@@ -19,7 +19,6 @@ public class AppointmentOpenController {
 
     private final AppointmentService appointmentService;
 
-
     @PostMapping
     public ResponseEntity<AppointmentResponseDto> create(
             @NotNull

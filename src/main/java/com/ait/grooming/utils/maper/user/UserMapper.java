@@ -1,11 +1,9 @@
 package com.ait.grooming.utils.maper.user;
 
 
-//import com.ait.grooming.dto.employee.EmployeeDto;
 
 import com.ait.grooming.dto.user.UserDto;
 import com.ait.grooming.model.User;
-import com.ait.grooming.service.PetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +14,6 @@ import static com.ait.grooming.utils.maper.pet.PetMapper.allToPetDto;
 @RequiredArgsConstructor
 @Component
 public class UserMapper {
-
 
 
     public static UserDto toUserDto(User user) {

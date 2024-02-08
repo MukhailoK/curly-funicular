@@ -12,6 +12,7 @@ import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.service.exceptions.NotFoundException;
 import com.ait.grooming.utils.request.PetRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import static com.ait.grooming.utils.maper.pet.PetMapper.allToPetDto;
 import static com.ait.grooming.utils.maper.pet.PetMapper.toPetDto;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class PetService {
 
@@ -34,7 +36,7 @@ public class PetService {
         User user = userRepository.findByEmail(connectedUser.getName())
                 .orElseThrow(() -> new NotFoundException("User with email " + connectedUser.getName() + " not found!"));
 
-        List<Pet> pets = petRepository.findAllByOwner(user).get();
+        List<Pet> pets = petRepository.findAllByOwner(user).orElseThrow(() -> new NotFoundException("Pets not found"));
         if (pets.stream().noneMatch(pet -> pet.getName().equals(requestDto.getName()))) {
             Breed breedById = breedRepository.findById(requestDto.getBreedId())
                     .orElseThrow(() -> new NotFoundException("Breed with id " + requestDto.getBreedId() + " not found!"));
@@ -45,8 +47,8 @@ public class PetService {
             pet.setBreed(breedById);
             pet.setSpecial_notes(requestDto.getSpecialNotes());
             petRepository.save(pet);
+            log.info("pet has been created");
             return ResponseEntity.ok(toPetDto(pet));
-
         } else
             throw new IsAlreadyExistException("Pet is already exist");
     }
@@ -56,7 +58,8 @@ public class PetService {
         if (breeds.isEmpty()) {
             throw new NotFoundException("Breeds not found");
         } else
-            return ResponseEntity.ok(breeds);
+            log.info("all breeds has been sended");
+        return ResponseEntity.ok(breeds);
 
     }
 
@@ -70,7 +73,7 @@ public class PetService {
                 .filter(p -> p.getName().equals(petName))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Pet with name " + petName + " not found"));
-
+        log.info("find by pet name is successful");
         return ResponseEntity.ok(toPetDto(pet));
     }
 
@@ -78,6 +81,7 @@ public class PetService {
         List<Pet> pets = petRepository
                 .findAllByName(petName)
                 .orElseThrow(() -> new NotFoundException("pets not found"));
+        log.info("find all by pet name is successful");
         return ResponseEntity.ok(allToPetDto(pets));
     }
 
@@ -86,14 +90,11 @@ public class PetService {
         for (Pet pet : pets) {
             if (pet.getName().equals(petName)) {
                 petRepository.delete(pet);
+                log.info("pet has been deleted");
                 return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
             }
         }
         throw new NotFoundException("pet not found");
     }
 
-//    public ResponseEntity<?> getAllTypes() {
-//        List<String> petTypes = List.of(Arrays.toString(Pet.PetType.values()));
-//        return ResponseEntity.ok(petTypes.stream().map(String::toLowerCase));
-//    }
 }

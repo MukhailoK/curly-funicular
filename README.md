@@ -66,6 +66,11 @@ ___
     ${DB_PASSWORD}
     ${JWT_SECRET_KEY}
     ${MAIL_PASSWORD}
+    $SWITCH_SEND_MAIL
+    $SERVICE_MAIL
+    $JWT_LIVE_TIME
+    $ACTUATOR_USERNAME
+    $ACTUATOR_PASSWORD
 
 > - comment annotation "@PropertySource" in GroomingApplication.java
 > - Create ENV

@@ -15,6 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
@@ -45,7 +48,7 @@ public class AuthControllerTest {
                                      "password": "password1"
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
+                    .andExpect(status().isOk())
                     .andReturn();
 
         }
@@ -59,8 +62,8 @@ public class AuthControllerTest {
                             .post("/api/v1/auth/login")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(helper.asJsonString(request)))
-                    .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-                    .andExpect(MockMvcResultMatchers.content().json(
+                    .andExpect(status().isUnauthorized())
+                    .andExpect(content().json(
                             """
                                     {
                                         "message": "Email or Password is wrong"
@@ -82,9 +85,9 @@ public class AuthControllerTest {
                                     .contentType(MediaType.APPLICATION_JSON)
                                     .content(helper.asJsonString(request)))
                             .
-                    andExpect(MockMvcResultMatchers.status().isUnauthorized())
+                    andExpect(status().isUnauthorized())
                     .andExpect(
-                            MockMvcResultMatchers.content().json(
+                            content().json(
                                     """
                                             {
                                             "message": "Email or Password is wrong"
@@ -111,7 +114,7 @@ public class AuthControllerTest {
                                       "password": "password1"
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isCreated())
+                    .andExpect(status().isCreated())
                     .andReturn();
 
         }
@@ -137,7 +140,7 @@ public class AuthControllerTest {
                                       ]
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isCreated())
+                    .andExpect(status().isCreated())
                     .andReturn();
 
         }
@@ -154,7 +157,7 @@ public class AuthControllerTest {
                             .post("/api/v1/auth/register")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(helper.asJsonString(registerRequest)))
-                    .andExpect(MockMvcResultMatchers.status().isConflict())
+                    .andExpect(status().isConflict())
                     .andReturn();
         }
 
@@ -170,8 +173,8 @@ public class AuthControllerTest {
                                      "password":"Password123!"
                                      }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "email": "Invalid email format"
                             }""")
@@ -191,8 +194,8 @@ public class AuthControllerTest {
                                      "password":"Password123!"
                                      }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "email": "Email is required"
                             }""")
@@ -212,8 +215,8 @@ public class AuthControllerTest {
                                      "password":"Password123!"
                                      }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "name": "Name is required"
                             }""")
@@ -232,8 +235,8 @@ public class AuthControllerTest {
                                      "password":""
                                      }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "password": "Password is required"
                             }""")

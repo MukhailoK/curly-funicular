@@ -1,10 +1,5 @@
 package com.ait.grooming.dto.appointment;
 
-//import com.ait.grooming.dto.client.ClientDto;
-//import com.ait.grooming.dto.employee.EmployeeDto;
-import com.ait.grooming.dto.grooming.GroomingDto;
-import com.ait.grooming.dto.pet.PetDto;
-import com.ait.grooming.dto.user.UserDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

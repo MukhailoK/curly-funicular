@@ -18,6 +18,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDateTime;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
@@ -48,8 +51,8 @@ public class AppointmentOpenControllerTest {
                             .post("/openapi/v1/appointments")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(helper.asJsonString(request)))
-                    .andExpect(MockMvcResultMatchers.status().isCreated())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isCreated())
+                    .andExpect(content().json("""
                             {
                                 "dateTimeStart":[2025,2,20,12,0],
                                 "groomingDto":{
@@ -109,8 +112,8 @@ public class AppointmentOpenControllerTest {
                                       "specialNotes": "can bite"
                                     }
                                     """.formatted(name)))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                             "name": "%s"
                             }
@@ -141,8 +144,8 @@ public class AppointmentOpenControllerTest {
                                       "specialNotes": "can bite"
                                     }
                                     """.formatted(name)))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                             "nameDog":"%s"
                             }
@@ -174,8 +177,8 @@ public class AppointmentOpenControllerTest {
                                       "specialNotes": "can bite"
                                     }
                                     """.formatted(breed)))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                             "breed":"%s"
                             }""".formatted(expectedErrorMessage)))
@@ -198,8 +201,8 @@ public class AppointmentOpenControllerTest {
                             .post("/openapi/v1/appointments")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(helper.asJsonString(request)))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "groomingId":"%s"
                             }
@@ -225,8 +228,8 @@ public class AppointmentOpenControllerTest {
                             .post("/openapi/v1/appointments")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(helper.asJsonString(request)))
-                    .andExpect(MockMvcResultMatchers.status().isNotFound())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isNotFound())
+                    .andExpect(content().json("""
                             {
                              "message":"%s"
                             }
@@ -257,8 +260,8 @@ public class AppointmentOpenControllerTest {
                                       "specialNotes": "can bite"
                                     }
                                     """.formatted(dateTime)))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isBadRequest())
+                    .andExpect(content().json("""
                             {
                              "dateTimeStart":"%s"
                             }
@@ -285,8 +288,8 @@ public class AppointmentOpenControllerTest {
                                       "specialNotes": "can bite"
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isConflict())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isConflict())
+                    .andExpect(content().json("""
                             {
                              "message":"Appointment for the time: 2025-02-02T10:00 already exists"
                             }

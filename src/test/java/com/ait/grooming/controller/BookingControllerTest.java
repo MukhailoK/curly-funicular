@@ -13,6 +13,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(scripts = {"/sql/schema_hbt.sql", "/sql/data.sql"})
@@ -28,8 +31,8 @@ public class BookingControllerTest {
     void return_200_get_available_time_slot_sort() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/booking"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("""
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
                         [
                          {
                             "date":"2025-02-02",

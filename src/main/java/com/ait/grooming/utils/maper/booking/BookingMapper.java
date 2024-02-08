@@ -8,7 +8,7 @@ public class BookingMapper {
 
     public static BookingDto convertToBookingDto(Appointment appointment) {
         BookingDto Bookingdto = new BookingDto();
-        Bookingdto.setId(appointment.getId());;
+        Bookingdto.setId(appointment.getId());
         Bookingdto.setDateTimeStart(appointment.getDateTimeStart());
         Bookingdto.setStatus(appointment.getStatus());
         return Bookingdto;

@@ -1,6 +1,8 @@
 package com.ait.grooming.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -10,6 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "appointments")
 @Data
 @RequiredArgsConstructor
+@Builder
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

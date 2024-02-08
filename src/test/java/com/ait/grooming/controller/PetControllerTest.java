@@ -2,7 +2,6 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.TestHelper;
 import com.ait.grooming.dto.pet.PetDto;
-import com.ait.grooming.model.Breed;
 import com.ait.grooming.utils.request.PetRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -18,10 +17,10 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.security.Principal;
-import java.util.List;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -51,8 +50,8 @@ public class PetControllerTest {
                         .post("/api/pets")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(helper.asJsonString(petDto)));
+                .andExpect(status().isOk())
+                .andExpect(content().json(helper.asJsonString(petDto)));
     }
 
     @Test
@@ -63,7 +62,7 @@ public class PetControllerTest {
                         .post("/api/pets")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request)))
-                .andExpect(MockMvcResultMatchers.status().isForbidden());
+                .andExpect(status().isForbidden());
     }
 
     @Test
@@ -71,9 +70,9 @@ public class PetControllerTest {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/pets/breeds")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("""
-                        
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                                                
                         [
                           {
                             "id": 1,
@@ -86,11 +85,11 @@ public class PetControllerTest {
     @Test
     @WithUserDetails("client2@example.com")
     public void testGetPetByName() throws Exception {
-              mockMvc.perform(MockMvcRequestBuilders
+        mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/pets/Joschy")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json("""
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
                         {
                           "name": "Joschy",
                           "ownerEmail": "client2@example.com",

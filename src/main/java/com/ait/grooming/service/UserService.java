@@ -64,6 +64,7 @@ public class UserService {
 
         // save the new password
         userRepository.save(user);
+        log.info("password has been changed");
         return ResponseEntity.ok(new Response("Password changed"));
     }
 
@@ -74,6 +75,7 @@ public class UserService {
             deleteById(user.getId());
         }
         if (userRepository.findAll().isEmpty()) {
+            log.info("all users has been deleted");
             return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
         } else throw new NotFoundException("User not found");
     }
@@ -86,7 +88,7 @@ public class UserService {
         }
         petRepository.deleteAllByOwnerId(id);
         userRepository.deleteById(id);
-
+        log.info("user by id has been deleted");
     }
 
     @Transactional
@@ -94,6 +96,7 @@ public class UserService {
         if (connectedUser != null) {
             User user = userRepository.findByEmail(connectedUser.getName()).orElseThrow(() -> new NotFoundException("User not found"));
             deleteById(user.getId());
+            log.info("user has been deleted");
             return new ResponseEntity<>(new Response("deleted"), HttpStatus.OK);
         }
         return new ResponseEntity<>(new Response("Unauthorized"), HttpStatus.UNAUTHORIZED);
@@ -119,6 +122,7 @@ public class UserService {
                     pets.forEach(petDto -> petDto.setOwnerEmail(request.getEmail()));
                     petRepository.saveAll(petMapper.allToEntity(pets));
                 }
+                log.info("user has been registered");
                 return new ResponseEntity<>(
                         helper.generateAuthResponse(request.getEmail(), request.getPassword()),
                         HttpStatus.CREATED);
@@ -131,12 +135,13 @@ public class UserService {
 
 
     public ResponseEntity<List<UserDto>> getAll() {
-
+log.info("get all users method has been called");
         return ResponseEntity.ok(allToUserDtos(userRepository.findAll()));
     }
 
     public ResponseEntity<UserDto> getUserByPrincipalName(String principalName) {
         User user = userRepository.findByEmail(principalName).orElseThrow(() -> new NotFoundException("User not found"));
+        log.info("get user by principal name has been called");
         return ResponseEntity.ok(toUserDto(user));
     }
 }

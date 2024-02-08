@@ -1,6 +1,5 @@
 package com.ait.grooming;
 
-import com.ait.grooming.controller.AppointmentOpenControllerTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;

@@ -7,6 +7,7 @@ import com.ait.grooming.service.exceptions.IsAlreadyExistException;
 import com.ait.grooming.service.exceptions.NotFoundException;
 import com.ait.grooming.utils.request.GroomingRequestDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import static com.ait.grooming.utils.maper.grooming.GroomingMapper.allToGrooming
 import static com.ait.grooming.utils.maper.grooming.GroomingMapper.toGroomingDto;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class GroomingService {
 
@@ -27,14 +29,14 @@ public class GroomingService {
         if (groomings.isEmpty()) {
             throw new NotFoundException("Groomings not found");
         }
-
+        log.info("all grooming services has been sent");
         return new ResponseEntity<>(allToGroomingDto(groomings), HttpStatus.OK);
     }
 
     public ResponseEntity<GroomingDto> getById(Integer id) {
         Grooming grooming = groomingRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Grooming service with id " + id + " not found"));
-
+        log.info("grooming service by id has been sent");
         return new ResponseEntity<>(toGroomingDto(grooming), HttpStatus.OK);
     }
 
@@ -48,6 +50,7 @@ public class GroomingService {
         if (!groomingRepository.existsByName(grooming.getName())) {
             try {
                 groomingRepository.save(grooming);
+                log.info("grooming service has been created");
                 return new ResponseEntity<>(toGroomingDto(grooming), HttpStatus.CREATED);
             } catch (Exception e) {
                 throw new IllegalArgumentException();

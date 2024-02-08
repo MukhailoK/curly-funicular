@@ -2,7 +2,6 @@ package com.ait.grooming.controller;
 
 import com.ait.grooming.TestHelper;
 import com.ait.grooming.utils.request.AppointmentRequest;
-import lombok.Data;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -20,6 +19,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDateTime;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -39,14 +40,13 @@ public class AppointmentsControllerTest {
     @Test
     @WithUserDetails("client1@example.com")
     void testGetAppointmentByID() throws Exception {
-        LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
-        LocalDateTime end = LocalDateTime.of(2024, 2, 28, 12, 0, 0);
+        LocalDateTime start = LocalDateTime.of(2024, 2, 1, 12, 0, 0);
         AppointmentRequest request1 = new AppointmentRequest(1, start);
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/appointments")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(request1)))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(status().isCreated())
                 .andReturn();
     }
 
@@ -57,7 +57,7 @@ public class AppointmentsControllerTest {
                         .get("/api/v1/appointments")
 
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
 
     }
 
@@ -66,7 +66,7 @@ public class AppointmentsControllerTest {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/appointments")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isForbidden());
+                .andExpect(status().isForbidden());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class AppointmentsControllerTest {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/appointments/{id}", 1)
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -84,18 +84,18 @@ public class AppointmentsControllerTest {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/appointments/user")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(status().isOk());
     }
 
     @Test
     @WithUserDetails("client1@example.com")
     void testDeleteAppointment() throws Exception {
-        LocalDateTime start = LocalDateTime.of(2024, 2, 01, 12, 0, 0);
+        LocalDateTime start = LocalDateTime.of(2024, 2, 1, 12, 0, 0);
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/appointments")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(helper.asJsonString(new AppointmentRequest(1, start))))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(status().isCreated())
                 .andReturn();
     }
 }

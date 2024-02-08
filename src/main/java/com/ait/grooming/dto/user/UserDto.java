@@ -2,7 +2,6 @@ package com.ait.grooming.dto.user;
 
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.model.Role;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 

@@ -10,6 +10,7 @@ import com.ait.grooming.service.mail.InternetMailSender;
 import com.ait.grooming.utils.request.AppointmentRequest;
 import com.ait.grooming.utils.request.NewUserAppointmentRequest;
 import lombok.Data;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.allToAp
 import static com.ait.grooming.utils.maper.appointment.AppointmentMapper.toAppointmentDto;
 
 @Service
+@Log4j2
 @Data
 public class AppointmentService {
     private final AppointmentRepository appointmentRepository;
@@ -36,23 +38,22 @@ public class AppointmentService {
     private boolean emailAfterAppointmentCreation;
 
     public ResponseEntity<AppointmentResponseDto> create(AppointmentRequest request, Principal connectedUser) {
-        // Проверка наличия других записей для данной даты и времени
         LocalDateTime appointmentStart = request.getDateTimeStart();
         if (appointmentExists(appointmentStart)) {
             throw new IsAlreadyExistException("Appointment for the time: " + appointmentStart + " already exists");
         }
-
-        Pet pet = new Pet();
         User client = userRepository.findByEmail(connectedUser.getName())
                 .orElseThrow(() -> new IllegalArgumentException("client not found"));
 
         Grooming grooming = groomingRepository.findById(request.getGroomingId())
                 .orElseThrow(() -> new IllegalArgumentException("grooming service not found"));
-        pet = petRepository.findAllByOwner(client)
+
+        Pet pet = petRepository.findAllByOwner(client)
                 .orElseThrow(() -> new IllegalArgumentException("pet not found"))
                 .stream()
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("pet not found"));
+
         Appointment appointment = new Appointment();
         appointment.setClient(client);
         appointment.setGroomingService(grooming);
@@ -64,8 +65,9 @@ public class AppointmentService {
 
         if (emailAfterAppointmentCreation) {
             sendAppointmentConfirmationEmail(client, pet, appointment.getDateTimeStart());
+            log.info("mail with appointment details is sent");
         }
-
+        log.info("appointment created");
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }
 
@@ -90,6 +92,7 @@ public class AppointmentService {
                 pet.setName(appointmentRequest.getNameDog());
                 pet.setSpecial_notes(appointmentRequest.getSpecialNotes());
                 petRepository.save(pet);
+
                 return guestRegister(appointmentRequest, guest, pet);
             }
         } else
@@ -107,7 +110,6 @@ public class AppointmentService {
 
         userRepository.save(guest);
         petRepository.save(pet);
-
         return guestRegister(appointmentRequest, guest, pet);
     }
 
@@ -126,7 +128,9 @@ public class AppointmentService {
 
         if (emailAfterAppointmentCreation) {
             sendAppointmentConfirmationEmail(guest, pet, appointment.getDateTimeStart());
+            log.info("mail to guest with appointment details has been sent");
         }
+        log.info("appointment for guest created");
         return new ResponseEntity<>(toAppointmentDto(appointment), HttpStatus.CREATED);
     }
 
@@ -140,7 +144,7 @@ public class AppointmentService {
     }
 
     public ResponseEntity<List<AppointmentResponseDto>> getAllByUserEmail(String email) {
-        User user = userRepository.findByEmail(email).orElseThrow();
+        User user = userRepository.findByEmail(email).orElseThrow(()->new NotFoundException("user not found"));
         List<Appointment> appointments = appointmentRepository.findAllByClientId(user.getId());
         return new ResponseEntity<>(allToAppointmentDto(appointments), HttpStatus.OK);
     }
@@ -162,10 +166,11 @@ public class AppointmentService {
 
     private void sendAppointmentConfirmationEmail(User connectedUser, Pet pet, LocalDateTime appointmentDateTime) {
         String emailBody = "Appointment on " + appointmentDateTime +
-                " for pet by name " + pet.getName() + " is booked.";
+                           " for pet by name " + pet.getName() + " is booked.";
 
         mailSender.send(connectedUser.getEmail(), "Your appointment in the BeGroomed salon", emailBody);
     }
+
     private boolean appointmentExists(LocalDateTime dateTimeStart) {
         return appointmentRepository.existsByDateTimeStart(dateTimeStart);
     }

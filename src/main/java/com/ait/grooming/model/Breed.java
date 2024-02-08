@@ -1,9 +1,7 @@
 package com.ait.grooming.model;
 
-import lombok.Data;
-
 import jakarta.persistence.*;
-import java.util.List;
+import lombok.Data;
 
 @Entity
 @Table(name = "breeds")
@@ -14,6 +12,6 @@ public class Breed {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name",length = 20)
+    @Column(name = "name", length = 20)
     private String name;
 }

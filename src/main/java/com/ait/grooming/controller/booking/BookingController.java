@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/booking")
@@ -31,7 +26,7 @@ public class BookingController {
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
 
-        List<AvailableTimeSlotDto> dtos=bookingService.analyzeAppointmentsByDay(start, end);
+        List<AvailableTimeSlotDto> dtos = bookingService.analyzeAppointmentsByDay(start, end);
 
         return ResponseEntity.ok(dtos);
     }
@@ -41,7 +36,7 @@ public class BookingController {
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now().plusYears(10); //LocalDateTime.MAX.minusYears(100);
 
-        List<AvailableTimeSlotDto> dtos=bookingService.analyzeAppointmentsByDay(start, end);
+        List<AvailableTimeSlotDto> dtos = bookingService.analyzeAppointmentsByDay(start, end);
         return ResponseEntity.ok(dtos);
     }
 }

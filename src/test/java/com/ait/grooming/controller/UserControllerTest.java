@@ -11,7 +11,9 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -43,8 +45,8 @@ public class UserControllerTest {
                                       "confirmationPassword": "password2"
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isUnauthorized())
+                    .andExpect(content().json("""
                                                             
                                         {
                                     "message":"Wrong password"
@@ -71,9 +73,9 @@ public class UserControllerTest {
                                               "confirmationPassword": "password2"
                                             }
                                             """))
-                    .andExpect(MockMvcResultMatchers.status().isBadRequest())
+                    .andExpect(status().isBadRequest())
                     .andExpect(
-                            MockMvcResultMatchers.content().json(
+                            content().json(
                                     """
                                             {
                                                   
@@ -98,8 +100,8 @@ public class UserControllerTest {
                                       "confirmationPassword": "password2"
                                     }
                                     """))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
                             {
                             "message":"Password changed"
                             }
@@ -118,8 +120,8 @@ public class UserControllerTest {
         void return_200_for_user_info() throws Exception {
             mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
                             .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
                             {
                               "name": "Name1",
                               "lastName": "LastName1",
@@ -151,7 +153,7 @@ public class UserControllerTest {
 
             mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/user-info")
                             .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+                    .andExpect(status().isForbidden());
         }
     }
 
@@ -166,7 +168,7 @@ public class UserControllerTest {
             mockMvc.perform(MockMvcRequestBuilders
                             .delete("/api/v1/users")
                             .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+                    .andExpect(status().isForbidden());
         }
 
         @Test
@@ -176,8 +178,8 @@ public class UserControllerTest {
             mockMvc.perform(MockMvcRequestBuilders
                             .delete("/api/v1/users")
                             .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
                                                     
                                 {
                             "message":"deleted"
@@ -199,8 +201,8 @@ public class UserControllerTest {
             mockMvc.perform(MockMvcRequestBuilders
                             .get("/api/v1/users/all")
                             .contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(MockMvcResultMatchers.content().json("""
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
                              [
                             {
                                "name": "Name1",
@@ -268,7 +270,7 @@ public class UserControllerTest {
                             .get("/api/v1/users/all")
                             .contentType(MediaType.APPLICATION_JSON))
 
-                    .andExpect(MockMvcResultMatchers.status().isForbidden());
+                    .andExpect(status().isForbidden());
         }
 
 

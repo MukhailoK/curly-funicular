@@ -13,6 +13,7 @@ import org.springframework.mail.MailAuthenticationException;
 import org.springframework.mail.MailParseException;
 import org.springframework.mail.MailSendException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,115 +32,87 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NullPointerException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Response> handlerNullPointerException(NullPointerException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.INTERNAL_SERVER_ERROR.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return getResponseResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handlerSQLIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
     }
 
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handleControllerViolationException(ConstraintViolationException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(IsAlreadyExistException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseEntity<Response> handlerIsAlreadyExistException(IsAlreadyExistException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.CONFLICT.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+        return getResponseResponseEntity(e, HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<Response> handlerNotFoundException(NotFoundException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.NOT_FOUND.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return getResponseResponseEntity(e, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(MailAuthenticationException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<Response> handleMailAuthenticationException(MailAuthenticationException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.UNAUTHORIZED.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        return getResponseResponseEntity(e, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(MailSendException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Response> handleMailSendException(MailSendException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.INTERNAL_SERVER_ERROR.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return getResponseResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(MailParseException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handleMailParseException(MailParseException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MessagingException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Response> handleMessagingException(MessagingException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.INTERNAL_SERVER_ERROR.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return getResponseResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(IOException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Response> handleIOException(IOException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.INTERNAL_SERVER_ERROR.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return getResponseResponseEntity(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(InvalidJwtException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<Response> handlerInvalidJwtException(InvalidJwtException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.UNAUTHORIZED.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        return getResponseResponseEntity(e, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(WrongPasswordException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<Response> handlerWrongPasswordException(WrongPasswordException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.UNAUTHORIZED.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        return getResponseResponseEntity(e, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(PasswordNotSameException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handlerPasswordNotSameException(PasswordNotSameException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ExpiredJwtException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<Response> handlerExpiredJwtException(ExpiredJwtException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.UNAUTHORIZED.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+        return getResponseResponseEntity(e, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -158,23 +131,30 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public final ResponseEntity<Response> handleAccessDeniedException(AccessDeniedException ex) {
-        log.info(HttpStatus.FORBIDDEN.value() + ": " + ex);
-        return new ResponseEntity<>(new Response(ex.getMessage()), HttpStatus.FORBIDDEN);
+        return getResponseResponseEntity(ex, HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handleIllegalArgumentException(IllegalArgumentException e) {
-        Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ValidationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Response> handlerValidationException(ValidationException e) {
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Response> handlerHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+        return getResponseResponseEntity(e, HttpStatus.BAD_REQUEST);
+    }
+
+    private static ResponseEntity<Response> getResponseResponseEntity(Exception e, HttpStatus status) {
         Response response = new Response(e.getMessage());
-        log.info(HttpStatus.BAD_REQUEST.value() + ": " + e);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        log.error(status.value() + ": " + e);
+        return new ResponseEntity<>(response, status);
     }
 }
