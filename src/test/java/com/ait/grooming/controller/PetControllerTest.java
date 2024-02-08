@@ -3,10 +3,7 @@ package com.ait.grooming.controller;
 import com.ait.grooming.TestHelper;
 import com.ait.grooming.dto.pet.PetDto;
 import com.ait.grooming.utils.request.PetRequest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,65 +34,122 @@ public class PetControllerTest {
     @Autowired
     private TestHelper helper;
 
-    @Test
-    @WithUserDetails("client2@example.com")
-    public void testCreatePet_Success() throws Exception {
-        PetRequest request = new PetRequest(
-                "TestName", 1, "testNotes");
-        PetDto petDto = new PetDto(
-                "TestName", "client2@example.com",
-                "Golden", "testNotes");
+    @Nested
+    @DisplayName("POST /api/pets:")
+    public class CreatePet {
+        @Test
+        @WithUserDetails("client2@example.com")
+        public void return_200_create_pet() throws Exception {
+            PetRequest request = new PetRequest(
+                    "TestName", 1, "testNotes");
+            PetDto petDto = new PetDto(
+                    "TestName", "client2@example.com",
+                    "Golden", "testNotes");
 
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/api/pets")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(helper.asJsonString(request)))
-                .andExpect(status().isOk())
-                .andExpect(content().json(helper.asJsonString(petDto)));
+            mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/pets")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(status().isOk())
+                    .andExpect(content().json(helper.asJsonString(petDto)));
+        }
+
+        @Test
+        @WithUserDetails("client2@example.com")
+        public void return_400_create_pet() throws Exception {
+            PetRequest request = new PetRequest(
+                    "", 0, "");
+            mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/pets")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isBadRequest());
+        }
+
+        @Test
+        @WithUserDetails("client2@example.com")
+        public void return_404_create_pet() throws Exception {
+            PetRequest request = new PetRequest(
+                    "", 0, "");
+            mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/pets")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(status().isNotFound());
+        }
+
+        @Test
+        public void return_403_create_pet() throws Exception {
+            PetRequest request = new PetRequest(
+                    "TestName", 2, "testNotes");
+            mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/pets")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(helper.asJsonString(request)))
+                    .andExpect(status().isForbidden());
+        }
     }
 
-    @Test
-    public void testCreatePet_Forbidden() throws Exception {
-        PetRequest request = new PetRequest(
-                "TestName", 2, "testNotes");
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/api/pets")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(helper.asJsonString(request)))
-                .andExpect(status().isForbidden());
+    @Nested
+    @DisplayName("GET /api/pets/breeds:")
+    public class GetBreed {
+        @Test
+        public void return_200_get_breeds() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/pets/breeds")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
+                                                    
+                            [
+                              {
+                                "id": 1,
+                                "name": "Golden"
+                              }
+                            ]
+                            """));
+        }
     }
 
-    @Test
-    public void testGetBreeds() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/pets/breeds")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("""
-                                                
-                        [
-                          {
-                            "id": 1,
-                            "name": "Golden"
-                          }
-                        ]
-                        """));
-    }
+    @Nested
+    @DisplayName("GET /api/pets/{petName}:")
+    public class GetPet {
+        @Test
+        @WithUserDetails("client2@example.com")
+        public void return_200_get_pet_by_name() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/pets/Joschy")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("""
+                            {
+                              "name": "Joschy",
+                              "ownerEmail": "client2@example.com",
+                              "breed": "Golden",
+                              "specialNotes": "Enjoys long walks"
+                            }
+                            """));
+        }
 
-    @Test
-    @WithUserDetails("client2@example.com")
-    public void testGetPetByName() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/pets/Joschy")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("""
-                        {
-                          "name": "Joschy",
-                          "ownerEmail": "client2@example.com",
-                          "breed": "Golden",
-                          "specialNotes": "Enjoys long walks"
-                        }
-                        """));
+        @Test
+        @WithUserDetails("client2@example.com")
+        public void return_404_get_pet_by_name() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/pets/Tusic")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isNotFound())
+                    .andExpect(content().json("""
+                            {
+                            "message":"Pet with name Tusic not found"
+                            }
+                             """));
+        }
+
+        @Test
+        public void return_403_get_pet_by_name() throws Exception {
+            mockMvc.perform(MockMvcRequestBuilders
+                            .get("/api/pets/Tusic")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isForbidden());
+        }
     }
 }
