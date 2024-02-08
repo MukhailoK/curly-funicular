@@ -28,7 +28,9 @@
 - Maven
 - Docker
 
-
+___
+# SCHEMA DB
+![grooming_db_UML.png](images/grooming_db_UML.png)
 ___
 
 ## Instruction for starting:
