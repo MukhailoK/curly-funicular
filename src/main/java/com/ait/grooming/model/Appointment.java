@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Table(name = "appointments")
 @Data
 @RequiredArgsConstructor
-@Builder
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

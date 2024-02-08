@@ -111,7 +111,7 @@ public class AuthControllerTest {
                                       "lastName": "test",
                                       "phone": "015217185893",
                                       "email": "test1@example.com",
-                                      "password": "password1"
+                                      "password": "Password123!"
                                     }
                                     """))
                     .andExpect(status().isCreated())
@@ -130,7 +130,7 @@ public class AuthControllerTest {
                                       "lastName": "test",
                                       "phone": "015217185893",
                                       "email": "test2@example.com",
-                                      "password": "password1",
+                                      "password": "Password123!",
                                       "pet": [
                                         {
                                           "name": "string",

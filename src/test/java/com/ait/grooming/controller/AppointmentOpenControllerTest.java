@@ -14,7 +14,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDateTime;
 
@@ -42,7 +41,7 @@ public class AppointmentOpenControllerTest {
         @Test
         void return_201_create_new_appointment() throws Exception {
             LocalDateTime start = LocalDateTime.of(2025, 2, 20, 12, 0, 0);
-
+            int today = LocalDateTime.now().getDayOfMonth();
             NewUserAppointmentRequest request = new NewUserAppointmentRequest(
                     "test", "test", "test@mail.com", "1111", "testDog", "Golden", "can bite");
             request.setGroomingId(1);
@@ -67,7 +66,7 @@ public class AppointmentOpenControllerTest {
                                         "userName":null,
                                         "email":"test@mail.com",
                                         "phone":"1111",
-                                        "registrationDate":[2024,2,7],
+                                        "registrationDate":[2024,2,%s],
                                         "role":"GUEST",
                                             "pets":[
                                                 {
@@ -85,7 +84,7 @@ public class AppointmentOpenControllerTest {
                                             },
                                     "status":"scheduled"
                             }
-                            """))
+                            """.formatted(today)))
                     .andReturn();
         }
 
