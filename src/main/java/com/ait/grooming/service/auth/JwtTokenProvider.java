@@ -46,19 +46,14 @@ public class JwtTokenProvider {
 
             return true;
         } catch (SignatureException e) {
-            // Invalid JWT signature
             throw new InvalidJwtException("Invalid JWT signature");
         } catch (MalformedJwtException e){
-            // Invalid JWT token
             throw new InvalidJwtException("Invalid JWT token");
         } catch (UnsupportedJwtException e){
-            // Unsupported JWT token
             throw new InvalidJwtException("Unsupported JWT token");
         } catch (ExpiredJwtException e){
-            // ExpiredJwtException JWT token
             throw new InvalidJwtException("Expired JWT token");
         } catch (IllegalArgumentException e){
-            // JWT claims string is empty
             throw new IllegalArgumentException("JWT claims string is empty");
         }
     }

@@ -34,7 +34,7 @@ public class BookingController {
     @GetMapping
     public ResponseEntity<List<AvailableTimeSlotDto>> getAvailableTimeSlotSort() {
         LocalDateTime start = LocalDateTime.now();
-        LocalDateTime end = LocalDateTime.now().plusYears(10); //LocalDateTime.MAX.minusYears(100);
+        LocalDateTime end = LocalDateTime.now().plusYears(10);
 
         List<AvailableTimeSlotDto> dtos = bookingService.analyzeAppointmentsByDay(start, end);
         return ResponseEntity.ok(dtos);

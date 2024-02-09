@@ -17,7 +17,6 @@ public class AuthHelper {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
 
-
     public AuthenticationResponse generateAuthResponse(String email, String password) {
         try {
             Authentication authentication = authenticationManager.authenticate(

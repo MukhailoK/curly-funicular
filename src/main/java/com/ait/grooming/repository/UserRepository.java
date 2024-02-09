@@ -15,29 +15,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    //    @Query("SELECT u FROM User u WHERE u.role = :roleName")
-//   List<User> findByRoleName(@Param("roleName") String roleName);
-//
-//   List<User> findByRole(String roleName);
-//   List<User> findByPhone(String phone);
-//   Optional<User> findByUserName(String username);
     Optional<User> findByEmail(String email);
 
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM Appointment a WHERE a.client.id = :userId")
-    void deleteAppointmentsByUserId(@Param("userId") Integer userId);
-
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM Pet p WHERE p.owner.id = :userId")
-    void deletePetsByUserId(@Param("userId") Integer userId);
-
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM User u WHERE u.id = :userId")
-    void deleteByUserId(@Param("userId") Integer userId);
-    Optional<User> findByUserName(String userName);
-
-    Optional<User> findByName(String ownerName);
 }

@@ -16,11 +16,7 @@ public class AppointmentMapper {
         AppointmentResponseDto appointmentDto = new AppointmentResponseDto();
         appointmentDto.setStatus(appointment.getStatus());
         appointmentDto.setDateTimeStart(appointment.getDateTimeStart());
-      //  appointmentDto.setDateTimeEnd(appointment.getDateTimeEnd());
-
         appointmentDto.setUserDto(toUserDto(appointment.getClient()));
-    //   appointmentDto.setEmployeeDto(toEmployeeDto(appointment.getMaster()));
-
         appointmentDto.setGroomingDto(toGroomingDto(appointment.getGroomingService()));
         appointmentDto.setPetDto(toPetDto(appointment.getPet()));
         return appointmentDto;

@@ -58,7 +58,7 @@ public class PetService {
         if (breeds.isEmpty()) {
             throw new NotFoundException("Breeds not found");
         } else
-            log.info("all breeds has been sended");
+            log.info("all breeds has been sent");
         return ResponseEntity.ok(breeds);
 
     }
