@@ -30,7 +30,12 @@
 
 ___
 # SCHEMA DB
-![grooming_db_UML.png](images/grooming_db_UML.png)
+![scr1](images/grooming_db_UML.png)
+___
+# SCHEMA JWT
+![scr2](images/jwt-workflow-4.png)
+![scr2](images/jwt-structure.webp)
+
 ___
 
 ## Instruction for starting:
@@ -77,9 +82,9 @@ ___
 > - comment annotation "@PropertySource" in GroomingApplication.java
 > - Create ENV
 > - start maven install
-> - build Docker image
->   #### #docker build -t 'my-image-name:x.x.x'
->  #### #docker run 'my-image-name:x.x.x'
+> - build Docker image:
+>> #### docker build -t 'my-image-name:x.x.x' 
+>> #### docker run 'my-image-name:x.x.x'
 ___
 
 # Links:
