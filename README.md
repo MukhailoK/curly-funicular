@@ -1,5 +1,5 @@
 
-# This project developed by Java@ Spring Boot@
+# This project developed using Java@ Spring Boot@
 
 ## Stack of technology:
 
